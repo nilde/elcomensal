@@ -55,8 +55,8 @@ export default class App extends React.Component {
             {isMobile &&
               <MenuMobile />
             }
-            {isBrowser &&
-              <MenuBrowser />
+            {isBrowser  &&
+              <MenuMobile />
             }
           </Route>
           <Route path="/register">
@@ -72,47 +72,48 @@ export default class App extends React.Component {
             {isMobile &&
               <PhoneLogin />
             }
-            {isBrowser &&
+            {isBrowser && false &&
               <BrowserLogin />
             }
           </Route>
+        
           <Route path="/forgot">
-            {isMobile &&
+            {isMobile && false &&
               <PhoneForgot />
             }
-            {isBrowser &&
+            {isBrowser && false &&
               <BrowserForgot />
             }
           </Route>
           <Route path="/landing">
-            {isMobile &&
+            {isMobile && false &&
               <PhoneLanding />
             }
-            {isBrowser &&
+            {isBrowser && false &&
               <BrowserLanding />
             }
           </Route>
           <Route path="/manage">
-            {isMobile &&
+            {isMobile && false &&
               <PhoneManage />
             }
-            {isBrowser &&
+            {isBrowser && false &&
               <BrowserManage />
             }
           </Route>
           <Route path="/success">
-            {isMobile &&
+            {isMobile && false &&
               <PhoneSuccess />
             }
-            {isBrowser &&
+            {isBrowser && false &&
               <BrowserSuccess />
             }
           </Route>
           <Route path="/:name">
-            {isMobile &&
+            {isMobile && false &&
               <PhoneMenu />
             }
-            {isBrowser &&
+            {isBrowser && false &&
               <BrowserMenu />
             }
           </Route>

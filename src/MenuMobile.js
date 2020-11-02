@@ -1101,9 +1101,8 @@ smoothscroll.polyfill();
   }
 
   componentDidMount() {
-    window.addEventListener('scroll',()=>
-    setTimeout(()=>this.moveToNearest(window.scrollY),200)
-    );
+    window.addEventListener("scroll",()=>
+    this.moveToNearest(window.scrollY))
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
   }
@@ -1141,19 +1140,21 @@ smoothscroll.polyfill();
       // ...
     });
     
-
+ 
 
     ////////////////////
     var recommendedList = []
     var sections=[]
+    var offsets=[]
     for (var i = 0; i < this.state.menu.length; i++) {
       sections.push(this.state.menu[i].title)
+      offsets.push(document.getElementById("section_"+i).getBoundingClientRect().bottom)
       for (var j = 0; j < this.state.menu[i].content.length; j++) {
         if (this.state.menu[i].content[j].recommended)
           recommendedList.push(this.state.menu[i].content[j])
       }
     }
-    this.setState({ recommended: recommendedList,activeSections:sections, sections:sections  })
+    this.setState({ recommended: recommendedList,activeSections:sections, sections:sections,sectionsOffsetsVertical:offsets  })
   }
 
 toggleAllergensArray(index){
@@ -1191,19 +1192,17 @@ toggleAllergensArray(index){
   }
 
   moveToNearest(position){
-  console.warn(position)
-    var newActiveSection=this.state.activeSection;
-    var minimumDistance=9999999
+    var newActiveSection=this.state.sectionsOffsetsVertical.length-1;
+    var founded=false
     for(var i=0;i<this.state.sectionsOffsetsVertical.length;i++){
-      console.warn(Math.abs(Math.abs(position)-this.state.sectionsOffsetsVertical[i]))
-      if(Math.abs(position-this.state.sectionsOffsetsVertical[i])<minimumDistance){
-        minimumDistance=Math.abs(position-this.state.sectionsOffsetsVertical[i])
+      if(position<=this.state.sectionsOffsetsVertical[i] && !founded){
+        founded=true
         newActiveSection=i
       }
     }
    
-if(this.state.activeSection!=newActiveSection && newActiveSection>=0 &&newActiveSection<this.state.sectionsOffsetsVertical.length)
-    this.setState({activeSection:newActiveSection,showBottom:false},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[newActiveSection]-window.innerWidth*0.03}))
+if(this.state.activeSection!=newActiveSection)
+    this.setState({activeSection:newActiveSection>=0?newActiveSection:0,showBottom:false},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[newActiveSection]-window.innerWidth*0.03}))
   
   }
 
@@ -1277,7 +1276,10 @@ if(this.state.activeSection!=newActiveSection && newActiveSection>=0 &&newActive
 
 {
   this.state.activeSections.map((item,index)=>(
-    <TouchableOpacity key={"menu_"+index} onLongPress={()=>{this.setState({activeSection:index},()=>{window.scrollTo(0,this.state.sectionsOffsetsVertical[index]); this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03})}); }}   onPress={()=>{window.scrollTo(0,this.state.sectionsOffsetsVertical[index]); this.setState({activeSection:index},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03}))}} onLayout={(e)=>this.addOfsetsHorizontal(e.nativeEvent.layout.x)} style={{ backgroundColor:this.state.activeSection==index?"#000":"#f5f5f5",borderRadius:100, paddingHorizontal:window.innerWidth*0.04,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.03}}>
+    <TouchableOpacity key={"menu_"+index} onLongPress={()=>{this.setState({activeSection:index},()=>{
+      window.scrollTo({top:document.getElementById("section_"+index).getBoundingClientRect().top + window.pageYOffset - window.innerHeight*0.17,behavior:"smooth"}); this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03})}); }}   
+onPress={()=>{window.scrollTo({top:document.getElementById("section_"+index).getBoundingClientRect().top + window.pageYOffset - window.innerHeight*0.17,behavior:"smooth"});
+ this.setState({activeSection:index},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03}))}} onLayout={(e)=>this.addOfsetsHorizontal(e.nativeEvent.layout.x)} style={{ backgroundColor:this.state.activeSection==index?"#000":"#f5f5f5",borderRadius:100, paddingHorizontal:window.innerWidth*0.04,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.03}}>
       <p style={{fontWeight:this.state.activeSection==index?"500":"400",color:this.state.activeSection==index?"#fff":"gray",padding:"10px 0",margin:0}}>
         {item}
       </p>
@@ -1291,13 +1293,13 @@ if(this.state.activeSection!=newActiveSection && newActiveSection>=0 &&newActive
            </div>
     
 <ScrollView 
-        
-              style={{width:window.innerWidth,height:"100%",backgroundColor:"#f5f5f5"}}>
+
+              style={{ width:window.innerWidth,height:"100%",backgroundColor:"#f5f5f5"}}>
            {this.state.activeMenu.map((item, index) => (
 
-<div style={{width:window.innerWidth,background:"#f5f5f5" }}>
+<div id={"section_"+index} style={{width:window.innerWidth,background:"#f5f5f5" }}>
 
-  <p onLayout={(e)=>this.addOfsetsVertical(e.nativeEvent.layout.y)} style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem",margin:0, padding:"20px 0 20px 10px",background:"#fff" }}>
+  <p style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem",margin:0, padding:"20px 0 20px 10px",background:"#fff" }}>
     {item.title}
   </p>
   
@@ -1454,7 +1456,7 @@ if(this.state.activeSection!=newActiveSection && newActiveSection>=0 &&newActive
 <Image source={elcomensal} style={{  width: window.innerWidth*0.2, height: window.innerHeight*0.1, zIndex: 0 }} resizeMode="contain" />
          </TouchableOpacity> 
          </ScrollView>
-
+{false &&
          <View style={{zIndex:99,position:"absolute",top:0,width:"100%",height:"100%",backgroundColor:"#f5f5f5",justifyContent:"center",alignItems:"center"}}>
          <Image source={restaurantLogin} style={{ position: "absolute", top: 0, width: window.innerWidth, height: "100%", zIndex: 0 }} blurRadius={0} resizeMode="cover" />
        <View style={{width:"100%",height:"100%",backgroundColor:"rgba(0,0,0,0.3)",position:"absolute",top:0}}/>
@@ -1502,6 +1504,7 @@ if(this.state.activeSection!=newActiveSection && newActiveSection>=0 &&newActive
               </TouchableOpacity>
               </View>
          </View>
+}
 </div>
 )
 {false &&
