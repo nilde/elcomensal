@@ -93,46 +93,7 @@ export default class App extends React.Component {
             </View>
           ))
         }
-        <View horizontal style={{flexDirection: "row", flexWrap: "wrap", width: "100%", backgroundColor: "#fff", paddingBottom: window.innerHeight * 0.02 }}>
-          {
-            this.props.activeElement.recommended &&
-            <Text style={{ marginTop: window.innerHeight * 0.02, color: "#000", backgroundColor: !this.props.activeElement.avaliable ? "#e8e8e8" : "#FFF4A3", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth * 0.03, textAlign: "left", paddingHorizontal: window.innerWidth * 0.03, borderRadius: 100, paddingVertical: window.innerHeight * 0.005 }}>
 
-              Especialidad
-</Text>
-          }
-          {
-            this.props.activeElement.vegetarian &&
-            <Text style={{ marginTop: window.innerHeight * 0.02, color: "#000", backgroundColor: !this.props.activeElement.avaliable ? "#e8e8e8" : "#AFF396", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth * 0.03, textAlign: "left", paddingHorizontal: window.innerWidth * 0.03, borderRadius: 100, paddingVertical: window.innerHeight * 0.005 }}>
-
-              Vegetariano
-</Text>
-          }
-          {
-            this.props.activeElement.vegan &&
-            <Text style={{ marginTop: window.innerHeight * 0.02, color: "#000", backgroundColor: !this.props.activeElement.avaliable ? "#e8e8e8" : "#BDDDFF", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth * 0.03, textAlign: "left", paddingHorizontal: window.innerWidth * 0.03, borderRadius: 100, paddingVertical: window.innerHeight * 0.005 }}>
-
-              Vegano
-</Text>
-          }
-
-          {
-            this.props.activeElement.no_gluten &&
-            <Text style={{ marginTop: window.innerHeight * 0.02, color: "#000", backgroundColor: !this.props.activeElement.avaliable ? "#e8e8e8" : "#E1BDFF", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth * 0.03, textAlign: "left", paddingHorizontal: window.innerWidth * 0.03, borderRadius: 100, paddingVertical: window.innerHeight * 0.005 }}>
-
-              Sin gluten
-</Text>
-          }
-          {
-  this.props.activeElement.people>1 &&
-                                  <Text style={{ marginTop: window.innerHeight * 0.02, color: "#000", backgroundColor: !this.props.activeElement.avaliable ? "#e8e8e8" : "#FFA8A8", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth * 0.03, textAlign: "left", paddingHorizontal: window.innerWidth * 0.03, borderRadius: 100, paddingVertical: window.innerHeight * 0.005 }}>
-
-                                 
-                                Para {this.props.activeElement.people} personas
-</Text>
-                                }
-
-        </View>
    
         <View style={{ width: "100%", paddingVertical: window.innerHeight * 0.01,backgroundColor:"#f5f5f5" }}>
           <Text style={{ color: "#000", fontWeight: "500", fontSize: "0.9rem",textAlign: "left", paddingHorizontal: window.innerWidth * 0.05, borderRadius: 100, paddingVertical: window.innerHeight * 0.01 }}>

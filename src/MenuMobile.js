@@ -1,16 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import {Animated, AppRegistry, StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, TouchableWithoutFeedback,TextInput,FlatList } from 'react-native';
+import {Animated, AppRegistry, StyleSheet, Text, View, ScrollView, TouchableOpacity,Image,  TouchableWithoutFeedback,TextInput,FlatList } from 'react-native';
 import * as React from 'react';
 import pattern from './patternpad.svg';
 import pattern1 from './patternpad-1.svg';
 import elcomensal from './elcomensal.png';
 import initial from './initial.svg';
 import header from './header.svg';
+import blob from './blob-5.svg';
 import menu from './menu.png';
 import account from './bottom_account.png';
 import { motion } from "framer-motion"
 import { IoIosClose,IoIosWifi, IoMdTrendingDown,IoMdSearch } from "react-icons/io";
+import { RiEqualizerLine } from "react-icons/ri";
 import ReactStars from 'react-stars'
 import firebase from "firebase";
 import BarLoader from "react-spinners/BarLoader";
@@ -25,7 +27,8 @@ import Account from './Modals/Account'
 import Blur from 'react-css-blur'
 import restaurantLogin from './restaurantLogin.jpg';
 import restaurantRegister from './restaurantRegister.jpg';
-
+import testTop from './testTop.jpg'
+import { Parallax, Background } from 'react-parallax';
 import { StickyContainer, Sticky } from 'react-sticky';
 import {
   CollapsibleComponent,
@@ -33,6 +36,7 @@ import {
   CollapsibleContent
 } from "react-collapsible-component";
 import SnackbarProvider,{withSnackbar} from 'react-simple-snackbar'
+import { Shimmer } from 'react-shimmer'
 var config = {
   apiKey: "AIzaSyBIJkr8t0IJTfXdXNqxGkrLFK-pUbgFEk8",
   authDomain: "elcomensal-876cd.firebaseapp.com",
@@ -44,7 +48,7 @@ var config = {
  
 };
 const DEVELOPMENT=true
-
+const optionsProduct = ["Especialidad", "Vegetariano", "Vegano", "Sin gluten", "Sin lactosa", "Para compartir", "Por unidad", "Alcohol", "Sin alcohol", "Halal"]
 const basicMenu = [
   {
     title: "La carta",
@@ -1078,6 +1082,8 @@ smoothscroll.polyfill();
       forShareActive:false,
       showSearch:false,
       newMenu:[],
+      wifiDetails:false,
+      searchValue:"",
       newDish:{
         title:"",
         description:"",
@@ -1101,8 +1107,14 @@ smoothscroll.polyfill();
   }
 
   componentDidMount() {
-    window.addEventListener("scroll",()=>
-    this.moveToNearest(window.scrollY))
+    window.addEventListener("scroll",(e)=>{
+      if(window.scrollY==0){
+        if(this.menuHorizontalRef)
+        this.menuHorizontalRef.scrollTo({x:0})
+
+      }
+      e.stopPropagation();
+    this.moveToNearest(window.scrollY)})
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
   }
@@ -1192,22 +1204,25 @@ toggleAllergensArray(index){
   }
 
   moveToNearest(position){
-    var newActiveSection=this.state.sectionsOffsetsVertical.length-1;
+    var newActiveSection=this.state.activeSection;
     var founded=false
     for(var i=0;i<this.state.sectionsOffsetsVertical.length;i++){
-      if(position<=this.state.sectionsOffsetsVertical[i] && !founded){
+      if(position<this.state.sectionsOffsetsVertical[i] && !founded){
         founded=true
         newActiveSection=i
+        break
       }
     }
    
-if(this.state.activeSection!=newActiveSection)
-    this.setState({activeSection:newActiveSection>=0?newActiveSection:0,showBottom:false},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[newActiveSection]-window.innerWidth*0.03}))
-  
+if(this.state.activeSection!=newActiveSection){
+    this.setState({activeSection:newActiveSection>=0?newActiveSection:0})
+   if(this.menuHorizontalRef)
+    this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[newActiveSection]-window.innerWidth*0.03})
+}
   }
 
   closeDetails(){
-    this.setState({modalOpen:false,showProductDetails:false})
+    this.setState({modalOpen:false,showProductDetails:false,wifiDetails:false})
   }
 
 
@@ -1215,7 +1230,7 @@ if(this.state.activeSection!=newActiveSection)
     var newActiveMenu=[]
     var newActiveSection=[]
     var newActiveSectionTitles=[]
-
+    var offsets=[]
     var searchText=newSearch.toLowerCase();
     for(var i=0;i<this.state.menu.length;i++){
       newActiveSection=[]
@@ -1223,6 +1238,7 @@ if(this.state.activeSection!=newActiveSection)
       for (var j=0;j<this.state.menu[i].content.length;j++){
         if(this.state.menu[i].content[j].title.toLowerCase().includes(searchText)){
           newActiveSection.push(this.state.menu[i].content[j])
+          offsets.push(document.getElementById("section_"+i).getBoundingClientRect().bottom)
         }
       
       }
@@ -1232,7 +1248,8 @@ if(this.state.activeSection!=newActiveSection)
       }
      
     }
-    this.setState({searchValue:newSearch, activeMenu:newActiveMenu,activeSections:newActiveSectionTitles})
+   
+    this.setState({searchValue:newSearch, activeMenu:newActiveMenu,activeSections:newActiveSectionTitles,sectionsOffsetsVertical:offsets})
   } 
 
 
@@ -1240,196 +1257,175 @@ if(this.state.activeSection!=newActiveSection)
    // window.onscroll(()=>this.moveToNearest(document.body.scrollTop));
     const { openSnackbar, closeSnackbar } = this.props
     return (
-      <div class="overflow-x-hidden">
-      <View style={{width:window.innerWidth,background:"#FFCCDF",overflow:"hidden"}}>
-      <Image source={header} style={{position:"absolute",top:0,  width: "100%", height:"200%", zIndex: 0,opacity:0.3 }} resizeMode="cover" />
+      <div>
+      <View style={{width:window.innerWidth,background:"#fff"}}>
+        <View style={{width:window.innerWidth,overflow:"hidden",height:window.innerHeight*0.5,backgroundColor:"#FFAF0F",justifyContent:"center",alignItems:"center"}}>
+        <Image source={testTop} style={{position:"absolute",bottom:0, width: "100%", height: "100%", zIndex: 0 }} resizeMode="cover" />
+      <Parallax
+      bgStyle={{overflow:"hidden", marginTop:-window.innerHeight*0.05,width:"100%",height:window.innerHeight*0.5,justifyContent:"center",alignItems:"center"}}
+        renderLayer={percentage => (
+          
+            <View
+                style={{
+                  
+              borderRadius:1000,
+                  backgroundColor:"#fff",
+                justifyContent:"center",
+                alignItems:"center",
+              width:percentage>1.2?percentage*4 * 100:percentage*2*100,
+              height:percentage>1.2?percentage*4 * 100:percentage*2*100,
+              minWidth:200,
+                  minHeight:200
+                }}
+            >
+            <View style={{height:"100%", width:"100%",alignSelf:"center",justifyContent:"center",alignItems:"center"}}>
+     
 
+      
       <View style={{ width:window.innerWidth, height: window.innerHeight * 0.015 }} />
-      <TouchableOpacity onLongPress={() => this.setState({ showDetails: false })} onPress={() => this.setState({ showDetails: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 10,right:10 }}>
-                      <IoIosWifi size="1.7em" />
-                      <Text style={{textAlign:"center",margin:0, zIndex: 9, color: "#000", fontWeight: "600", fontSize: "0.6rem",}}>
+      <View style={{ alignSelf: "flex-end",width:percentage>0.8?percentage*40:40,height:percentage>0.8?percentage*40:40,borderRadius:100,position:"absolute", top:10,right:10,backgroundColor:"#fff",justifyContent:"center",alignItems:"center" }}>
+             <TouchableOpacity onLongPress={() =>this.setState({modalOpen:true,showProductDetails:false,wifiDetails:true})} onPress={() =>     this.setState({modalOpen:true,showProductDetails:false,wifiDetails:true})}  style={{justifyContent:"center",alignItems:"center",width:"100%",height:"100%"}}>
+                      <IoIosWifi size={percentage+"em"} />
+                      <Text style={{textAlign:"center",margin:0, zIndex: 9, color: "#000", fontWeight: "600", fontSize:"0.4rem",}}>
                 WIFI
 </Text>
+</TouchableOpacity>
+                    </View>
 
-                    </TouchableOpacity>
-      <p style={{margin:"10px 0 0 0", textAlign:"left",marginLeft:window.innerWidth*0.05, width:window.innerWidth, zIndex: 9, color: "#000", fontWeight: "500", fontSize: "1.2rem",}}>
-                Bienvenido/a a
-</p>
-
-      <Text style={{textAlign:"left",marginLeft:window.innerWidth*0.05, width:"80%", zIndex: 9, color: "#000", fontWeight: "600", fontSize: "2rem",}}>
+      <Text style={{width:"90%",textAlign:"center", zIndex: 9, color: "#000", fontWeight: "600", fontSize:"1rem",}}>
                  {this.state.restaurantName.length>0?this.state.restaurantName:"Goykos Manresa"}
 </Text>
-<View style={{ width:window.innerWidth, height: window.innerHeight * 0.015 }} />
+
+
+</View>
+            </View>
+        )}
+    >
+      
+</Parallax>
+</View>
       </View>
-  <div class={"stickyHeader"} style={{width:window.innerWidth}}>
-  <div style={{height:window.innerHeight*0.017,width:window.innerWidth}}/>
+  
+  <div class={"stickyHeader"} style={{width:window.innerWidth,background:"#fff"}}>
+  <div style={{height:window.innerHeight*0.01,width:window.innerWidth}}/>
         
-          <View style={{flexDirection:"row",justifyContent:"space-between",width:window.innerWidth}}>
-          <TextInput blurOnSubmit showSoftInputOnFocus={false}  placeholder="Buscar un plato" selectionColor={"#000"} value={this.state.searchValue} onChangeText={(newValue)=>this.manageFilter(newValue)} style={{borderRadius:100, outline: 'none', fontSize:"1rem", width:"80%",backgroundColor:"#fff",marginLeft:window.innerWidth*0.03,paddingHorizontal:window.innerWidth*0.03,paddingVertical:10,textAlign:"left" }} />
-          <TouchableOpacity style={{marginRight:window.innerWidth*0.025, backgroundColor:"#f5f5f5",borderRadius:100,width:40,height:40}}>
-
-          </TouchableOpacity>
-          </View>
-       
-          <View style={{height:window.innerHeight*0.017,width:window.innerWidth}}/>
+     
+  
            <ScrollView style={{width:window.innerWidth}} scrollEnabled={!this.state.modalOpen}  ref={r=>this.menuHorizontalRef=r} horizontal showsHorizontalScrollIndicator={false}>
-
+           <TouchableOpacity onLongPress={() => this.setState({ modalOpen: true,showSearch:true })} onPress={() => this.setState({ modalOpen: true,showSearch:true })} style={{paddingHorizontal:window.innerWidth*0.04, width:35,height:35,alignItems:"center",marginTop:5,marginLeft:window.innerWidth*0.03,justifyContent:"center",alignItems:"center"}}>
+                      <IoMdSearch size="1.3em" />
+                      <View style={{position:"absolute",bottom:0,width:"100%",height:4,borderRadius:0,backgroundColor:"#FFAF0F"}}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity onLongPress={() => this.setState({ modalOpen: true,showFilters:true })} onPress={() => this.setState({ modalOpen: true,showFilters:true })} style={{paddingHorizontal:window.innerWidth*0.04, width:35,height:35,alignItems:"center",marginTop:5,marginLeft:window.innerWidth*0.03,justifyContent:"center",alignItems:"center"}}>
+                      <RiEqualizerLine size="1.3em" />
+                      <View style={{position:"absolute",bottom:0,width:"100%",height:4,borderRadius:0,backgroundColor:"#FFAF0F"}}/>
+                    </TouchableOpacity>
 {
   this.state.activeSections.map((item,index)=>(
-    <TouchableOpacity key={"menu_"+index} onLongPress={()=>{this.setState({activeSection:index},()=>{
-      window.scrollTo({top:document.getElementById("section_"+index).getBoundingClientRect().top + window.pageYOffset - window.innerHeight*0.17,behavior:"smooth"}); this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03})}); }}   
-onPress={()=>{window.scrollTo({top:document.getElementById("section_"+index).getBoundingClientRect().top + window.pageYOffset - window.innerHeight*0.17,behavior:"smooth"});
- this.setState({activeSection:index},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03}))}} onLayout={(e)=>this.addOfsetsHorizontal(e.nativeEvent.layout.x)} style={{ backgroundColor:this.state.activeSection==index?"#000":"#f5f5f5",borderRadius:100, paddingHorizontal:window.innerWidth*0.04,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.03}}>
-      <p style={{fontWeight:this.state.activeSection==index?"500":"400",color:this.state.activeSection==index?"#fff":"gray",padding:"10px 0",margin:0}}>
+    <TouchableOpacity key={"menu_"+index} 
+    
+    onPress={()=>{
+ this.setState({activeSection:index},()=>{
+ window.scrollTo({top:document.getElementById("section_"+index).getBoundingClientRect().top + window.pageYOffset})
+    this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03})
+}
+ )}
+} 
+    
+    onLongPress={()=>{
+ this.setState({activeSection:index},()=>{
+ window.scrollTo({top:document.getElementById("section_"+index).getBoundingClientRect().top + window.pageYOffset})
+    this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03})
+}
+ )}
+} onLayout={(e)=>this.addOfsetsHorizontal(e.nativeEvent.layout.x)} style={{borderRadius:0, paddingHorizontal:window.innerWidth*0.04,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.03}}>
+      <p style={{fontWeight:this.state.activeSection==index?"500":"400",color:this.state.activeSection==index?"#000":"gray",padding:"7px 0",margin:0}}>
         {item}
       </p>
+      <View style={{position:"absolute",bottom:0,width:"70%",height:this.state.activeSection==index?4:0,borderRadius:0,backgroundColor:"#FFAF0F"}}/>
     </TouchableOpacity>
   ))
 }
-<div style={{height:"100%",width:window.innerWidth*0.20}}/>
+<div style={{height:"100%",width:window.innerWidth*0.02}}/>
            </ScrollView>
-           <div style={{height:window.innerHeight*0.017,width:window.innerWidth}}/>
+           <div style={{height:window.innerHeight*0.02,width:window.innerWidth}}/>
 
            </div>
     
 <ScrollView 
 
-              style={{ width:window.innerWidth,height:"100%",backgroundColor:"#f5f5f5"}}>
+automaticallyAdjustContentInsets={false}
+removeClippedSubviews
+              style={{height:"100%", width:window.innerWidth,height:"100%",backgroundColor:"#f5f5f5"}}>
            {this.state.activeMenu.map((item, index) => (
 
-<div id={"section_"+index} style={{width:window.innerWidth,background:"#f5f5f5" }}>
+<div id={"section_"+index} style={{height:"100%", width:window.innerWidth,background:"#f5f5f5",overflow:"hidden" }}>
 
-  <p style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem",margin:0, padding:"20px 0 20px 10px",background:"#fff" }}>
+  <p style={{background:"#f5f5f5", color: "#000", fontWeight: "500", fontSize: "1.5rem",margin:0,paddingLeft:window.innerWidth*0.025,paddingTop:window.innerHeight*0.02,paddingBottom:window.innerHeight*0.01 }}>
     {item.title}
   </p>
-  
+  <View style={{width:"100%",backgroundColor:"#f5f5f5"}}>
+  <View style={{marginLeft:window.innerWidth*0.0025, width:"100%",alignSelf:"center",borderRadius:10,marginBottom:window.innerHeight*0.01}}>
+  <p style={{ color: "#000", fontWeight: "400", fontSize: "0.9rem",margin:0,margin:0,padding:0,paddingLeft:window.innerWidth*0.025, paddingBottom:window.innerHeight*0.01 }}>
+    Todos los combinados incluyen un refresco
+  </p>
+  </View>
+  </View>
   {
     item.content.map((internal_item, i) => (
-      <div  style={{ backgroundColor:!internal_item.avaliable?"#f5f5f5":  "#fff", width:window.innerWidth,margin:"3px 0",padding:0, }}>
+      <div  style={{overflow:"hidden",  backgroundColor:!internal_item.avaliable?"#f5f5f5":  "#fff", width:window.innerWidth,marginTop:window.innerHeight*0.002, alignSelf:"center",padding:0,borderRadius:0,justifyContent:"center",alignItems:"center" }}>
    
-        <TouchableOpacity  onLongPress={() => this.setState({modalOpen:true, showProductDetails : true,activeElement:internal_item })} onPress={() => this.setState({modalOpen:true, showProductDetails : true,activeElement:internal_item  })} style={{ backgroundColor:!internal_item.avaliable?"#f5f5f5":  "#fff" }}>
-          <div style={{ justifyContent: "center", alignItems: "center", width:window.innerWidth, flexDirection: "row",display:"flex" }}>
-            <div style={{ width: "70%",justifyContent:"flex-start" }}>
+        <TouchableOpacity  onLongPress={() => this.setState({modalOpen:true, showProductDetails : true,activeElement:internal_item })} onPress={() => this.setState({modalOpen:true, showProductDetails : true,activeElement:internal_item  })} style={{ backgroundColor:!internal_item.avaliable?"#EDEDED":  "#fff",justifyContent:"center",alignItems:"center",width:"100%",height:"100%" }}>
+       
+        
+          <div style={{ justifyContent: "center", alignItems: "center", width:"70%",display:"flex",alignSelf:"flex-end", }}>
+            <div style={{ width: "100%",justifyContent:"flex-start" }}>
 
-              <p style={{ color:!internal_item.avaliable? "gray":"#000", fontWeight: "500", fontSize: "1rem",textAlign:"left",padding:"20px 0 0 10px",margin:0 }}>
+              <p style={{ color:!internal_item.avaliable? "gray":"#000", fontWeight: "500", fontSize: "1rem",textAlign:"left",padding:"5px 0 0 10px",margin:0 }}>
 
-                {internal_item.title}
+                {internal_item.title}{internal_item.recommended?" ★":""}
                 
               </p>
 
 
-              <p numberOfLines={3} style={{ color:"gray", fontWeight: "400", fontSize: "0.9rem",margin:"5px 0 5px 10px",padding:0 }}>
+              <p numberOfLines={2} style={{width:"90%", color:"gray", fontWeight: "400", fontSize: "0.9rem",padding:0,margin:0,marginTop:10,marginBottom:10, marginLeft:10,marginTop:5 }}>
 
                 {internal_item.description}
               </p>
-              <div style={{flexDirection:"row",flexWrap:"wrap",width:window.innerWidth*0.9,alignSelf:"center"}}>
-          {
-                internal_item.recommended &&
-                <Text style={{marginTop:window.innerHeight*0.01,  color:!internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFF4A3", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
-
-                Especialidad
-</Text>
-              }
-              {
-                internal_item.vegetarian &&
-                <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#AFF396", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
-
-                Vegetariano
-</Text>
-              }
-              {
-                internal_item.vegan &&
-                <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#BDDDFF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
-
-                Vegano
-</Text>
-              }
-              
-              {
-                internal_item.no_gluten &&
-                <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#E1BDFF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
-
-              Sin gluten
-</Text>
-              }
-              {
-                internal_item.offer &&
-                <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFAAAA", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
-
-              Oferta
-</Text>
-              }
-
-              {
-                internal_item.for_share &&
-                <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFC4A8", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
-
-              Para compartir
-</Text>
-              }
-              {
-                internal_item.alcohol &&
-                <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFD2EE", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
-
-              Alcohol
-</Text>
-              }
-              {
-                internal_item.alcohol_free &&
-                <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#BFC2FF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
-
-              Sin alcohol
-</Text>
-              }
-              {
-                internal_item.unity &&
-                <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#ADFFDB", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
-
-              Por unidad
-</Text>
-              }
-              {
-                internal_item.allergens &&
-                <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFDDAD", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
-
-              Alérgenos
-</Text>
-              }
-
-              </div>
-              
-
-
-            </div>
-            {internal_item.avaliable &&
-            <div style={{ width: window.innerWidth*0.3, justifyContent: "center", alignItems: "center",display:"block",  margin:0,padding:0 }}>
-              <p style={{ color: internal_item.offer ? "#D91717" : "#000", fontWeight: "500", fontSize: "0.9rem",textAlign:"right",padding:"20px 10px 0 0",margin:0 }}>
+              {internal_item.avaliable &&
+            <View style={{flexDirection:"row", width: "100%", justifyContent: "flex-start", alignItems: "flex-start", paddingLeft:"5%",marginBottom:window.innerHeight*0.01}}>
+              <Text style={{ color: internal_item.offer ? "#D91717" : "#000", fontWeight: "500", fontSize: "0.9rem",textAlign:"left",margin:0  }}>
               {internal_item.offer &&
-                  (parseFloat(internal_item.price) - (parseFloat(internal_item.price) * internal_item.offerPercentage / 100)).toFixed(2) + " €"}
+                  (parseFloat(internal_item.price) - (parseFloat(internal_item.price) * internal_item.offerPercentage / 100)).toFixed(2) + " €"}{internal_item.unity?" (Unidad)":""}
                 {!internal_item.offer &&
                   internal_item.price.toFixed(2) + " €"}
+                  {internal_item.offer &&
+                  <Text style={{marginLeft:5, color: "gray", fontWeight: "600", fontSize: "0.7rem", textDecorationLine: "line-through",textAlign:"left",margin:0 }}>
 
-              </p>
+{internal_item.price.toFixed(2)} €
+</Text>
+                  }
+              </Text>
               
-              {
-                internal_item.offer &&
-                <p style={{ color: "gray", fontWeight: "600", fontSize: "0.7rem", textDecorationLine: "line-through",textAlign:"right",padding:"0 10px 0 0",margin:0 }}>
+             
 
-                {internal_item.price.toFixed(2)} €
-</p>
-              }
+            </View>
+  }
+
+
 
             </div>
-  }
-  {!internal_item.avaliable &&
-            <div style={{ width: "30%", justifyContent: "center", alignItems: "center",height:"100%" }}>
-            <p style={{ color: "gray", fontWeight: "500", fontSize: "0.8rem",textAlign:"right",padding:"0 10px 0 0" }}>
+           
+  
+          </div>
+          {!internal_item.avaliable &&
+            <View style={{alignSelf:"flex-end", width: "75%", justifyContent: "flex-start", alignItems: "flex-start",marginBottom:window.innerHeight*0.02 }}>
+            <p style={{ color: "gray", fontWeight: "500", fontSize: "0.9rem",textAlign:"left",paddingLeft:window.innerWidth*0.075,margin:0 }}>
               No disponible
               </p>
-             </div>
-  }
-          </div>
-       <View style={{width:"100%",height:20}}/>
+             </View>
+  }  
+
         </TouchableOpacity>
       
        
@@ -1449,13 +1445,17 @@ onPress={()=>{window.scrollTo({top:document.getElementById("section_"+index).get
 </Text>
   </View>
 }
-           <TouchableOpacity style={{justifyContent:"center",alignItems:"center",width:window.innerWidth,backgroundColor:"#e8e8e8",paddingVertical:window.innerHeight*0.01}}>
+<View style={{width:"100%",height:window.innerHeight*0.02}}/>
+           <TouchableOpacity style={{justifyContent:"center",alignItems:"center",width:window.innerWidth,backgroundColor:"#e8e8e8",paddingVertical:window.innerHeight*0.005}}>
             <Text style={{marginBottom:window.innerHeight*0.01, width:window.innerWidth, color: "#000", fontWeight: "400", fontSize: "0.8rem", textAlign: "center" }}>
                  Con la tecnología de
 </Text>
-<Image source={elcomensal} style={{  width: window.innerWidth*0.2, height: window.innerHeight*0.1, zIndex: 0 }} resizeMode="contain" />
+<Image source={elcomensal} style={{  width: window.innerWidth*0.3, height: window.innerHeight*0.05, zIndex: 0 }} resizeMode="contain" />
          </TouchableOpacity> 
+
+        
          </ScrollView>
+        
 {false &&
          <View style={{zIndex:99,position:"absolute",top:0,width:"100%",height:"100%",backgroundColor:"#f5f5f5",justifyContent:"center",alignItems:"center"}}>
          <Image source={restaurantLogin} style={{ position: "absolute", top: 0, width: window.innerWidth, height: "100%", zIndex: 0 }} blurRadius={0} resizeMode="cover" />
@@ -1505,7 +1505,190 @@ onPress={()=>{window.scrollTo({top:document.getElementById("section_"+index).get
               </View>
          </View>
 }
+
+<SwipeableBottomSheet onChange={(newState)=>{
+          if(this.state.modalOpen!=newState){
+            if(!newState)
+            this.setState({showFilters:false,showSearch:false, showProductDetails:false, modalOpen:false, showWaiter:false,showOrder:false,showCheckOrder:false,showOrderStatus:false,showHelp:false})
+            else
+          this.setState({modalOpen:true})
+          }
+          
+          }} open={this.state.modalOpen} style={{zIndex:1,position:"fixed"}}  overflowHeight={0}>
+         
+          {
+            this.state.showProductDetails &&
+            <ShowProductDetails closeDetails={this.closeDetails} activeElement={this.state.activeElement} />
+          }
+          {this.state.wifiDetails &&
+          <View style={{width:"100%",backgroundColor:"#fff"}}>
+          <TouchableOpacity onLongPress={() => this.closeDetails()} onPress={() => this.closeDetails()} style={{ alignSelf: "flex-end", position: "absolute", top: 0 }}>
+                      <IoIosClose size="2.5em" />
+                    </TouchableOpacity>
+          <Text style={{ color: "#000", fontWeight: "500", fontSize: "1.3rem", paddingHorizontal: "5%", marginBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.03, textAlign: "left", width: "100%" }}>
+                    Wifi
+                    </Text>
+                    <Text style={{marginBottom: window.innerHeight * 0.01,  color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: "5%",textAlign: "left", width: "100%" }}>
+                    Nombre de la red: <Text style={{ color: "gray", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "2%", textAlign: "left", width: "100%" }}>
+                    goykosmanresa
+                    </Text>
+                    </Text>
+                    <Text style={{marginBottom:window.innerHeight*0.05, color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
+                    Contraseña: <Text style={{ color: "gray", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "2%", paddingVertical: window.innerHeight * 0.03, textAlign: "left", width: "100%" }}>
+                    acomer123
+                    </Text>
+                    </Text>
+                    <View style={{width:"100%",backgroundColor:"#f5f5f5"}}>
+                    <Text style={{ color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.03, textAlign: "left", width: "100%" }}>
+                    Si tienes problemas para conectarte a nuestro wifi pregúntanos.
+                    </Text>
+                    </View>
+          </View>
+          }
+         {
+          this.state.showSearch &&
+          <View style={{width:"100%",backgroundColor:"#fff"}}>
+          <Text style={{ color: "#000", fontWeight: "500", fontSize: "1.3rem", paddingHorizontal: "5%", marginBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.03, textAlign: "left", width: "100%" }}>
+                    Realizar una búsqueda
+                    </Text>
+                
+                    <TextInput autoFocus clearButtonMode="always"  placeholder="Nombre del plato o la bebida"  value={this.state.searchValue} editable={true} onChangeText={(newValue)=>this.manageFilter(newValue)} style={{marginVertical:window.innerHeight*0.02, borderRadius:0, fontSize:"1rem", width:"90%",borderBottomWidth:this.state.searchValue.length==0?0:4,borderColor:"#FFAF0F", backgroundColor:this.state.searchValue.length==0?"#f5f5f5":"#fff",marginLeft:window.innerWidth*0.05,paddingHorizontal:window.innerWidth*0.03,paddingVertical:window.innerHeight*0.015,textAlign:"left"}} />
+         
+          <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"flex-end", alignItems: "center", backgroundColor: "#FFAF0F", width: window.innerWidth*0.5,alignSelf:"center",height:"100%",marginTop:window.innerHeight*0.03,marginBottom:window.innerHeight*0.01 }}>
+                <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
+                  
+                  <Text style={{ color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.02, textAlign: "center", width: "100%" }}>
+                    Buscar
+                    </Text>
+                </View>
+                
+
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"flex-end", alignItems: "center", backgroundColor: "#fff", width: window.innerWidth*0.5,alignSelf:"center",height:"100%",marginTop:window.innerHeight*0.01,marginBottom:window.innerHeight*0.02 }}>
+                <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
+                  
+                  <Text style={{ color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.02, textAlign: "center", width: "100%" }}>
+                    Deshacer
+                    </Text>
+                </View>
+                
+
+              </TouchableOpacity>
+          </View>
+         }
+         {
+           this.state.showFilters &&
+           <View style={{width:"100%",height:"100%",backgroundColor:"#fff"}}>
+
+          <Text style={{ color: "#000", fontWeight: "500", fontSize: "1.3rem", paddingHorizontal: "5%", marginBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.03, textAlign: "left", width: "100%" }}>
+                    Filtros
+                    </Text>
+                    {
+                      new Array(5).fill(1).map((item,index)=>(
+<View style={{width:"100%",flexDirection:"row",paddingVertical:window.innerHeight*0.02}}>
+  <View style={{width:"50%",flexDirection:"row"}}>
+  <TouchableOpacity style={{width:"20%",justifyContent:"center",alignItems:"center"}}>
+    <View style={{marginLeft:10,width:20,height:20,borderWidth:2,borderColor:"#e8e8e8"}}>
+
+    </View>
+  </TouchableOpacity>
+  <View style={{width:"80%"}}>
+  <Text numberOfLines={1} style={{ color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" ,}}>
+                    {optionsProduct[index*2]}
+                    </Text>
+    </View>
+    </View>
+    <View style={{width:"50%",flexDirection:"row"}}>
+    <TouchableOpacity style={{width:"20%",justifyContent:"center",alignItems:"center"}}>
+    <View style={{marginLeft:10,width:20,height:20,borderWidth:2,borderColor:"#e8e8e8"}}>
+
+    </View>
+  </TouchableOpacity>
+  <View style={{width:"80%"}}>
+  <Text numberOfLines={1}  style={{ color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
+                    {optionsProduct[index*2+1]}
+                    </Text>
+    </View>
+    </View>
+  </View>
+                      ))
+                    }
+                    <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"flex-end", alignItems: "center", backgroundColor: "#FFAF0F", width: window.innerWidth*0.5,alignSelf:"center",height:"100%",marginTop:window.innerHeight*0.03,marginBottom:window.innerHeight*0.01 }}>
+                <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
+                  
+                  <Text style={{ color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.02, textAlign: "center", width: "100%" }}>
+                    Aplicar filtros
+                    </Text>
+                </View>
+                
+
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"flex-end", alignItems: "center", backgroundColor: "#fff", width: window.innerWidth*0.5,alignSelf:"center",height:"100%",marginTop:window.innerHeight*0.01,marginBottom:window.innerHeight*0.02 }}>
+                <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
+                  
+                  <Text style={{ color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.02, textAlign: "center", width: "100%" }}>
+                    Desactivar todos
+                    </Text>
+                </View>
+                
+
+              </TouchableOpacity>
+                    </View>
+         }
+        </SwipeableBottomSheet>
+        {false &&
+        <View style={{position:"absolute",top:0,width:"100%",height:"100%",backgroundColor:"rgba(255,255,255,0.1)",zIndex:99}}>
+        <Shimmer width={window.innerWidth} height={window.innerHeight*0.5} />
+        <View style={{width:"100%",height:window.innerHeight*0.1,backgroundColor:"#fff",flexDirection:"row",justifyContent:"space-between",alignItems:"center",paddingLeft:"2.5%",overflow:"hidden"}}>
+        <Shimmer width={window.innerWidth*0.3} height={window.innerHeight*0.06} />
+        <Shimmer width={window.innerWidth*0.3} height={window.innerHeight*0.06} />
+        <Shimmer width={window.innerWidth*0.3} height={window.innerHeight*0.06} />
+          </View> 
+          <View style={{width:"100%",backgroundColor:"#f5f5f5"}}>
+            <View style={{marginTop:window.innerHeight*0.02,marginLeft:window.innerWidth*0.025, borderRadius:6,overflow:"hidden",width:window.innerWidth*0.3}}>
+          <Shimmer width={window.innerWidth*0.3} height={window.innerHeight*0.06} />
+          </View>
+          <View style={{backgroundColor:"#f5f5f5"}}>
+            <View style={{width:"100%",backgroundColor:"#fff",marginTop:window.innerHeight*0.02,flexDirection:"row"}}>
+            <View style={{width:"30%",justifyContent:"center",alignItems:"center",borderRadius:100}}>
+            <View style={{marginTop:window.innerHeight*0.02,marginLeft:window.innerWidth*0.025, borderRadius:1000,overflow:"hidden",width:window.innerWidth*0.2,height:window.innerWidth*0.2}}>
+          <Shimmer width={window.innerWidth*0.2} height={window.innerWidth*0.2} />
+         </View>
+              </View>
+     <View style={{width:"70%"}}>
+      <View style={{width:"100%",height:window.innerHeight*0.2,marginLeft:window.innerWidth*0.025,marginTop:window.innerHeight*0.02}}>
+            <Shimmer width={window.innerWidth*0.6} height={window.innerHeight*0.04} />
+            <View style={{width:"100%",height:window.innerHeight*0.01}}/>
+            <Shimmer width={window.innerWidth*0.6} height={window.innerHeight*0.1} />
+            <View style={{width:"100%",height:window.innerHeight*0.01}}/>
+            <Shimmer width={window.innerWidth*0.2} height={window.innerHeight*0.04} />
+            <View style={{width:"100%",height:window.innerHeight*0.01}}/>
+            </View>
+            </View>
+            </View>
+          </View>
+          <View style={{width:"100%",backgroundColor:"#fff",marginTop:window.innerHeight*0.0025,flexDirection:"row"}}>
+            <View style={{width:"30%",justifyContent:"center",alignItems:"center",borderRadius:100}}>
+            <View style={{marginTop:window.innerHeight*0.02,marginLeft:window.innerWidth*0.025, borderRadius:1000,overflow:"hidden",width:window.innerWidth*0.2,height:window.innerWidth*0.2}}>
+          <Shimmer width={window.innerWidth*0.2} height={window.innerWidth*0.2} />
+         </View>
+              </View>
+     <View style={{width:"70%"}}>
+      <View style={{width:"100%",height:window.innerHeight*0.2,marginLeft:window.innerWidth*0.025,marginTop:window.innerHeight*0.02}}>
+            <Shimmer width={window.innerWidth*0.6} height={window.innerHeight*0.04} />
+            <View style={{width:"100%",height:window.innerHeight*0.01}}/>
+            <Shimmer width={window.innerWidth*0.6} height={window.innerHeight*0.1} />
+            <View style={{width:"100%",height:window.innerHeight*0.01}}/>
+            <Shimmer width={window.innerWidth*0.2} height={window.innerHeight*0.04} />
+            <View style={{width:"100%",height:window.innerHeight*0.02}}/>
+            </View>
+            </View>
+            </View>
+          </View>
+        </View>
+        }
 </div>
+
 )
 {false &&
       <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: "#f5f5f5",overflow:"hidden" }}>

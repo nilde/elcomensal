@@ -29,11 +29,11 @@ import PhoneRegister from './srcPhone/PhoneRegister'
 import BrowserForgot from './srcBrowser/BrowserForgot'
 import BrowserLanding from './srcBrowser/BrowserLanding'
 import BrowserLogin from './srcBrowser/BrowserLogin'
-import BrowserManage from './srcBrowser/BrowserManage'
+import BrowserManage from './srcBrowser/BrowseManage/BrowserManageManager'
 import BrowserMenu from './srcBrowser/BrowserMenu'
 import BrowserSuccess from './srcBrowser/BrowserSuccess'
 import BrowserRegister from './srcBrowser/BrowserRegister'
-
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 
 const DEVELOPMENT = true
@@ -50,17 +50,18 @@ export default class App extends React.Component {
     return (
 
       <SnackbarProvider>
+        <ParallaxProvider>
         <Router>
-          <Route path="/">
+          <Route exact path="/">
             {isMobile &&
               <MenuMobile />
             }
             {isBrowser  &&
-              <MenuMobile />
+              <MenuBrowser />
             }
           </Route>
-          <Route path="/register">
-            {isMobile &&
+          <Route exact path="/register">
+            {isMobile && 
               <PhoneRegister />
             }
             {isBrowser &&
@@ -68,11 +69,11 @@ export default class App extends React.Component {
             }
 
           </Route>
-          <Route path="/login">
+          <Route exact path="/login">
             {isMobile &&
               <PhoneLogin />
             }
-            {isBrowser && false &&
+            {isBrowser &&
               <BrowserLogin />
             }
           </Route>
@@ -86,18 +87,18 @@ export default class App extends React.Component {
             }
           </Route>
           <Route path="/landing">
-            {isMobile && false &&
+            {isMobile && 
               <PhoneLanding />
             }
-            {isBrowser && false &&
+            {isBrowser &&
               <BrowserLanding />
             }
           </Route>
           <Route path="/manage">
-            {isMobile && false &&
+            {isMobile &&
               <PhoneManage />
             }
-            {isBrowser && false &&
+            {isBrowser &&
               <BrowserManage />
             }
           </Route>
@@ -113,13 +114,14 @@ export default class App extends React.Component {
             {isMobile && false &&
               <PhoneMenu />
             }
-            {isBrowser && false &&
+            {isBrowser &&false&&
               <BrowserMenu />
             }
           </Route>
 
 
         </Router>
+        </ParallaxProvider>
       </SnackbarProvider>
     );
   }
