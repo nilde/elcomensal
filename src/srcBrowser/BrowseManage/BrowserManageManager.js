@@ -79,39 +79,39 @@ elcomensal
 
 restaurantes
 </Text>
-<TouchableOpacity onLongPress={()=>this.updateManagerStatus("DISHES")} onPress={()=>this.updateManagerStatus("DISHES")}>
-                         
-<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
+<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center"}} onLongPress={()=>this.updateManagerStatus("DISHES")} onPress={()=>this.updateManagerStatus("DISHES")}>
+<IoIosClose size="2.5em" />                  
+<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.0025,  textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
 
 Mi restaurantes
 </Text>
 </TouchableOpacity>
 
 
-<TouchableOpacity onLongPress={()=>this.updateManagerStatus("PAYMENTS")} onPress={()=>this.updateManagerStatus("PAYMENTS")}>
-   
-<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
+<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center"}} onLongPress={()=>this.updateManagerStatus("PAYMENTS")} onPress={()=>this.updateManagerStatus("PAYMENTS")}>
+<IoIosClose size="2.5em" />     
+<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.0025, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
 
 Pagos
 </Text>
 </TouchableOpacity>
-<TouchableOpacity onLongPress={()=>this.updateManagerStatus("HELP")} onPress={()=>this.updateManagerStatus("HELP")}>
-   
-<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
+<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center"}} onLongPress={()=>this.updateManagerStatus("HELP")} onPress={()=>this.updateManagerStatus("HELP")}>
+<IoIosClose size="2.5em" />     
+<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.0025, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
 
 Ayuda
 </Text>
 </TouchableOpacity>
-<TouchableOpacity onLongPress={()=>this.updateManagerStatus("PROFILE")} onPress={()=>this.updateManagerStatus("PROFILE")}>
-   
-<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
+<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center"}} onLongPress={()=>this.updateManagerStatus("PROFILE")} onPress={()=>this.updateManagerStatus("PROFILE")}>
+<IoIosClose size="2.5em" />     
+<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.0025, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
 
 Perfil
 </Text>
 </TouchableOpacity>
-<TouchableOpacity onLongPress={()=>this.updateManagerStatus("DISHES")} onPress={()=>this.updateManagerStatus("DISHES")}>
-   
-<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
+<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center"}} onLongPress={()=>this.updateManagerStatus("DISHES")} onPress={()=>this.updateManagerStatus("DISHES")}>
+<IoIosClose size="2.5em" />  
+<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.0025, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
 
 Cerrar sesión
 </Text>
@@ -130,7 +130,7 @@ Cerrar sesión
 }
             </Animated.View>
 
-           <View style={{width:window.innerWidth*2}}>
+           <View style={{width:window.innerWidth}}>
             {
                 this.state.manageStatus=="HOME" &&
                 <Home lateralMenuOffset={this.state.lateralMenu} updateManagerStatus={this.updateManagerStatus}/>

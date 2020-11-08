@@ -9,11 +9,18 @@ import Collapsible from 'react-collapsible';
 import { Background } from 'react-parallax';
 const optionsProduct = ["Especialidad", "Vegetariano", "Vegano", "Sin gluten", "Sin lactosa", "Para compartir", "Por unidad", "Alcohol", "Sin alcohol", "Halal"]
 const allergensOptions=["Pescado","Frutos secos","Lácteos","Moluscos","Cereales con gluten","Crustáceos","Huevos","Cacahuetes","Soja","Apio","Mostaza","Sésamo","Altramuz","Sulfitos"]
+
 export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            status:"DISHES"
+            status:"DISHES",
+            showNewMenu:false,
+            showNewCategory:false,
+            showNewDish:false,
+            editNewMenu:false,
+            editNewCategory:false,
+            editNewDish:false
         }
     }
     
@@ -68,7 +75,10 @@ export default class App extends React.Component {
             <Text style={{textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Mis platos y bebidas
                   </Text>
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",marginRight:window.innerWidth*0.01}}>
+                  <TouchableOpacity
+                  onLongPress={()=>this.setState({showNewMenu:false,showNewCategory:false,showNewDish:true})}
+                  onPress={()=>this.setState({showNewMenu:false,showNewCategory:false,showNewDish:true})}
+                   style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",marginRight:window.innerWidth*0.01}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02 }}>
                                         + Añadir plato o bebida
                   </Text>
@@ -124,7 +134,10 @@ export default class App extends React.Component {
             <Text style={{textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Mis menús
                   </Text>
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",marginRight:window.innerWidth*0.01}}>
+                  <TouchableOpacity
+                  onLongPress={()=>this.setState({showNewMenu:true,showNewCategory:false,showNewDish:false})}
+                  onPress={()=>this.setState({showNewMenu:true,showNewCategory:false,showNewDish:false})}
+                   style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",marginRight:window.innerWidth*0.01}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02 }}>
                                         + Añadir menú
                   </Text>
@@ -194,7 +207,10 @@ Núm. de artículos
             <Text style={{textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Categorías
                   </Text>
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",marginRight:window.innerWidth*0.01}}>
+                  <TouchableOpacity
+                  onLongPress={()=>this.setState({showNewMenu:false,showNewCategory:true,showNewDish:false})}
+                  onPress={()=>this.setState({showNewMenu:false,showNewCategory:true,showNewDish:false})}
+                   style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",marginRight:window.innerWidth*0.01}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02 }}>
                                         + Añadir categoría
                   </Text>
@@ -204,13 +220,13 @@ Núm. de artículos
                 </TouchableOpacity>
                   </View>
                   <Text style={{paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.3rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                  Configura las secciones de tu carta
+                  Configura las categorias de tu carta
                   </Text>
-                  <TextInput numberOfLines={1} placeholder={"Buscar una sección"} style={{marginLeft:window.innerWidth*0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  <TextInput numberOfLines={1} placeholder={"Buscar una categoría"} style={{marginLeft:window.innerWidth*0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
                 <View style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
 <View style={{width:"30%",alignItems:"flex-start",justifyContent:"center"}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                                        Nombre de la sección
+                                        Nombre de la categoría
                   </Text>
                   
 </View>
@@ -346,341 +362,9 @@ Núm. de artículos
 </View>
                 </View>
                 }
-                {false &&
-                <ScrollView style={{position:"absolute",top:0,width:"100%",height:"100%",backgroundColor:"#fff"}}>
-                <View style={{width:"100%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
-<View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01}}>
-<Text numberOfLines={1} style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                                        Nueva categoría
-                                       
-
-                  </Text>
-   
-                  <TextInput numberOfLines={1} placeholder={"Nombre de la categoría Ej. Hamburguesas"} style={{marginTop: window.innerHeight * 0.02, fontSize: "1rem", width: "95%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  <TextInput numberOfLines={3} placeholder={"Información adicional Ej. Todos los platos combinados incluyen patatas y ensalada (opcional) "} style={{marginVertical: window.innerHeight * 0.02, fontSize: "1rem", width: "95%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                 
-                  <Text numberOfLines={1} style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01,marginBottom:window.innerHeight*0.02 }}>
-                                        Disponibilidad
-                  </Text>
-                  <View style={{flexDirection:"row", alignItems:"flex-start",justifyContent:"space-between",backgroundColor:"#fff",alignSelf:"center",width:"95%"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        Lunes
-                  </Text>
-                  <View style={{flexDirection:"row",alignSelf:"flex-end"}}>
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Todo el día
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Limitada
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        No disponible
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                </View>
-                  
-                </View>
-                <View style={{width:"100%",flexDirection:"row"}}>
-                <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Franjas
-                                        </Text>
-                                        <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        1
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        2
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <View>
-                <View style={{flexDirection:"row"}}>
-                <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        de
-                  </Text>
-                  <TextInput numberOfLines={1} placeholder={"00:00h"} style={{ fontSize: "1rem", width: "25%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        a
-                  </Text>
-                  <TextInput numberOfLines={1} placeholder={"00:00h"} style={{ fontSize: "1rem", width: "25%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  </View>
-                  <View style={{flexDirection:"row"}}>
-                <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        de
-                  </Text>
-                  <TextInput numberOfLines={1} placeholder={"00:00h"} style={{ fontSize: "1rem", width: "25%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        a
-                  </Text>
-                  <TextInput numberOfLines={1} placeholder={"00:00h"} style={{ fontSize: "1rem", width: "25%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  </View>
-</View>
-                    </View>
-                    
-                <View style={{flexDirection:"row", alignItems:"flex-start",justifyContent:"space-between",backgroundColor:"#fff",alignSelf:"center",width:"95%"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        Martes
-                  </Text>
-                  <View style={{flexDirection:"row",alignSelf:"flex-end"}}>
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Todo el día
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Limitada
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        No disponible
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                </View>
-                  
-                </View>
-           
-                <View style={{flexDirection:"row", alignItems:"flex-start",justifyContent:"space-between",backgroundColor:"#fff",alignSelf:"center",width:"95%"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        Miércoles
-                  </Text>
-                  <View style={{flexDirection:"row",alignSelf:"flex-end"}}>
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Todo el día
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Limitada
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        No disponible
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                </View>
-                </View>
-                <View style={{flexDirection:"row", alignItems:"flex-start",justifyContent:"space-between",backgroundColor:"#fff",alignSelf:"center",width:"95%"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        Jueves
-                  </Text>
-                  <View style={{flexDirection:"row",alignSelf:"flex-end"}}>
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Todo el día
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Limitada
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        No disponible
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                </View>
-                  
-                </View>
-                <View style={{flexDirection:"row", alignItems:"flex-start",justifyContent:"space-between",backgroundColor:"#fff",alignSelf:"center",width:"95%"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        Viernes
-                  </Text>
-                    <View style={{flexDirection:"row",alignSelf:"flex-end"}}>
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Todo el día
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Limitada
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        No disponible
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                </View>
-                  
-                </View>
-                <View style={{flexDirection:"row", alignItems:"flex-start",justifyContent:"space-between",backgroundColor:"#fff",alignSelf:"center",width:"95%"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        Sábado
-                  </Text>
-                    <View style={{flexDirection:"row",alignSelf:"flex-end"}}>
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Todo el día
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Limitada
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        No disponible
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                </View>
-                  
-                </View>
-                <View style={{flexDirection:"row", alignItems:"flex-start",justifyContent:"space-between",backgroundColor:"#fff",alignSelf:"center",width:"95%"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        Domingo
-                  </Text>
-                    <View style={{flexDirection:"row",alignSelf:"flex-end"}}>
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Todo el día
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",marginRight:window.innerWidth*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        Limitada
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.01,paddingHorizontal:window.innerWidth*0.01 }}>
-                                        No disponible
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                </View>
-                  
-                </View>
-
-                <View style={{width:"100%",alignSelf:"center",justifyContent:"center",alignItems:"center",marginTop:window.innerHeight*0.02}}>
-           
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",width:"95%",}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        Crear categoría
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-                </View>
-</View>
-<View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01,height:"100%"}}>
-<Text numberOfLines={1} style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01,marginBottom:window.innerHeight*0.02 }}>
-                                        Artículos
-                  </Text>
-                  <TextInput numberOfLines={1} placeholder={"Buscar un artículo"} style={{marginBottom: window.innerHeight * 0.01, fontSize: "1rem", width: "95%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  
-                  <ScrollView style={{backgroundColor:"#f5f5f5",alignSelf:"center",width:"95%",height:window.innerHeight*0.7}}>
-{
-    ["Hamburguesas","Hamburguesas","Hamburguesas","Hamburguesas"].map((item,index)=>(
-        <View style={{width:"99%",alignSelf:"center",backgroundColor:"#fff",justifyContent:"center",alignItems:"center",marginTop:window.innerHeight*0.0025}}>
-            <View style={{width:"100%",flexDirection:"row"}}>
-            <View style={{width:"90%",justifyContent:"center",alignItems:"flex-start"}}>
-        <Text numberOfLines={1} style={{ textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01}}>
- 
-            {item}
-            </Text>
-            </View>
-            <View style={{width:"10%",justifyContent:"center",alignItems:"center",height:window.innerHeight*0.05}}>
-                <View style={{width:18,height:18,backgroundColor:"#FFCB00"}}>
-
-                </View>
-                </View>
-            </View>
-        </View>
-    ))
-}
-
-
-                </ScrollView>
-</View>
-<TouchableOpacity onLongPress={() => this.setState({ showDetails: false })} onPress={() => this.setState({ showDetails: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 0,right:0 }}>
-                      <IoIosClose size="2.5em" />
-                    </TouchableOpacity>
-</View>
-                </ScrollView>
-                }
-                {false &&
-                <ScrollView style={{position:"absolute",top:0,width:"100%",height:"100%",backgroundColor:"#fff"}}>
+               
+                {this.state.showNewMenu &&
+                <ScrollView style={{position:"absolute",top:0,width:this.state.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:"100%",backgroundColor:"#fff"}}>
                 <View style={{width:"100%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
 <View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01}}>
 <Text numberOfLines={1} style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
@@ -1022,13 +706,15 @@ Núm. de artículos
 
                 </ScrollView>
 </View>
-<TouchableOpacity onLongPress={() => this.setState({ showDetails: false })} onPress={() => this.setState({ showDetails: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 0,right:0 }}>
+<TouchableOpacity onLongPress={() => this.setState({ showNewMenu: false })} onPress={() => this.setState({ showNewMenu: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 0,right:0 }}>
                       <IoIosClose size="2.5em" />
                     </TouchableOpacity>
 </View>
 <View style={{width:"100%",alignSelf:"center",justifyContent:"center",alignItems:"center",marginTop:window.innerHeight*0.02}}>
            
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",width:"100%",}}>
+                  <TouchableOpacity 
+                  onLongPress={()=>this.setState({showNewMenu:true,showNewCategory:false,showNewDish:false})}
+                  onPress={()=>this.setState({showNewMenu:true,showNewCategory:false,showNewDish:false})} style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",width:"100%",}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.2rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
                                         Crear menú
                   </Text>
@@ -1039,12 +725,12 @@ Núm. de artículos
                 </View>
                 </ScrollView>
                 }
-                {false &&
-                <ScrollView style={{position:"absolute",top:0,width:"100%",height:"100%",backgroundColor:"#fff"}}>
+                {this.state.showNewCategory &&
+                <ScrollView style={{position:"absolute",top:0,width:this.state.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:"100%",backgroundColor:"#fff"}}>
                 <View style={{width:"100%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
 <View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01}}>
 <Text numberOfLines={1} style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                                        Nueva sección
+                                        Nueva categoría
                                        
 
                   </Text>
@@ -1362,7 +1048,7 @@ Núm. de artículos
 
                 </ScrollView>
 </View>
-<TouchableOpacity onLongPress={() => this.setState({ showDetails: false })} onPress={() => this.setState({ showDetails: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 0,right:0 }}>
+<TouchableOpacity onLongPress={() => this.setState({ showNewCategory: false })} onPress={() => this.setState({ showNewCategory: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 0,right:0 }}>
                       <IoIosClose size="2.5em" />
                     </TouchableOpacity>
 </View>
@@ -1370,7 +1056,7 @@ Núm. de artículos
            
                   <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",width:"100%",}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.2rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
-                                        Crear menú
+                                        Crear categoría
                   </Text>
                   
 
@@ -1385,8 +1071,8 @@ Núm. de artículos
 
 
 
-                {false &&
-                <ScrollView style={{position:"absolute",top:0,width:"100%",height:"100%",backgroundColor:"#fff"}}>
+                {this.state.showNewDish &&
+                <ScrollView style={{position:"absolute",top:0,width:this.state.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:"100%",backgroundColor:"#fff"}}>
                 <View style={{width:"100%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
 <View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01}}>
 <Text numberOfLines={1} style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
@@ -1517,7 +1203,7 @@ Núm. de artículos
 
                   
 </View>
-<TouchableOpacity onLongPress={() => this.setState({ showDetails: false })} onPress={() => this.setState({ showDetails: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 0,right:0 }}>
+<TouchableOpacity onLongPress={() => this.setState({ showNewDish: false })} onPress={() => this.setState({ showNewDish: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 0,right:0 }}>
                       <IoIosClose size="2.5em" />
                     </TouchableOpacity>
 </View>
