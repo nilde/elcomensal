@@ -1,7 +1,8 @@
 import * as React from 'react';
 import Title from 'reactjs-title'
 import { Animated, AppRegistry, StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, TouchableWithoutFeedback, TextInput, FlatList } from 'react-native';
-import { IoIosClose, IoMdRadioButtonOff, IoMdRadioButtonOn, IoIosRadioButtonOff, IoIosRadioButtonOn } from "react-icons/io";
+import { IoIosClose, IoMdRadioButtonOff, IoMdRadioButtonOn, IoIosRadioButtonOff, IoIosRadioButtonOn, IoIosMenu, IoMdMenu } from "react-icons/io";
+import { RiArrowLeftLine } from "react-icons/ri";
 import Dropdown from 'react-dropdown';
 import { ProSidebar, Menu, MenuItem, SubMenu,SidebarHeader,SidebarContent, SidebarFooter } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
@@ -31,7 +32,8 @@ export default class App extends React.Component {
         this.updateManagerStatus=this.updateManagerStatus.bind(this);
         this.state = {
             manageStatus:"DISHES",
-            lateralMenu : new Animated.Value(window.innerWidth*0.1)
+            lateralMenu : new Animated.Value(window.innerWidth*0.05),
+            menuOpen:false
         }
     }
     
@@ -40,19 +42,35 @@ export default class App extends React.Component {
     }
 
     componentDidMount(){
+        
+    }
+    showMenu(){
         Animated.timing(this.state.lateralMenu, {
             toValue: window.innerWidth*0.3,
             duration: 300
-          }).start();
+          }).start(()=>
+        this.setState({
+            menuOpen:true
+        }))
+    }
+    closeMenu(){
+        this.setState({
+            menuOpen:false
+        },()=> Animated.timing(this.state.lateralMenu, {
+            toValue: window.innerWidth*0.05,
+            duration: 300,
+          }).start())
     }
 
 
     render() {
 
         return (
-            <View style={{flexDirection:"row" ,zIndex: 99, position: "absolute", top: 0, width: "100%", height: window.innerHeight, backgroundColor: "#fff",  alignItems: "center",overflow:"hidden",flexDirection:"row" }}>
+            <View style={{flexDirection:"row" ,zIndex: 99, position: "absolute", top: 0, width: window.innerWidth, height: window.innerHeight, backgroundColor: "#fff",  alignItems: "center",overflow:"hidden",flexDirection:"row" }}>
             <Animated.View 
             style={{boxShadow: "0px 30px 10px rgba(0,0,0,0.1)",height:window.innerHeight,backgroundColor:"#FFCB00",zIndex:1,   width: this.state.lateralMenu,overflow:"hidden"}}>
+          {this.state.menuOpen &&
+           <View>
             <Text style={{ color: "#000", fontWeight: "500", fontSize: "2.5rem", paddingHorizontal: "5%", paddingTop: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
 
 elcomensal
@@ -98,10 +116,21 @@ Perfil
 Cerrar sesión
 </Text>
 </TouchableOpacity>
-            
+<TouchableOpacity onLongPress={() => this.closeMenu()} onPress={() => this.closeMenu()} style={{ alignSelf: "center", position: "absolute", top: window.innerHeight*0.01,right:window.innerWidth*0.02 }}>
+                      <RiArrowLeftLine size="2em" />
+                    </TouchableOpacity> 
+</View>
+}
+{!this.state.menuOpen &&
+           <View>
+           <TouchableOpacity onLongPress={() => this.showMenu()} onPress={() => this.showMenu()} style={{ alignSelf: "center", position: "absolute", top: window.innerHeight*0.01 }}>
+                      <IoMdMenu size="2em" />
+                    </TouchableOpacity>     
+               </View>
+}
             </Animated.View>
 
-           
+           <View style={{width:window.innerWidth*2}}>
             {
                 this.state.manageStatus=="HOME" &&
                 <Home lateralMenuOffset={this.state.lateralMenu} updateManagerStatus={this.updateManagerStatus}/>
@@ -109,30 +138,30 @@ Cerrar sesión
  }
  {
     this.state.manageStatus=="PROFILE" &&
-    <Profile updateManagerStatus={this.updateManagerStatus}/>
+    <Profile menuOpen={this.state.menuOpen} updateManagerStatus={this.updateManagerStatus}/>
      //Profile
  }
  { this.state.manageStatus=="CARTA" &&
- <Carta updateManagerStatus={this.updateManagerStatus}/>
+ <Carta menuOpen={this.state.menuOpen} updateManagerStatus={this.updateManagerStatus}/>
      //Carta
  }
  { this.state.manageStatus=="MENUS" &&
- <Menus updateManagerStatus={this.updateManagerStatus}/>
+ <Menus menuOpen={this.state.menuOpen} updateManagerStatus={this.updateManagerStatus}/>
      //Menús
  }
  { this.state.manageStatus=="DISHES" &&
- <Dishes updateManagerStatus={this.updateManagerStatus}/>
+ <Dishes menuOpen={this.state.menuOpen} updateManagerStatus={this.updateManagerStatus}/>
      //Platos
  }
  { this.state.manageStatus=="PAYMENTS" &&
- <Payments updateManagerStatus={this.updateManagerStatus}/>
+ <Payments menuOpen={this.state.menuOpen} updateManagerStatus={this.updateManagerStatus}/>
      //Payments
  }
  { this.state.manageStatus=="HELP" &&
- <Help updateManagerStatus={this.updateManagerStatus}/>
+ <Help menuOpen={this.state.menuOpen} updateManagerStatus={this.updateManagerStatus}/>
      //Help
  }
-
+ </View>
 
             </View>
         )

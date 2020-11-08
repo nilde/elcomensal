@@ -24,7 +24,7 @@ export default class App extends React.Component {
     render() {
 
         return (
-            <View style={{zIndex: 0,width: "100%", height: window.innerHeight, backgroundColor: "#fff"}}>
+            <View style={{zIndex: 0,width: window.innerWidth, height: window.innerHeight, backgroundColor: "#fff"}}>
           <View style={{width:"100%",height:window.innerHeight*0.07,backgroundColor:"#fff",flexDirection:"row",backgroundColor:"#f5f5f5"}}>
 
 <TouchableOpacity onLongPress={()=>this.setState({status:"DISHES"})} onPress={()=>this.setState({status:"DISHES"})} style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
@@ -51,7 +51,7 @@ export default class App extends React.Component {
 
                 </TouchableOpacity>
                 
-                <TouchableOpacity style={{marginLeft:"30%", width:"10%",alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00"}}>
+                <TouchableOpacity style={{marginLeft:this.props.menuOpen? window.innerWidth*0.3:window.innerWidth*0.55, width:"10%",alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00"}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left" }}>
                                         Ver mi carta
                   </Text>
@@ -64,7 +64,7 @@ export default class App extends React.Component {
               this.state.status=="DISHES" &&
         
            <ScrollView>
-               <View style={{flexDirection:"row",width:"70%",justifyContent:"space-between",paddingTop: window.innerHeight * 0.03,}}>
+               <View style={{flexDirection:"row",width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,justifyContent:"space-between",paddingTop: window.innerHeight * 0.03,}}>
             <Text style={{textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Mis platos y bebidas
                   </Text>
@@ -81,7 +81,7 @@ export default class App extends React.Component {
                   Configura los platos y bebidas que sirves en tu restaurante
                   </Text>
                   <TextInput numberOfLines={1} placeholder={"Buscar un plato o bebida"} style={{marginLeft:window.innerWidth*0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                <View style={{width:"70%",height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
+                <View style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
 <View style={{width:"20%",alignItems:"flex-start",justifyContent:"center"}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Nombre del plato
@@ -120,7 +120,7 @@ export default class App extends React.Component {
         
            <ScrollView>
                
-           <View style={{flexDirection:"row",width:"70%",justifyContent:"space-between",paddingTop: window.innerHeight * 0.03,}}>
+           <View style={{flexDirection:"row",width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,justifyContent:"space-between",paddingTop: window.innerHeight * 0.03,}}>
             <Text style={{textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Mis menús
                   </Text>
@@ -137,7 +137,7 @@ export default class App extends React.Component {
                   Configura los menús de tu restaurante
                   </Text>
                   <TextInput numberOfLines={1} placeholder={"Buscar un menú"} style={{marginLeft:window.innerWidth*0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  <View style={{width:"70%",height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
+                  <View style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
 <View style={{width:"30%",alignItems:"flex-start",justifyContent:"center"}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Nombre del menú
@@ -160,7 +160,7 @@ Núm. de artículos
 
                 </View>
                 <View style={{width:"100%",backgroundColor:"#fff",flexDirection:"row",marginTop:window.innerHeight*0.0025}}>
-                <TouchableOpacity style={{width:"70%",height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
+                <TouchableOpacity style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
 <View style={{width:"30%",alignItems:"flex-start",justifyContent:"center"}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Menú 1
@@ -190,7 +190,7 @@ Núm. de artículos
         
            <ScrollView>
                
-           <View style={{flexDirection:"row",width:"70%",justifyContent:"space-between",paddingTop: window.innerHeight * 0.03,}}>
+           <View style={{flexDirection:"row",width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,justifyContent:"space-between",paddingTop: window.innerHeight * 0.03,}}>
             <Text style={{textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Categorías
                   </Text>
@@ -207,7 +207,7 @@ Núm. de artículos
                   Configura las secciones de tu carta
                   </Text>
                   <TextInput numberOfLines={1} placeholder={"Buscar una sección"} style={{marginLeft:window.innerWidth*0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                <View style={{width:"70%",height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
+                <View style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
 <View style={{width:"30%",alignItems:"flex-start",justifyContent:"center"}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Nombre de la sección
@@ -229,7 +229,7 @@ Núm. de artículos
 
                 </View>
                 <View style={{width:"100%",height:100,backgroundColor:"red",flexDirection:"row",marginTop:window.innerHeight*0.0025}}>
-                <TouchableOpacity style={{width:"70%",height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
+                <TouchableOpacity style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
 <View style={{width:"30%",alignItems:"flex-start",justifyContent:"center"}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                        Hamburguesas
@@ -256,7 +256,7 @@ Núm. de artículos
                 }
                 {false &&
                 <View style={{position:"absolute",top:0,width:"100%",height:"100%",backgroundColor:"rgba(0,0,0,0.4)",justifyContent:"center",alignItems:"center"}}>
-                <View style={{width:"70%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
+                <View style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
 <View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01}}>
 <Text numberOfLines={1} style={{ color: "#000", fontWeight: "400", fontSize: "1.5rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Nuevo menú
