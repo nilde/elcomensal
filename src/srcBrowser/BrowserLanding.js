@@ -62,7 +62,7 @@ export default class App extends React.Component {
     <div style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getRootProps()}>
         <input style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getInputProps()} />
         <Text style={{position:"absolute",top:"45%",alignSelf:"center",justifySelf:"center",textDecorationLine: "none", color: "gray", fontWeight: "400", fontSize: "1rem", textAlign: "center", width:"100%",paddingHorizontal:window.innerWidth*0.02 }}>
-        Arrastra una imagen o pulsa para subir una desde tu ordenador (opcional)
+        Añade una imagen o fichero con la carta de tu restaurante
                   </Text>
        
       </div>
@@ -104,7 +104,7 @@ export default class App extends React.Component {
 <Text style={{paddingTop:window.innerHeight*0.02, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal: window.innerWidth*0.005, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
 Te apoyamos frente al COVID-19
                         </Text>
-                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.3rem", paddingHorizontal: window.innerWidth*0.005, textAlign: "left", width: "100%" }}>
+                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: window.innerWidth*0.005, textAlign: "left", width: "100%" }}>
                         Queremos que disfrutes de 2 meses gratis al registrarte como muestra de nuestro apoyo.
                         </Text>
 
@@ -115,7 +115,7 @@ Te apoyamos frente al COVID-19
 <Text style={{paddingTop:window.innerHeight*0.02, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal: window.innerWidth*0.005, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
 Sin necesidad de formación
                         </Text>
-                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.3rem", paddingHorizontal: window.innerWidth*0.005, textAlign: "left", width: "100%" }}>
+                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: window.innerWidth*0.005, textAlign: "left", width: "100%" }}>
                         Empieza a gestionar tu carta desde cualquier dispositivo con conexión a Internet en cuestión de minutos.
                         </Text>
 
@@ -126,7 +126,7 @@ Sin necesidad de formación
 <Text style={{paddingTop:window.innerHeight*0.02, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal: window.innerWidth*0.005, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
 Nos encargamos de todo
                         </Text>
-                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.3rem", paddingHorizontal: window.innerWidth*0.005, textAlign: "left", width: "100%" }}>
+                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: window.innerWidth*0.005, textAlign: "left", width: "100%" }}>
                         Nos encargamos de crear la primera versión de tu carta y disponemos de atención al clientes las 24h
                         </Text>
 
@@ -149,11 +149,15 @@ Una experiencia increible para tus clientes
                         <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", textAlign: "left",  }}>
                         Mejora la experiencia que tienen tus clientes a la hora de pedir con nuestras cartas online de última tecnología
                         </Text>
-                        <TouchableOpacity style={{alignSelf:"flex-start",marginLeft:window.innerWidth*0.02, justifyContent:"center",alignItems:"center",backgroundColor:"#fff",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02,marginBottom:window.innerHeight*0.03}}>
-            <Text style={{ width:"100%", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "center" }}>
+                        <Link to="/menu_example" style={{alignSelf:"flex-start", height:"100%",textDecoration:"none",color:"#000"}} >
+   
+                        <TouchableOpacity style={{alignSelf:"flex-start",marginLeft:window.innerWidth*0.02, justifyContent:"center",alignItems:"center",backgroundColor:"#000",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02,marginBottom:window.innerHeight*0.03}}>
+                       
+            <Text style={{ width:"100%", color: "#fff", fontWeight: "400", fontSize: "1rem", textAlign: "center" }}>
                  Ver una carta de ejemplo
 </Text>
-         </TouchableOpacity> 
+
+         </TouchableOpacity> </Link>
 </View>
 <View style={{borderWidth:10,borderColor:"#FFC627",width:"48%",alignItems:"center",height:window.innerHeight*0.85,backgroundColor:"#FFC627"}}>
     <Image source={adapt} style={{width: "100%", height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="cover" />
@@ -166,11 +170,14 @@ Diseñado para adaptarse a tu negocio
                         <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", textAlign: "left",  }}>
                         Hemos creado una plataforma de última tecnología que te va a permitir gestionar tu restaurante con extrema facilidad. 
                         </Text>
-                        <TouchableOpacity style={{alignSelf:"flex-start",marginLeft:window.innerWidth*0.02, justifyContent:"center",alignItems:"center",backgroundColor:"#fff",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02,marginBottom:window.innerHeight*0.03}}>
-            <Text style={{ width:"100%", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "center" }}>
+                        <Link to="/admin_example" style={{alignSelf:"flex-start", height:"100%",textDecoration:"none",color:"#000"}} >
+   
+                        <TouchableOpacity style={{alignSelf:"flex-start",marginLeft:window.innerWidth*0.02, justifyContent:"center",alignItems:"center",backgroundColor:"#000",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02,marginBottom:window.innerHeight*0.03}}>
+            <Text style={{ width:"100%", color: "#fff", fontWeight: "400", fontSize: "1rem", textAlign: "center" }}>
                  Echa un ojo al panel de administración
 </Text>
          </TouchableOpacity> 
+         </Link>
 </View>
 
 
@@ -278,10 +285,18 @@ Nos encargamos de todo
                 <TextInput numberOfLines={1} placeholder={"Nombre completo"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"70%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
                 <TextInput numberOfLines={1} placeholder={"Correo electrónico"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"70%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
                 <TextInput multiline numberOfLines={5} placeholder={"Detalles de la consulta"} style={{fontSize:"1rem", width:"70%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
-           
+                <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"flex-start",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#000",marginTop:window.innerHeight*0.02,marginLeft:window.innerWidth*0.01 }}>
+                <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
+                  
+                  <Text style={{ color: "#fff", fontWeight: "400", fontSize: "1rem", paddingHorizontal: window.innerWidth*0.05, paddingVertical: window.innerHeight * 0.02, textAlign: "center", width: "100%" }}>
+                    Enviar consulta
+                    </Text>
+                </View>
+                
+                </TouchableOpacity>
 </View>
 <View style={{width:"50%",height:"100%"}}>
-<Image source={contact} style={{alignSelf:"center", width:"100%", height: window.innerHeight*0.47, zIndex: 0 }} resizeMode="cover" />
+<Image source={contact} style={{alignSelf:"center", width:"100%", height: window.innerHeight*0.6, zIndex: 0 }} resizeMode="cover" />
 
 </View>
       </View>
@@ -303,7 +318,9 @@ Nos encargamos de todo
    <View style={{width:"65%",height:"100%",}}>
 
    </View>
-    <TouchableOpacity style={{height:"100%", width:"10%",alignItems:"center",justifyContent:"center",backgroundColor:"#fff"}}>
+    <Link to="/login" style={{height:"100%", width:"10%",textDecoration:"none",color:"#000"}} >
+    <TouchableOpacity style={{height:"100%",alignItems:"center",justifyContent:"center",backgroundColor:"#fff"}}>
+ 
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left" }}>
                                         Iniciar sesión
                   </Text>
@@ -311,7 +328,9 @@ Nos encargamos de todo
 
 
                 </TouchableOpacity>
-                <TouchableOpacity style={{height:"100%", width:"10%",alignItems:"center",justifyContent:"center",backgroundColor:"#FFC627"}}>
+                </Link>  
+                <Link to="/register" style={{height:"100%", width:"10%",textDecoration:"none",color:"#000"}} > 
+                <TouchableOpacity style={{height:"100%", alignItems:"center",justifyContent:"center",backgroundColor:"#FFC627"}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left" }}>
                                         Únete
                   </Text>
@@ -319,6 +338,7 @@ Nos encargamos de todo
 
 
                 </TouchableOpacity>
+                </Link>
     </View>
           </View>
       )

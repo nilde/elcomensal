@@ -78,15 +78,15 @@ export default class App extends React.Component {
             }
           </Route>
         
-          <Route path="/forgot">
-            {isMobile && false &&
+          <Route exact path="/forgot">
+            {isMobile &&
               <PhoneForgot />
             }
-            {isBrowser && false &&
+            {isBrowser &&
               <BrowserForgot />
             }
           </Route>
-          <Route path="/landing">
+          <Route exact path="/landing">
             {isMobile && 
               <PhoneLanding />
             }
@@ -94,7 +94,7 @@ export default class App extends React.Component {
               <BrowserLanding />
             }
           </Route>
-          <Route path="/manage">
+          <Route exact path="/manage">
             {isMobile &&
               <PhoneManage />
             }
@@ -102,15 +102,15 @@ export default class App extends React.Component {
               <BrowserManage />
             }
           </Route>
-          <Route path="/success">
-            {isMobile && false &&
+          <Route exact path="/success">
+            {isMobile && 
               <PhoneSuccess />
             }
-            {isBrowser && false &&
+            {isBrowser && 
               <BrowserSuccess />
             }
           </Route>
-          <Route path="/:name">
+          <Route exact path="/:name">
             {isMobile && 
               <MenuMobile />
             }
