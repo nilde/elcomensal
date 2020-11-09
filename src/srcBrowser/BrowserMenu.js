@@ -59,7 +59,8 @@ const basicMenu = [
       avaliable:true,
       vegetarian:true,
       vegan:true,
-      no_gluten:true
+      no_gluten:true,
+      unity:true
 
     },
     {
@@ -1245,19 +1246,8 @@ if(this.state.activeSection!=newActiveSection)
     return (
       <div class="overflow-x-hidden">
       <View style={{width:window.innerWidth,background:"#FFCCDF",overflow:"hidden"}}>
-      <Image source={header} style={{position:"absolute",top:0,  width: "100%", height:"200%", zIndex: 0,opacity:0.3 }} resizeMode="cover" />
-
-      <View style={{ width:window.innerWidth, height: window.innerHeight * 0.015 }} />
-      <TouchableOpacity onLongPress={() => this.setState({ showDetails: false })} onPress={() => this.setState({ showDetails: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 10,right:10 }}>
-                      <IoIosWifi size="1.7em" />
-                      <Text style={{textAlign:"center",margin:0, zIndex: 9, color: "#000", fontWeight: "600", fontSize: "0.6rem",}}>
-                WIFI
-</Text>
-
-                    </TouchableOpacity>
-      <p style={{margin:"10px 0 0 0", textAlign:"left",marginLeft:window.innerWidth*0.05, width:window.innerWidth, zIndex: 9, color: "#000", fontWeight: "500", fontSize: "1.2rem",}}>
-                Bienvenido/a a
-</p>
+      
+      <View style={{ width:window.innerWidth, height: window.innerHeight * 0.3 }} />
 
       <Text style={{textAlign:"left",marginLeft:window.innerWidth*0.05, width:"80%", zIndex: 9, color: "#000", fontWeight: "600", fontSize: "2rem",}}>
                  {this.state.restaurantName.length>0?this.state.restaurantName:"Goykos Manresa"}
@@ -1267,20 +1257,7 @@ if(this.state.activeSection!=newActiveSection)
   <div class={"stickyHeader"} style={{width:window.innerWidth}}>
   <div style={{height:window.innerHeight*0.017,width:window.innerWidth}}/>
         
-          <View style={{flexDirection:"row",justifyContent:"space-between",width:window.innerWidth}}>
-          <TouchableOpacity style={{justifyContent:"center",alignItems:"center", marginLeft:window.innerWidth*0.025, backgroundColor:"#fff",borderRadius:100,width:40,height:40}}>
-          <IoMdSearch size="1.3em" />
-</TouchableOpacity>
-          <TouchableOpacity blurOnSubmit showSoftInputOnFocus={false}  placeholder="Buscar un plato" selectionColor={"#000"} value={this.state.searchValue} onChangeText={(newValue)=>this.manageFilter(newValue)} style={{borderRadius:0, outline: 'none', fontSize:"1rem", width:"70%",height:40, }} >
-          <Text style={{height:"100%", paddingHorizontal:window.innerWidth*0.03,alignSelf:"center", textAlign:"center",textAlignVertical:"center", width:"80%", zIndex: 9, color: "#000", fontWeight: "500", fontSize: "1rem",}}>
-                 Carta de bebidas
-</Text>
-            </TouchableOpacity>
-          <TouchableOpacity style={{justifyContent:"center",alignItems:"center",marginRight:window.innerWidth*0.025, backgroundColor:"#fff",borderRadius:100,width:40,height:40}}>
-          <RiEqualizerLine size="1.3em" />
-          </TouchableOpacity>
-          </View>
-       
+   
           <View style={{height:window.innerHeight*0.017,width:window.innerWidth}}/>
            <ScrollView style={{width:window.innerWidth}} scrollEnabled={!this.state.modalOpen}  ref={r=>this.menuHorizontalRef=r} horizontal showsHorizontalScrollIndicator={false}>
 
@@ -1302,10 +1279,11 @@ if(this.state.activeSection!=newActiveSection)
     this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.01})
 }
  )}
-} onLayout={(e)=>this.addOfsetsHorizontal(e.nativeEvent.layout.x)} style={{ backgroundColor:this.state.activeSection==index?"#000":"#f5f5f5",borderRadius:100, paddingHorizontal:window.innerWidth*0.01,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.02}}>
-      <p style={{fontWeight:this.state.activeSection==index?"500":"400",color:this.state.activeSection==index?"#fff":"gray",padding:"10px 0",margin:0}}>
+} onLayout={(e)=>this.addOfsetsHorizontal(e.nativeEvent.layout.x)} style={{ backgroundColor:"#fff",borderRadius:100, paddingHorizontal:window.innerWidth*0.01,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.02}}>
+      <p style={{fontWeight:this.state.activeSection==index?"400":"300",color:this.state.activeSection==index?"#000":"gray",padding:"10px 0",margin:0}}>
         {item}
       </p>
+      <View style={{position:"absolute",bottom:0,width:"70%",height:this.state.activeSection==index?4:0,borderRadius:0,backgroundColor:"#FFAF0F"}}/>
     </TouchableOpacity>
   ))
 }
@@ -1446,7 +1424,7 @@ if(this.state.activeSection!=newActiveSection)
             <div style={{ width: window.innerWidth*0.3, justifyContent: "center", alignItems: "center",display:"block",  margin:0,padding:0,position:"absolute",top:0,right:0 }}>
               <p style={{ color: item.content[index_1*3+index_2].offer ? "#D91717" : "#000", fontWeight: "500", fontSize: "0.9rem",textAlign:"right",padding:"20px 10px 0 0",margin:0 }}>
               {item.content[index_1*3+index_2].offer &&
-                  (parseFloat(item.content[index_1*3+index_2].price) - (parseFloat(item.content[index_1*3+index_2].price) * item.content[index_1*3+index_2].offerPercentage / 100)).toFixed(2) + " €"}
+                  (parseFloat(item.content[index_1*3+index_2].price) - (parseFloat(item.content[index_1*3+index_2].price) * item.content[index_1*3+index_2].offerPercentage / 100)).toFixed(2) + " €"} { item.content[index_1*3+index_2].unity?"/ ud.":""}
                 {!item.content[index_1*3+index_2].offer &&
                   item.content[index_1*3+index_2].price.toFixed(2) + " €"}
 
@@ -1456,7 +1434,7 @@ if(this.state.activeSection!=newActiveSection)
                 item.content[index_1*3+index_2].offer &&
                 <p style={{ color: "gray", fontWeight: "600", fontSize: "0.7rem", textDecorationLine: "line-through",textAlign:"right",padding:"5px 10px 0 0",margin:0 }}>
 
-                {item.content[index_1*3+index_2].price.toFixed(2)} €
+                {item.content[index_1*3+index_2].price.toFixed(2)} € {item.content[index_1*3+index_2].unity?"/ ud.":""}
 </p>
               }
 

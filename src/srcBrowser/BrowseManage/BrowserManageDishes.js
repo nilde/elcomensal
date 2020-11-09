@@ -7,6 +7,7 @@ import { ProSidebar, Menu, MenuItem, SubMenu,SidebarHeader,SidebarContent, Sideb
 import 'react-pro-sidebar/dist/css/styles.css';
 import Collapsible from 'react-collapsible';
 import { Background } from 'react-parallax';
+import Dropzone from 'react-dropzone'
 const optionsProduct = ["Especialidad", "Vegetariano", "Vegano", "Sin gluten", "Sin lactosa", "Para compartir", "Por unidad", "Alcohol", "Sin alcohol", "Halal"]
 const allergensOptions=["Pescado","Frutos secos","Lácteos","Moluscos","Cereales con gluten","Crustáceos","Huevos","Cacahuetes","Soja","Apio","Mostaza","Sésamo","Altramuz","Sulfitos"]
 
@@ -32,24 +33,24 @@ export default class App extends React.Component {
 
         return (
             <View style={{zIndex: 0,width: window.innerWidth, height: window.innerHeight, backgroundColor: "#fff"}}>
-          <View style={{width:"100%",height:window.innerHeight*0.07,backgroundColor:"#fff",flexDirection:"row",backgroundColor:"#f5f5f5"}}>
+          <View style={{width:"100%",height:window.innerHeight*0.07,backgroundColor:"#fff",flexDirection:"row"}}>
 
 <TouchableOpacity onLongPress={()=>this.setState({status:"DISHES"})} onPress={()=>this.setState({status:"DISHES"})} style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
-<Text style={{ textDecorationLine: "none", color:this.state.status=="DISHES"?"#000":"gray", fontWeight: this.state.status=="DISHES"?"500":"400", fontSize: "1rem", textAlign: "center"}}>
+<Text style={{ textDecorationLine: "none", color:this.state.status=="DISHES"?"#000":"gray", fontWeight: "400", fontSize: "1rem", textAlign: "center"}}>
                                         Platos
                   </Text>
                   <View style={{position:"absolute",bottom:0, width:"60%",alignSelf:"center",height:this.state.status=="DISHES"?4:0,backgroundColor:"#FFC627"}}/>
 
 </TouchableOpacity>
 <TouchableOpacity onLongPress={()=>this.setState({status:"MENUS"})} onPress={()=>this.setState({status:"MENUS"})} style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
-<Text style={{ textDecorationLine: "none", color: this.state.status=="MENUS"?"#000":"gray", fontWeight: this.state.status=="MENUS"?"500":"400", fontSize: "1rem", textAlign: "center"}}>
+<Text style={{ textDecorationLine: "none", color: this.state.status=="MENUS"?"#000":"gray", fontWeight: "400", fontSize: "1rem", textAlign: "center"}}>
                                         Menús
                   </Text>
                   <View style={{width:"100",height:4,position:"absolute",top:0,backgroundColor:"#000"}}></View>
                   <View style={{position:"absolute",bottom:0, width:"60%",alignSelf:"center",height:this.state.status=="MENUS"?4:0,backgroundColor:"#FFC627"}}/>
 </TouchableOpacity>
 <TouchableOpacity onLongPress={()=>this.setState({status:"CARTA"})} onPress={()=>this.setState({status:"CARTA"})} style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
-<Text style={{ textDecorationLine: "none", color:this.state.status=="CARTA"?"#000":"gray", fontWeight: this.state.status=="CARTA"?"500":"400", fontSize: "1rem", textAlign: "center"}}>
+<Text style={{ textDecorationLine: "none", color:this.state.status=="CARTA"?"#000":"gray", fontWeight: "400", fontSize: "1rem", textAlign: "center"}}>
                                         Categorías
                   </Text>
                   <View style={{width:"100",height:4,position:"absolute",bottom:0,backgroundColor:"#000"}}></View>
@@ -995,9 +996,22 @@ Núm. de artículos
                                        
 
                   </Text>
-                <View style={{width:"95%",alignSelf:"center",height:200,backgroundColor:"#f5f5f5",marginTop:window.innerHeight*0.02}}>
+                  <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
+  {({getRootProps, getInputProps}) => (
+    <View style={{width:"95%",justifyContent:"center",alignItems:"center", alignSelf:"center",height:200,backgroundColor:"#f5f5f5",marginTop:window.innerHeight*0.02}}>
 
-                </View>
+    <div style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getRootProps()}>
+        <input style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getInputProps()} />
+        <Text style={{position:"absolute",top:"45%",alignSelf:"center",justifySelf:"center",textDecorationLine: "none", color: "gray", fontWeight: "400", fontSize: "1rem", textAlign: "center", width:"100%",paddingHorizontal:window.innerWidth*0.02 }}>
+        Arrastra una imagen o pulsa para subir una desde tu ordenador (opcional)
+                  </Text>
+       
+      </div>
+    </View>
+  )}
+</Dropzone>
+                
+               
                   <TextInput numberOfLines={1} placeholder={"Nombre del plato Ej. Hamburguesa con queso"} style={{marginTop: window.innerHeight * 0.02, fontSize: "1rem", width: "95%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
                   <TextInput numberOfLines={3} placeholder={"Descripción (opcional) Ej. Hamburguesa de 200g de ternera con mozarella"} style={{marginVertical: window.innerHeight * 0.02, fontSize: "1rem", width: "95%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
                   <View style={{width:"100%",flexDirection:"row",justifyContent:"space-between",marginTop:window.innerHeight*0.05}}>
@@ -1042,7 +1056,11 @@ Núm. de artículos
             </TouchableOpacity>
             </View>
             
-                  
+            <View style={{width:"100%",height:200,backgroundColor:"#fff"}}>
+      <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.2rem", textAlign: "left",paddingVertical:window.innerHeight*0.02,marginLeft:window.innerWidth*0.01 }}>
+                                        Menús
+                  </Text>
+          </View>       
                
               
 
@@ -1116,7 +1134,11 @@ Núm. de artículos
                       ))
                     }
 
-                  
+      <View style={{width:"100%",height:200,backgroundColor:"#fff"}}>
+      <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.2rem", textAlign: "left",paddingVertical:window.innerHeight*0.02,marginLeft:window.innerWidth*0.01 }}>
+                                        Categorías
+                  </Text>
+          </View>            
 </View>
 </View>
 <TouchableOpacity onLongPress={() => this.setState({ showNewDish: false })} onPress={() => this.setState({ showNewDish: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 0,right:0 }}>
@@ -1125,8 +1147,8 @@ Núm. de artículos
 </View>
 <View style={{width:"95%",alignSelf:"center",justifyContent:"center",alignItems:"center",paddingBottom:window.innerHeight*0.03,backgroundColor:"#fff"}}>
            
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",width:"40%",}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.2rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
+                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",width:"30%",}}>
+<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
                                         Crear plato o bebida
                   </Text>
                   

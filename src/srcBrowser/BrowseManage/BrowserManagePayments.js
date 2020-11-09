@@ -22,17 +22,17 @@ export default class App extends React.Component {
 
         return (
             <View style={{zIndex: 0,width: window.innerWidth, height: window.innerHeight, backgroundColor: "#fff"}}>
-            <View style={{width:"100%",height:window.innerHeight*0.07,backgroundColor:"#fff",flexDirection:"row",backgroundColor:"#f5f5f5"}}>
+            <View style={{width:"100%",height:window.innerHeight*0.07,backgroundColor:"#fff",flexDirection:"row",backgroundColor:"#fff"}}>
 
 <TouchableOpacity onLongPress={()=>this.setState({status:"ALL"})} onPress={()=>this.setState({status:"ALL"})} style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
-<Text style={{ textDecorationLine: "none", color:this.state.status=="ALL"?"#000":"gray", fontWeight: this.state.status=="ALL"?"500":"400", fontSize: "1rem", textAlign: "center"}}>
+<Text style={{ textDecorationLine: "none", color:this.state.status=="ALL"?"#000":"gray", fontWeight: "400", fontSize: "1rem", textAlign: "center"}}>
                                         Mis facturas
                   </Text>
                   <View style={{position:"absolute",bottom:0, width:"60%",alignSelf:"center",height:this.state.status=="ALL"?4:0,backgroundColor:"#FFC627"}}/>
 
 </TouchableOpacity>
 <TouchableOpacity onLongPress={()=>this.setState({status:"DETAILS"})} onPress={()=>this.setState({status:"DETAILS"})} style={{width:"20%",alignItems:"center",justifyContent:"center"}}>
-<Text style={{ textDecorationLine: "none", color: this.state.status=="DETAILS"?"#000":"gray", fontWeight: this.state.status=="DETAILS"?"500":"400", fontSize: "1rem", textAlign: "center"}}>
+<Text style={{ textDecorationLine: "none", color: this.state.status=="DETAILS"?"#000":"gray", fontWeight: "400", fontSize: "1rem", textAlign: "center"}}>
                                         Datos de facturación
                   </Text>
                   <View style={{width:"100",height:4,position:"absolute",top:0,backgroundColor:"#000"}}></View>
@@ -81,6 +81,19 @@ export default class App extends React.Component {
                   <Text style={{paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.3rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                   Revisa y edita tus datos de facturación
                   </Text>
+                  <Text style={{paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+                  Nombre y apellidos del autónomo o nombre fiscal de la empresa
+                  </Text>
+                  <TextInput numberOfLines={1} placeholder={"Restaurante Gourmet S.L"} style={{marginLeft:window.innerWidth*0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  <Text style={{paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+                  CIF o NIF
+                  </Text>
+                  <TextInput numberOfLines={1} placeholder={"B – XXXXXXXX"} style={{marginLeft:window.innerWidth*0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  <Text style={{paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+                  Dirección fiscal
+                  </Text>
+                  <TextInput numberOfLines={1} placeholder={"C/ Bruc 26, Manresa"} style={{marginLeft:window.innerWidth*0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                
                   </View>
           }
             </View>

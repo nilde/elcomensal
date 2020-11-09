@@ -111,10 +111,10 @@ export default class App extends React.Component {
             }
           </Route>
           <Route path="/:name">
-            {isMobile && false &&
-              <PhoneMenu />
+            {isMobile && 
+              <MenuMobile />
             }
-            {isBrowser &&false&&
+            {isBrowser &&
               <BrowserMenu />
             }
           </Route>

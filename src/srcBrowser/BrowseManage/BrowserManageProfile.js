@@ -7,7 +7,7 @@ import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarContent, Sid
 import 'react-pro-sidebar/dist/css/styles.css';
 import Collapsible from 'react-collapsible';
 import { Background } from 'react-parallax';
-
+import Dropzone from "react-dropzone"
 export default class App extends React.Component {
     constructor(props) {
         super(props);
@@ -31,20 +31,34 @@ export default class App extends React.Component {
                   </Text>
                 <View style={{ width: window.innerWidth, flexDirection: "row" }}>
                     <View style={{ width: "50%" }}>
-                        <Text style={{ paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                            Foto de perfil
+                        <Text style={{ paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+                            Foto del restaurante
                   </Text>
+                  <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
+  {({getRootProps, getInputProps}) => (
+    <View style={{width:"85%",justifyContent:"center",alignItems:"center", alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,height:200,backgroundColor:"#f5f5f5",marginVertical:window.innerHeight*0.02}}>
+
+      <div style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getRootProps()}>
+        <input style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getInputProps()} />
+        <Text style={{position:"absolute",top:"45%",alignSelf:"center",justifySelf:"center",textDecorationLine: "none", color: "gray", fontWeight: "400", fontSize: "1rem", textAlign: "center", width:"100%",paddingHorizontal:window.innerWidth*0.02 }}>
+        Arrastra una imagen o pulsa para subir una desde tu ordenador (opcional)
+                  </Text>
+       
+      </div>
+    </View>
+  )}
+</Dropzone>
                     </View>
                     <View style={{ width: "50%" }}>
                         <Text style={{ paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                             Nombre del restaurante
                   </Text>
-                        <TextInput numberOfLines={1} placeholder={"Buscar un menú"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "50%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                        <TextInput numberOfLines={1} placeholder={"Restaurante gourmet"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
 
                         <Text style={{ paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                             Dirección
                   </Text>
-                        <TextInput numberOfLines={1} placeholder={"Buscar un menú"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "50%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                        <TextInput numberOfLines={1} placeholder={"C/ Bruc 26, Barcelona"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
 
                     </View>
 
@@ -55,7 +69,7 @@ export default class App extends React.Component {
                             Correo electrónico
                            
                   </Text>
-                  <TextInput numberOfLines={1} placeholder={"Buscar un menú"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "50%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  <TextInput numberOfLines={1} placeholder={"restaurantegourmet@mail.com"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
 
                     </View>
                     <View style={{ width: "50%" }}>
@@ -63,7 +77,7 @@ export default class App extends React.Component {
                             Número de teléfono
                             
                   </Text>
-                  <TextInput numberOfLines={1} placeholder={"Buscar un menú"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "50%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  <TextInput numberOfLines={1} placeholder={"930000000"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
 
                     </View>
                 </View>

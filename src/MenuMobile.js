@@ -62,7 +62,8 @@ const basicMenu = [
       avaliable:true,
       vegetarian:true,
       vegan:true,
-      no_gluten:true
+      no_gluten:true,
+      unity:true
 
     },
     {
@@ -82,7 +83,8 @@ const basicMenu = [
       recommended: false,
       offer: true,
       offerPercentage: 10,
-      avaliable:true
+      avaliable:true,
+      unity:true
 
     },
     {
@@ -1396,9 +1398,9 @@ removeClippedSubviews
             <View style={{flexDirection:"row", width: "100%", justifyContent: "flex-start", alignItems: "flex-start", paddingLeft:"5%",marginBottom:window.innerHeight*0.01}}>
               <Text style={{ color: internal_item.offer ? "#D91717" : "#000", fontWeight: "500", fontSize: "0.9rem",textAlign:"left",margin:0  }}>
               {internal_item.offer &&
-                  (parseFloat(internal_item.price) - (parseFloat(internal_item.price) * internal_item.offerPercentage / 100)).toFixed(2) + " €"}{internal_item.unity?" (Unidad)":""}
+                  (parseFloat(internal_item.price) - (parseFloat(internal_item.price) * internal_item.offerPercentage / 100)).toFixed(2) + " €"}
                 {!internal_item.offer &&
-                  internal_item.price.toFixed(2) + " €"}
+                  internal_item.price.toFixed(2) + " €"}{internal_item.unity?" / ud.":""}
                   {internal_item.offer &&
                   <Text style={{marginLeft:5, color: "gray", fontWeight: "600", fontSize: "0.7rem", textDecorationLine: "line-through",textAlign:"left",margin:0 }}>
 
