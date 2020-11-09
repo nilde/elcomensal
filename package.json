@@ -20,6 +20,7 @@
     "react-dom": "^17.0.1",
     "react-dropdown": "^1.9.0",
     "react-dropzone": "^11.2.3",
+    "react-expand-animated": "^1.0.2",
     "react-icons": "^3.11.0",
     "react-modal": "^3.11.2",
     "react-native-web": "^0.14.4",

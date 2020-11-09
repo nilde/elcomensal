@@ -93,31 +93,31 @@ export default class App extends React.Component {
                   <TextInput numberOfLines={1} placeholder={"Buscar un plato o bebida"} style={{marginLeft:window.innerWidth*0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
                 <View style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
 <View style={{width:"20%",alignItems:"flex-start",justifyContent:"center"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Nombre del plato
                   </Text>
                   
 </View>
 <View style={{width:"20%",alignItems:"center",justifyContent:"center"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Menús
                   </Text>
                   
 </View>
 <View style={{width:"20%",alignItems:"center",justifyContent:"center"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Categorías
                   </Text>
                   
 </View>
 <View style={{width:"20%",alignItems:"center",justifyContent:"center"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Precio
                   </Text>
                   
 </View>
 <View style={{width:"20%",alignItems:"center",justifyContent:"center"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Disponibilidad
                   </Text>
                   
@@ -244,7 +244,7 @@ Núm. de artículos
 </View>
 
                 </View>
-                <View style={{width:"100%",height:100,backgroundColor:"red",flexDirection:"row",marginTop:window.innerHeight*0.0025}}>
+                <View style={{width:"100%",flexDirection:"row",marginTop:window.innerHeight*0.0025,}}>
                 <TouchableOpacity style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
 <View style={{width:"30%",alignItems:"flex-start",justifyContent:"center"}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
@@ -270,102 +270,12 @@ Núm. de artículos
                 </View>
                   </ScrollView>    
                 }
-                {false &&
-                <View style={{position:"absolute",top:0,width:"100%",height:"100%",backgroundColor:"rgba(0,0,0,0.4)",justifyContent:"center",alignItems:"center"}}>
-                <View style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
-<View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01}}>
-<Text numberOfLines={1} style={{ color: "#000", fontWeight: "400", fontSize: "1.5rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                                        Nuevo menú
-                                       
-
-                  </Text>
-   
-                  <TextInput numberOfLines={1} placeholder={"Nombre del menú"} style={{marginVertical: window.innerHeight * 0.02, fontSize: "1rem", width: "95%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  <TextInput numberOfLines={3} placeholder={"Información adicional (opcional) "} style={{marginVertical: window.innerHeight * 0.02, fontSize: "1rem", width: "95%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  <Text numberOfLines={1} style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                                        Precio
-                  </Text>
-                  <TextInput numberOfLines={3} placeholder={"14.50€"} style={{marginVertical: window.innerHeight * 0.02, fontSize: "1rem", width: "95%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                 
-                  <Text numberOfLines={1} style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01,marginBottom:window.innerHeight*0.02 }}>
-                                        Secciones
-                  </Text>
-                  <TouchableOpacity style={{flexDirection:"row", alignItems:"flex-start",justifyContent:"space-between",backgroundColor:"#fff",alignSelf:"center",width:"95%"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        Primeros
-                  </Text>
-                  <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        0 artículos
-                  </Text>
-                  
-                </TouchableOpacity>
-                <TouchableOpacity style={{flexDirection:"row", alignItems:"flex-start",justifyContent:"space-between",backgroundColor:"#fff",alignSelf:"center",width:"95%"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        Segundos
-                  </Text>
-                  <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        0 artículos
-                  </Text>
-                  
-                </TouchableOpacity>
-                <TouchableOpacity style={{flexDirection:"row", alignItems:"flex-start",justifyContent:"space-between",backgroundColor:"#fff",alignSelf:"center",width:"95%"}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        Postres
-                  </Text>
-                  <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        0 artículos
-                  </Text>
-                  
-                </TouchableOpacity>
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",width:"95%",position:"absolute",bottom:window.innerHeight*0.02}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
-                                        Crear menú
-                  </Text>
-                  
-
-
-                </TouchableOpacity>
-</View>
-<View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,height:"100%"}}>
-<Text numberOfLines={1} style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01,marginBottom:window.innerHeight*0.02 }}>
-                                        Artículos
-                  </Text>
-                  <TextInput numberOfLines={1} placeholder={"Buscar un artículo"} style={{marginVertical: window.innerHeight * 0.02, fontSize: "1rem", width: "95%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  
-                  <ScrollView style={{backgroundColor:"#f5f5f5",alignSelf:"center",width:"95%",height:window.innerHeight*0.7}}>
-{
-    ["Hamburguesas","Hamburguesas","Hamburguesas","Hamburguesas"].map((item,index)=>(
-        <View style={{width:"99%",alignSelf:"center",backgroundColor:"#fff",justifyContent:"center",alignItems:"center",marginTop:window.innerHeight*0.0025}}>
-            <View style={{width:"100%",flexDirection:"row"}}>
-            <View style={{width:"90%",justifyContent:"center",alignItems:"flex-start"}}>
-        <Text numberOfLines={1} style={{ textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01}}>
- 
-            {item}
-            </Text>
-            </View>
-            <View style={{width:"10%",justifyContent:"center",alignItems:"center",height:window.innerHeight*0.05}}>
-                <View style={{width:18,height:18,backgroundColor:"red"}}>
-
-                </View>
-                </View>
-            </View>
-        </View>
-    ))
-}
-
-
-                </ScrollView>
-</View>
-<TouchableOpacity onLongPress={() => this.setState({ showDetails: false })} onPress={() => this.setState({ showDetails: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 0,right:0 }}>
-                      <IoIosClose size="2.5em" />
-                    </TouchableOpacity>
-</View>
-                </View>
-                }
+                
                
                 {this.state.showNewMenu &&
-                <ScrollView style={{position:"absolute",top:0,width:this.state.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:"100%",backgroundColor:"#fff"}}>
-                <View style={{width:"100%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
+                <ScrollView style={{position:"absolute",top:0,width:this.state.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:"100%",backgroundColor:"rgba(0,0,0,0.4)"}}>
+               <View style={{backgroundColor:"#fff",paddingBottom:window.innerHeight*0.03,width:"95%",marginVertical:window.innerHeight*0.05,alignSelf:"center"}}>
+                <View style={{width:"95%",alignSelf:"center",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
 <View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01}}>
 <Text numberOfLines={1} style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Nuevo menú
@@ -706,27 +616,30 @@ Núm. de artículos
 
                 </ScrollView>
 </View>
+</View>
 <TouchableOpacity onLongPress={() => this.setState({ showNewMenu: false })} onPress={() => this.setState({ showNewMenu: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 0,right:0 }}>
                       <IoIosClose size="2.5em" />
                     </TouchableOpacity>
-</View>
-<View style={{width:"100%",alignSelf:"center",justifyContent:"center",alignItems:"center",marginTop:window.innerHeight*0.02}}>
-           
-                  <TouchableOpacity 
+                    <TouchableOpacity 
                   onLongPress={()=>this.setState({showNewMenu:true,showNewCategory:false,showNewDish:false})}
-                  onPress={()=>this.setState({showNewMenu:true,showNewCategory:false,showNewDish:false})} style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",width:"100%",}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.2rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
+                  onPress={()=>this.setState({showNewMenu:true,showNewCategory:false,showNewDish:false})} style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",width:window.innerWidth*0.3,}}>
+<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
                                         Crear menú
                   </Text>
                   
 
 
                 </TouchableOpacity>
+</View>
+<View style={{width:"100%",alignSelf:"center",justifyContent:"center",alignItems:"center"}}>
+           
+                  
                 </View>
                 </ScrollView>
                 }
                 {this.state.showNewCategory &&
-                <ScrollView style={{position:"absolute",top:0,width:this.state.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:"100%",backgroundColor:"#fff"}}>
+                <ScrollView style={{position:"absolute",top:0,width:this.state.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:"100%",backgroundColor:"rgba(0,0,0,0.4)"}}>
+                <View style={{backgroundColor:"#fff",paddingBottom:window.innerHeight*0.03,width:"95%",marginTop:window.innerHeight*0.05,alignSelf:"center"}}>
                 <View style={{width:"100%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
 <View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01}}>
 <Text numberOfLines={1} style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
@@ -1048,13 +961,14 @@ Núm. de artículos
 
                 </ScrollView>
 </View>
+</View>
 <TouchableOpacity onLongPress={() => this.setState({ showNewCategory: false })} onPress={() => this.setState({ showNewCategory: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 0,right:0 }}>
                       <IoIosClose size="2.5em" />
                     </TouchableOpacity>
 </View>
-<View style={{width:"100%",alignSelf:"center",justifyContent:"center",alignItems:"center",marginTop:window.innerHeight*0.02}}>
+<View style={{width:"95%",alignSelf:"center",justifyContent:"center",alignItems:"center",paddingBottom:window.innerHeight*0.03,backgroundColor:"#fff"}}>
            
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",width:"100%",}}>
+                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",width:"40%",}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.2rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
                                         Crear categoría
                   </Text>
@@ -1072,7 +986,8 @@ Núm. de artículos
 
 
                 {this.state.showNewDish &&
-                <ScrollView style={{position:"absolute",top:0,width:this.state.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:"100%",backgroundColor:"#fff"}}>
+                <ScrollView style={{position:"absolute",top:0,width:this.state.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:"100%",backgroundColor:"rgba(0,0,0,0.4)"}}>
+                <View style={{backgroundColor:"#fff",paddingBottom:window.innerHeight*0.03,width:"95%",marginTop:window.innerHeight*0.05,alignSelf:"center"}}>
                 <View style={{width:"100%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
 <View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01}}>
 <Text numberOfLines={1} style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
@@ -1203,13 +1118,14 @@ Núm. de artículos
 
                   
 </View>
+</View>
 <TouchableOpacity onLongPress={() => this.setState({ showNewDish: false })} onPress={() => this.setState({ showNewDish: false })} style={{ alignSelf: "flex-end", position: "absolute", top: 0,right:0 }}>
                       <IoIosClose size="2.5em" />
                     </TouchableOpacity>
 </View>
-<View style={{width:"100%",alignSelf:"center",justifyContent:"center",alignItems:"center",marginTop:window.innerHeight*0.02}}>
+<View style={{width:"95%",alignSelf:"center",justifyContent:"center",alignItems:"center",paddingBottom:window.innerHeight*0.03,backgroundColor:"#fff"}}>
            
-                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",width:"100%",}}>
+                  <TouchableOpacity style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"center",width:"40%",}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.2rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
                                         Crear plato o bebida
                   </Text>

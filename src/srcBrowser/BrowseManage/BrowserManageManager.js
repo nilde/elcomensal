@@ -1,8 +1,11 @@
 import * as React from 'react';
 import Title from 'reactjs-title'
 import { Animated, AppRegistry, StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, TouchableWithoutFeedback, TextInput, FlatList } from 'react-native';
-import { IoIosClose, IoMdRadioButtonOff, IoMdRadioButtonOn, IoIosRadioButtonOff, IoIosRadioButtonOn, IoIosMenu, IoMdMenu } from "react-icons/io";
+import { IoIosClose, IoMdRadioButtonOff, IoMdRadioButtonOn, IoIosRadioButtonOff, IoIosRadioButtonOn, IoIosMenu, IoMdMenu, IoIosCard, IoIosHelpCircle } from "react-icons/io";
 import { RiArrowLeftLine } from "react-icons/ri";
+import { ImExit, ImSpoonKnife } from "react-icons/im";
+import {GiChefToque} from "react-icons/gi"
+import {BiPowerOff} from "react-icons/bi"
 import Dropdown from 'react-dropdown';
 import { ProSidebar, Menu, MenuItem, SubMenu,SidebarHeader,SidebarContent, SidebarFooter } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
@@ -15,6 +18,16 @@ import Home from './BrowserManageHome'
 import Menus from './BrowserManageMenus'
 import Payments from './BrowserManagePayments'
 import Profile from './BrowserManageProfile'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Redirect,
+    useHistory,
+    useLocation
+  } from "react-router-dom";
+
 const options = [
     '00:00h', '00:15h', '00:30h', "00:45h",
     '01:00h', '01:15h', '01:30h', "01:45h",
@@ -79,43 +92,45 @@ elcomensal
 
 restaurantes
 </Text>
-<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center"}} onLongPress={()=>this.updateManagerStatus("DISHES")} onPress={()=>this.updateManagerStatus("DISHES")}>
-<IoIosClose size="2.5em" />                  
-<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.0025,  textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
+<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.02}} onLongPress={()=>{this.updateManagerStatus("DISHES");this.closeMenu()}} onPress={()=>{this.updateManagerStatus("DISHES");this.closeMenu()}}>
+<ImSpoonKnife size="1.5em" />                  
+<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.01,  textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
 
 Mi restaurantes
 </Text>
 </TouchableOpacity>
 
 
-<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center"}} onLongPress={()=>this.updateManagerStatus("PAYMENTS")} onPress={()=>this.updateManagerStatus("PAYMENTS")}>
-<IoIosClose size="2.5em" />     
-<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.0025, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
+<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.02}} onLongPress={()=>{this.updateManagerStatus("PAYMENTS");this.closeMenu()}} onPress={()=>{this.updateManagerStatus("PAYMENTS");this.closeMenu()}}>
+<IoIosCard size="1.5em" />     
+<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.01, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
 
 Pagos
 </Text>
 </TouchableOpacity>
-<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center"}} onLongPress={()=>this.updateManagerStatus("HELP")} onPress={()=>this.updateManagerStatus("HELP")}>
-<IoIosClose size="2.5em" />     
-<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.0025, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
+<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.02}} onLongPress={()=>{this.updateManagerStatus("HELP");this.closeMenu()}} onPress={()=>{this.updateManagerStatus("HELP");this.closeMenu()}}>
+<IoIosHelpCircle size="1.5em" />     
+<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.01, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
 
 Ayuda
 </Text>
 </TouchableOpacity>
-<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center"}} onLongPress={()=>this.updateManagerStatus("PROFILE")} onPress={()=>this.updateManagerStatus("PROFILE")}>
-<IoIosClose size="2.5em" />     
-<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.0025, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
+<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.02}} onLongPress={()=>{this.updateManagerStatus("PROFILE");this.closeMenu() }} onPress={()=>{this.updateManagerStatus("PROFILE");this.closeMenu()}}>
+<GiChefToque size="1.5em" />     
+<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.01, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
 
 Perfil
 </Text>
 </TouchableOpacity>
-<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center"}} onLongPress={()=>this.updateManagerStatus("DISHES")} onPress={()=>this.updateManagerStatus("DISHES")}>
-<IoIosClose size="2.5em" />  
-<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.0025, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
+<Link to="/" style={{textDecoration:"none",color:"#000",marginTop:window.innerHeight*0.35}} >
+<View  style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.02}} onLongPress={()=>this.updateManagerStatus("DISHES")} onPress={()=>this.updateManagerStatus("DISHES")}>
+<BiPowerOff size="1.5em" />  
+<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.01, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
 
 Cerrar sesión
 </Text>
-</TouchableOpacity>
+</View>
+</Link>
 <TouchableOpacity onLongPress={() => this.closeMenu()} onPress={() => this.closeMenu()} style={{ alignSelf: "center", position: "absolute", top: window.innerHeight*0.01,right:window.innerWidth*0.02 }}>
                       <RiArrowLeftLine size="2em" />
                     </TouchableOpacity> 
