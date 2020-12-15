@@ -51,7 +51,7 @@ export default class App extends React.Component {
                   
                   
                     
-                    <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"center",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#FFC627", width: "90%",marginTop:window.innerHeight*0.01 }}>
+                    <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"center",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#FFC524", width: "90%",marginTop:window.innerHeight*0.01 }}>
                 <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
                   
                   <Text style={{ color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.025, textAlign: "center", width: "100%" }}>
@@ -77,7 +77,7 @@ export default class App extends React.Component {
         </View>
         {/**BLOQUE 2 */}
         
-        <View style={{width:"100%",backgroundColor:"#FFC627",flexDirection:"row"}}>
+        <View style={{width:"100%",backgroundColor:"#FFC524",flexDirection:"row"}}>
     
 <View style={{width:"65%",paddingVertical:window.innerHeight*0.03}}>
 <Text style={{ color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: "5%", paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
@@ -100,7 +100,7 @@ Te apoyamos frente a la COVID-19
 
 <Text style={{ color: "#000", fontWeight: "500",padding:0,margin:0, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
 Diseñado para adaptarse a tu negocio
-<View style={{width:"100%",height:8,backgroundColor:"#FFC627"}}/>
+<View style={{width:"100%",height:8,backgroundColor:"#FFC524"}}/>
                         </Text>
                        
                         <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.05,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
@@ -117,7 +117,7 @@ Diseñado para adaptarse a tu negocio
 
 <Text style={{ color: "#000", fontWeight: "500",padding:0,marginTop:window.innerHeight*0.03, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
 Actualiza tu carta en tiempo real
-<View style={{width:"100%",height:8,backgroundColor:"#FFC627"}}/>
+<View style={{width:"100%",height:8,backgroundColor:"#FFC524"}}/>
                         </Text>
                        
                         <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.05,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
@@ -135,7 +135,7 @@ Actualiza tu carta en tiempo real
 
 <Text style={{ color: "#000", fontWeight: "500",padding:0, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
 ¿Cómo funciona elcomensal?
-<View style={{width:"100%",height:8,backgroundColor:"#FFC627"}}/>
+<View style={{width:"100%",height:8,backgroundColor:"#FFC524"}}/>
                         </Text>
                        
                         <Text style={{marginTop:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
@@ -154,7 +154,7 @@ Actualiza tu carta en tiempo real
 
 <Text style={{ color: "#000", fontWeight: "500",padding:0,marginTop:window.innerHeight*0.05, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
 Descubre cómo quedará
-<View style={{width:"100%",height:8,backgroundColor:"#FFC627"}}/>
+<View style={{width:"100%",height:8,backgroundColor:"#FFC524"}}/>
                         </Text>
                        
                         <Text style={{marginVertical:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
@@ -177,7 +177,7 @@ Descubre cómo quedará
 
 <Text style={{ color: "#000", fontWeight: "500",padding:0,marginTop:window.innerHeight*0.05, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
 ¿Por qué nosotros?
-<View style={{width:"100%",height:8,backgroundColor:"#FFC627"}}/>
+<View style={{width:"100%",height:8,backgroundColor:"#FFC524"}}/>
                         </Text>
                        
                         <Text style={{marginTop:window.innerHeight*0.01,color: "#000", fontWeight: "500", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>

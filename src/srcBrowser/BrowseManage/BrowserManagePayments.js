@@ -28,7 +28,7 @@ export default class App extends React.Component {
 <Text style={{ textDecorationLine: "none", color:this.state.status=="ALL"?"#000":"gray", fontWeight: "400", fontSize: "1rem", textAlign: "center"}}>
                                         Mis facturas
                   </Text>
-                  <View style={{position:"absolute",bottom:0, width:"60%",alignSelf:"center",height:this.state.status=="ALL"?4:0,backgroundColor:"#FFC627"}}/>
+                  <View style={{position:"absolute",bottom:0, width:"60%",alignSelf:"center",height:this.state.status=="ALL"?4:0,backgroundColor:"#FFC524"}}/>
 
 </TouchableOpacity>
 <TouchableOpacity onLongPress={()=>this.setState({status:"DETAILS"})} onPress={()=>this.setState({status:"DETAILS"})} style={{width:"20%",alignItems:"center",justifyContent:"center"}}>
@@ -36,7 +36,7 @@ export default class App extends React.Component {
                                         Datos de facturación
                   </Text>
                   <View style={{width:"100",height:4,position:"absolute",top:0,backgroundColor:"#000"}}></View>
-                  <View style={{position:"absolute",bottom:0, width:"60%",alignSelf:"center",height:this.state.status=="DETAILS"?4:0,backgroundColor:"#FFC627"}}/>
+                  <View style={{position:"absolute",bottom:0, width:"60%",alignSelf:"center",height:this.state.status=="DETAILS"?4:0,backgroundColor:"#FFC524"}}/>
 </TouchableOpacity>
 
 

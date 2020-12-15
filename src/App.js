@@ -51,15 +51,9 @@ export default class App extends React.Component {
 
       <SnackbarProvider>
         <ParallaxProvider>
-        <Router>
-          <Route exact path="/">
-            {isMobile &&
-              <MenuMobile />
-            }
-            {isBrowser  &&
-              <MenuBrowser />
-            }
-          </Route>
+          <Router>
+        <Switch>
+          
           <Route exact path="/register">
             {isMobile && 
               <PhoneRegister />
@@ -118,7 +112,16 @@ export default class App extends React.Component {
               <BrowserMenu />
             }
           </Route>
+          <Route exact path="/">
+            {isMobile &&
+              <MenuMobile />
+            }
+            {isBrowser  &&
+              <MenuBrowser />
+            }
+          </Route>
 
+        </Switch>
 
         </Router>
         </ParallaxProvider>

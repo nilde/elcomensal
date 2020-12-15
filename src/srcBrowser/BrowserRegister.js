@@ -10,7 +10,60 @@ import {Animated, AppRegistry, StyleSheet, Text, View, ScrollView, TouchableOpac
 import { Link } from 'react-router-dom';
 import Dropzone from 'react-dropzone'
 import elcomensal_light from '../elcomensal_light.svg';
+import firebase from "firebase";
 export default class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+      sendDisabled:true,
+      newUser:{
+        restaurant_name:"",
+        direction:"",
+        email:"",
+        password:"",
+        password_repeated:"",
+        owner_name:"",
+        phone:"",
+      }
+    }
+  }
+
+
+  assignField(key,value){
+    var newUser=this.state.newUser
+    newUser[key]=value
+    this.setState({newUser})
+  }
+
+
+ async createUser(){
+   /*
+   await firebase.firestore().collection('users').add(this.state.newUser).then(()=>
+
+   )
+   */
+  }
+
+
+checkFormStatus(){
+  var nextState=(
+this.state.newUser.restaurant_name.length>0 &&
+this.state.newUser.direction.length>0 &&
+this.state.newUser.email.length>0 &&
+this.state.newUser.password.length>0 &&
+this.state.newUser.password_repeated.length>0 &&
+this.state.newUser.owner_name.length>0 &&
+this.state.newUser.phone.length>0
+  )
+  if(!nextState!=this.state.sendDisabled)
+  this.setState({sendDisabled:!nextState})
+}
+
+  componentDidUpdate(){
+    //check if it's possible to send form
+    this.checkFormStatus()
+  }
+
     render() {
   
       return (
@@ -24,35 +77,39 @@ export default class App extends React.Component {
                         El futuro de las cartas online está a solo un clic de distancia
                         </Text>
       
-                    <TextInput numberOfLines={1} placeholder={"Nombre del restaurante"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                    <TextInput
+                    onChangeText={(e)=>this.assignField("restaurant_name",e)}
+                     numberOfLines={1} placeholder={"Nombre del restaurante"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
            
                
-                    <TextInput numberOfLines={1} placeholder={"Dirección Ej. C/ Bruc 23, Barcelona"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                    <TextInput
+                    onChangeText={(e)=>this.assignField("direction",e)}
+                     numberOfLines={1} placeholder={"Dirección Ej. C/ Bruc 23, Barcelona"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
                  
-                    <TextInput numberOfLines={1} placeholder={"Correo electrónico"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015,marginBottom:window.innerHeight*0.015}} />
+                    <TextInput
+                      onChangeText={(e)=>this.assignField("email",e)}
+                     numberOfLines={1} placeholder={"Correo electrónico"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015,marginBottom:window.innerHeight*0.015}} />
+                    <TextInput
+                    onChangeText={(e)=>this.assignField("password",e)}
+                     numberOfLines={1} placeholder={"Contraseña"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015,marginBottom:window.innerHeight*0.015}} />
+                    
+                    <TextInput 
+                    onChangeText={(e)=>this.assignField("password_repeated",e)}
+                    numberOfLines={1} placeholder={"Repetir contraseña"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015,marginBottom:window.innerHeight*0.015}} />
              
                 
-                    <TextInput numberOfLines={1} placeholder={"Nombre completo"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                    <TextInput
+                    onChangeText={(e)=>this.assignField("owner_name",e)}
+                     numberOfLines={1} placeholder={"Nombre completo"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
            
                  
-                    <TextInput numberOfLines={1} placeholder={"Número de teléfono: +34 000 000 000"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
-                    <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
-  {({getRootProps, getInputProps}) => (
-    <View style={{width:"90%",marginBottom:window.innerHeight*0.02, justifyContent:"center",alignItems:"center", alignSelf:"center",height:window.innerHeight*0.2,backgroundColor:"#f5f5f5"}}>
-
-    <div style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getRootProps()}>
-        <input style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getInputProps()} />
-        <Text style={{position:"absolute",top:"45%",alignSelf:"center",justifySelf:"center",textDecorationLine: "none", color: "gray", fontWeight: "400", fontSize: "1rem", textAlign: "center", width:"100%",paddingHorizontal:window.innerWidth*0.02 }}>
-        Añade una imagen o fichero con la carta de tu restaurante
-                  </Text>
-       
-      </div>
-    </View>
-  )}
-</Dropzone>
+                    <TextInput
+                    onChangeText={(e)=>this.assignField("phone",e)}
+                    numberOfLines={1} placeholder={"Número de teléfono: +34 000 000 000"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                
                   
                     
-                    <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"center",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#FFC627", width: "90%",marginTop:window.innerHeight*0.01 }}>
+                    <TouchableOpacity disabled={this.state.sendDisabled} onPress={()=>this.createUser()}  style={{alignSelf:"center",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor:this.state.sendDisabled?"#EDEDED":"#FFC524", width: "90%",marginTop:window.innerHeight*0.01 }}>
                 <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
                   
                   <Text style={{ color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.025, textAlign: "center", width: "100%" }}>
@@ -64,7 +121,7 @@ export default class App extends React.Component {
                 <Text style={{ color: "#000", fontWeight: "400", fontSize: "0.8rem", paddingHorizontal: "5%", paddingBottom: window.innerHeight * 0.02, textAlign: "left", width: "100%" }}>
                     Al inscribirse aceptas los términos y condiciones.
                     </Text>
-                    <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"center",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#fff", width: "90%",marginTop:window.innerHeight*0.01 }}>
+                    <TouchableOpacity onPress={()=>this.createUser()}  style={{alignSelf:"center",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#fff", width: "90%",marginTop:window.innerHeight*0.01 }}>
                     <Link to="/login" style={{height:"100%", width:"100%",color:"#000"}} >
                 
                 <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
@@ -77,7 +134,7 @@ export default class App extends React.Component {
                 </TouchableOpacity>
  </View>
  <View style={{width:"65%",height:"100%",backgroundColor:"#f5f5f5"}}>
- <Image source={landing1} style={{width: window.innerWidth*0.65, height:window.innerHeight, zIndex: 0,opacity:1 }} resizeMode="cover" />
+ <Image source={restaurantRegister} style={{width: window.innerWidth*0.65, height:window.innerHeight, zIndex: 0,opacity:1 }} resizeMode="cover" />
 
  </View>
  <View style={{position:"absolute",top:0,left:0,width:"15%",height:window.innerHeight*0.08}}>

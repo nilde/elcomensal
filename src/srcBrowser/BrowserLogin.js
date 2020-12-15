@@ -4,7 +4,7 @@ import restaurantRegister from '../restaurantRegister.jpg';
 import elcomensal from '../elcomensal.png';
 import landing1 from '../landing1.jpg';
 import landing2 from '../landing2.jpg';
-import landing3 from '../landing3.jpg';
+import restaurantLogin from '../restaurantLogin.jpg';
 import frame from '../frame.png';
 import elcomensal_light from '../elcomensal_light.svg';
 import {Animated, AppRegistry, StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, TouchableWithoutFeedback,TextInput,FlatList } from 'react-native';
@@ -32,17 +32,20 @@ export default class App extends React.Component {
                         </Text>
                     <TextInput numberOfLines={1} placeholder={"Contraseña"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
                     <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"center",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#fff", width: "90%"}}>
+                    <Link to="/forgot" style={{height:"100%", width:"100%",textDecoration:"none",color:"#000"}} >
+               
                 <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
-                  
+                
                   <Text style={{textDecorationLine:"underline", color: "#000", fontWeight: "400", fontSize: "0.8rem", paddingHorizontal: window.innerWidth*0.01, paddingVertical: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
                     ¿Has olvidado la contraseña?
                     </Text>
-                </View>
+                   
+                </View> </Link>
                 </TouchableOpacity>
                   
                   
                     
-                    <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"center",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#FFC627", width: "90%" }}>
+                    <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"center",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#FFC524", width: "90%" }}>
                 <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
                   
                   <Text style={{ color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.025, textAlign: "center", width: "100%" }}>
@@ -64,7 +67,7 @@ export default class App extends React.Component {
                 
  </View>
  <View style={{width:"65%",height:"100%",backgroundColor:"#f5f5f5"}}>
- <Image source={landing1} style={{width: window.innerWidth*0.65, height:window.innerHeight, zIndex: 0,opacity:1 }} resizeMode="cover" />
+ <Image source={restaurantLogin} style={{width: window.innerWidth*0.65, height:window.innerHeight, zIndex: 0,opacity:1 }} resizeMode="cover" />
 
  </View>
  

@@ -1,0 +1,20 @@
+/**
+ *  <View style={{width:window.innerWidth,backgroundColor:"#fff",position:"absolute",bottom:0}}>
+        <Text style={{ color: "#000", fontWeight: "500", fontSize: "1.3rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.03, textAlign: "left", width: window.innerWidth }}>
+                    Llamar a un camarero
+                    </Text>
+                    <TextInput numberOfLines={5} placeholder={"Pide lo que necesites al camarero (un poco más de pan, salsas, ...)"} multiline style={{minHeight:window.innerHeight*0.4, width:window.innerWidth,height:100,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.05,paddingVertical:window.innerHeight*0.02}} />
+                    <View style={{ position: "absolute", bottom: 0, justifyContent: "space-between", width: window.innerWidth }}>
+              <TouchableOpacity style={{ alignItems: "center", backgroundColor: "#000", width: "100%", }}>
+                <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
+                  
+                  <Text style={{ color: "#fff", fontWeight: "500", fontSize: "1rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.03, textAlign: "center", width: "100%" }}>
+                    Enviar
+                    </Text>
+                </View>
+
+              </TouchableOpacity>
+
+            </View>
+        </View>
+ */

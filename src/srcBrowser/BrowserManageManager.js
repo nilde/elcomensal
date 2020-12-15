@@ -52,7 +52,7 @@ export default class App extends React.Component {
            
             {
                 this.state.manageStatus=="HOME" &&
-                <Home updateManagerStatus={this.updateManagerStatus}/>
+                <Home  updateManagerStatus={this.updateManagerStatus}/>
      //Home
  }
  {
