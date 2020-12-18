@@ -47,10 +47,7 @@ const helpInfo=[
         title:"¿Cómo programo menús?",
         content:"Puedes programar menús para que se muestren únicamente cúando quieras. Por ejemplo puedes crear un menú que este solo disponible los jueves. Cúando crees o edites un menú se te muestra una opción llamada “Programa disponibilidad” pulsa en ella y escoges los días y horas que quieras que tu menú este disponible."
     },
-    {
-        title:"¿Cómo contacto con soporte?",
-        content:"Si necesitas alguna cosa o tienes alguna duda que no este en esta sección envíanos un correo a help@elcomensalapp.com y estaremos encantados de ayudarte."
-    },
+  
    
 ]
 
@@ -77,7 +74,7 @@ export default class App extends React.Component {
     render() {
 
         return (
-            <View style={{zIndex: 0,width: window.innerWidth, height: window.innerHeight, backgroundColor: "#fff"}}>
+            <ScrollView style={{zIndex: 0,width: window.innerWidth, height: window.innerHeight, backgroundColor: "#fff"}}>
             <Text style={{ paddingTop: window.innerHeight * 0.03, textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Ayuda
                   </Text>
@@ -108,7 +105,26 @@ export default class App extends React.Component {
         </Expand>
         </View>
         ))}
-            </View>
+        
+        <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.1, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.3rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
+                        Contactar con soporte
+                            
+                  </Text>
+                  <Text style={{width:window.innerWidth*0.5, paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
+                  Si tienes cualquier otra duda sobre la aplicación no dudes en ponerte en contacto con soporte y te responderemos lo antes posible.
+                  </Text>
+                  <TextInput multiline numberOfLines={5} placeholder={"Contenido de la consulta"} style={{ marginLeft: window.innerWidth * 0.02, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "50%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+
+                  <TouchableOpacity style={{width:window.innerWidth*0.3,alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"flex-start",marginLeft:window.innerWidth*0.02,marginTop:window.innerHeight*0.02}}>
+       <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
+                                               Enviar consulta
+                         </Text>
+                         
+       
+       
+                       </TouchableOpacity>
+                       <View style={{width:"100%",height:window.innerHeight*0.1}}/>
+            </ScrollView>
         )
     }
 }
