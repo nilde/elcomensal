@@ -30,15 +30,13 @@ export default class App extends React.Component {
                     <Text style={{ paddingTop: window.innerHeight * 0.03, textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                     Perfil
                   </Text>
-                <Text style={{ paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.3rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                    Edita los datos de tu restaurante
-                  </Text>
-                        <Text style={{ paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+                  <View style={{width:"100%",height:window.innerHeight*0.02}}/>
+                        <Text style={{ paddingTop: window.innerHeight * 0.02, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                             Foto del restaurante
                   </Text>
                   <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
   {({getRootProps, getInputProps}) => (
-    <View style={{width:"85%",justifyContent:"center",alignItems:"center", alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,height:200,backgroundColor:"#f5f5f5",marginVertical:window.innerHeight*0.02}}>
+    <View style={{width:"85%",justifyContent:"center",alignItems:"center", alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,height:200,backgroundColor:"#f5f5f5",marginVertical:window.innerHeight*0.02,borderRadius:40}}>
 
       <div style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getRootProps()}>
         <input style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getInputProps()} />
@@ -57,8 +55,8 @@ export default class App extends React.Component {
                   <Text style={{width:window.innerWidth*0.3, paddingBottom: window.innerHeight * 0.03, textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                   Si eliminas tu cuenta se perderán todos tus menús y la carta. Tendrás que volver a crear una nueva cuenta    
                   </Text>
-                  <TouchableOpacity style={{width:window.innerWidth*0.3,alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
+                  <TouchableOpacity style={{borderRadius:10,width:window.innerWidth*0.3,alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01}}>
+<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
                                         Eliminar
                   </Text>
                   
@@ -72,36 +70,36 @@ export default class App extends React.Component {
                         <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.05, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                             Nombre del restaurante
                   </Text>
-                        <TextInput numberOfLines={1} placeholder={"Restaurante gourmet"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                        <TextInput numberOfLines={1} placeholder={"Restaurante gourmet"} style={{marginTop:window.innerHeight*0.01, borderRadius:10,marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
 
-                        <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+                        <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.02, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                             Dirección
                   </Text>
-                        <TextInput numberOfLines={1} placeholder={"C/ Bruc 26, Barcelona"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                        <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+                        <TextInput numberOfLines={1} placeholder={"C/ Bruc 26, Barcelona"} style={{ marginTop:window.innerHeight*0.01,borderRadius:10,marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                        <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.02, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                             Correo electrónico
                            
                   </Text>
-                  <TextInput numberOfLines={1} placeholder={"restaurantegourmet@mail.com"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+                  <TextInput numberOfLines={1} placeholder={"restaurantegourmet@mail.com"} style={{ marginTop:window.innerHeight*0.01,borderRadius:10,marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.02, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                             Número de teléfono
                             
                   </Text>
-                  <TextInput numberOfLines={1} placeholder={"930000000"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  <TextInput numberOfLines={1} placeholder={"930000000"} style={{ marginTop:window.innerHeight*0.01,borderRadius:10,marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
 
-                  <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+                  <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.02, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                    Contraseña
                                    
                          </Text>
-                         <TextInput numberOfLines={1} placeholder={"930000000"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                         <TextInput numberOfLines={1} placeholder={"930000000"} style={{ marginTop:window.innerHeight*0.01,borderRadius:10,marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
        
-                         <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
+                         <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.02, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                    Repetir contraseña
                                    
                          </Text>
-                         <TextInput numberOfLines={1} placeholder={"930000000"} style={{ marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                         <TouchableOpacity style={{width:window.innerWidth*0.3,alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,marginTop:window.innerHeight*0.02}}>
-       <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.02 }}>
+                         <TextInput numberOfLines={1} placeholder={"930000000"} style={{marginTop:window.innerHeight*0.01,borderRadius:10,marginLeft: window.innerWidth * 0.01, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "60%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                         <TouchableOpacity style={{borderRadius:10, width:window.innerWidth*0.3,alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,marginTop:window.innerHeight*0.02}}>
+       <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
                                                Guardar cambios
                          </Text>
                          

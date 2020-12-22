@@ -1270,7 +1270,7 @@ if(this.state.activeSection!=newActiveSection){
             <View
                 style={{
                   
-              borderRadius:1000,
+              borderRadius:100,
                   backgroundColor:"#fff",
                 justifyContent:"center",
                 alignItems:"center",
@@ -1285,7 +1285,7 @@ if(this.state.activeSection!=newActiveSection){
 
       
       <View style={{ width:window.innerWidth, height: window.innerHeight * 0.015 }} />
-      <View style={{ alignSelf: "flex-end",width:percentage>0.8?percentage*40:40,height:percentage>0.8?percentage*40:40,borderRadius:100,position:"absolute", top:10,right:10,backgroundColor:"#fff",justifyContent:"center",alignItems:"center" }}>
+      <View style={{ alignSelf: "flex-end",width:percentage>0.8?percentage*40:40,height:percentage>0.8?percentage*40:40,borderRadius:10,position:"absolute", top:10,right:10,backgroundColor:"#fff",justifyContent:"center",alignItems:"center" }}>
              <TouchableOpacity onLongPress={() =>this.setState({modalOpen:true,showProductDetails:false,wifiDetails:true})} onPress={() =>     this.setState({modalOpen:true,showProductDetails:false,wifiDetails:true})}  style={{justifyContent:"center",alignItems:"center",width:"100%",height:"100%"}}>
                       <IoIosWifi size={percentage+"em"} />
                       <Text style={{textAlign:"center",margin:0, zIndex: 9, color: "#000", fontWeight: "600", fontSize:"0.4rem",}}>
@@ -1652,8 +1652,8 @@ removeClippedSubviews
           </View>
           <View style={{backgroundColor:"#f5f5f5"}}>
             <View style={{width:"100%",backgroundColor:"#fff",marginTop:window.innerHeight*0.02,flexDirection:"row"}}>
-            <View style={{width:"30%",justifyContent:"center",alignItems:"center",borderRadius:100}}>
-            <View style={{marginTop:window.innerHeight*0.02,marginLeft:window.innerWidth*0.025, borderRadius:1000,overflow:"hidden",width:window.innerWidth*0.2,height:window.innerWidth*0.2}}>
+            <View style={{width:"30%",justifyContent:"center",alignItems:"center",borderRadius:10}}>
+            <View style={{marginTop:window.innerHeight*0.02,marginLeft:window.innerWidth*0.025, borderRadius:100,overflow:"hidden",width:window.innerWidth*0.2,height:window.innerWidth*0.2}}>
           <Shimmer width={window.innerWidth*0.2} height={window.innerWidth*0.2} />
          </View>
               </View>
@@ -1670,8 +1670,8 @@ removeClippedSubviews
             </View>
           </View>
           <View style={{width:"100%",backgroundColor:"#fff",marginTop:window.innerHeight*0.0025,flexDirection:"row"}}>
-            <View style={{width:"30%",justifyContent:"center",alignItems:"center",borderRadius:100}}>
-            <View style={{marginTop:window.innerHeight*0.02,marginLeft:window.innerWidth*0.025, borderRadius:1000,overflow:"hidden",width:window.innerWidth*0.2,height:window.innerWidth*0.2}}>
+            <View style={{width:"30%",justifyContent:"center",alignItems:"center",borderRadius:10}}>
+            <View style={{marginTop:window.innerHeight*0.02,marginLeft:window.innerWidth*0.025, borderRadius:100,overflow:"hidden",width:window.innerWidth*0.2,height:window.innerWidth*0.2}}>
           <Shimmer width={window.innerWidth*0.2} height={window.innerWidth*0.2} />
          </View>
               </View>
@@ -1726,7 +1726,7 @@ removeClippedSubviews
 
 {
 this.state.activeSections.map((item,index)=>(
- <TouchableOpacity key={"menu_"+index} onLongPress={()=>{this.setState({activeSection:index},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03})); setTimeout(()=>window.scrollTo({y:window.innerHeight*0.15+ this.state.sectionsOffsetsVertical[index]}),0)}}   onPress={()=>{this.setState({activeSection:index},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03})); setTimeout(()=>window.scrollTo({y:window.innerHeight*0.15+ this.state.sectionsOffsetsVertical[index]}),0)}} onLayout={(e)=>this.addOfsetsHorizontal(e.nativeEvent.layout.x)} style={{backgroundColor:this.state.activeSection==index?"#000":"#fff",borderRadius:100, paddingHorizontal:window.innerWidth*0.04,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.03}}>
+ <TouchableOpacity key={"menu_"+index} onLongPress={()=>{this.setState({activeSection:index},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03})); setTimeout(()=>window.scrollTo({y:window.innerHeight*0.15+ this.state.sectionsOffsetsVertical[index]}),0)}}   onPress={()=>{this.setState({activeSection:index},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03})); setTimeout(()=>window.scrollTo({y:window.innerHeight*0.15+ this.state.sectionsOffsetsVertical[index]}),0)}} onLayout={(e)=>this.addOfsetsHorizontal(e.nativeEvent.layout.x)} style={{backgroundColor:this.state.activeSection==index?"#000":"#fff",borderRadius:10, paddingHorizontal:window.innerWidth*0.04,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.03}}>
    <Text style={{fontWeight:this.state.activeSection==index?"500":"400",color:this.state.activeSection==index?"#fff":"gray",paddingVertical:window.innerHeight*0.015}}>
      {item}
    </Text>
@@ -1741,7 +1741,7 @@ this.state.showSearch &&
 
         <View style={{width:window.innerWidth,height:"100%",backgroundColor:"#fff",position:"absolute",top:0}}>
           <View style={{width:window.innerWidth,flexDirection:"row",alignItems:"center",justifyContent:"space-between",paddingTop:window.innerHeight*0.01}}>
-          <TextInput autoFocus clearButtonMode="always"  placeholder="Buscar un plato"  value={this.state.searchValue} editable={true} onChangeText={(newValue)=>this.manageFilter(newValue)} style={{borderRadius:100, fontSize:"1rem", height:"100", width:"70%",backgroundColor:"#f5f5f5",marginLeft:window.innerWidth*0.03,paddingHorizontal:window.innerWidth*0.03,paddingVertical:window.innerHeight*0.015,textAlign:"left"}} />
+          <TextInput autoFocus clearButtonMode="always"  placeholder="Buscar un plato"  value={this.state.searchValue} editable={true} onChangeText={(newValue)=>this.manageFilter(newValue)} style={{borderRadius:10, fontSize:"1rem", height:"100", width:"70%",backgroundColor:"#f5f5f5",marginLeft:window.innerWidth*0.03,paddingHorizontal:window.innerWidth*0.03,paddingVertical:window.innerHeight*0.015,textAlign:"left"}} />
           <TouchableOpacity onLongPress={() => this.setState({activeMenu:this.state.menu,activeSections:this.state.sections, showSearch:false})} onPress={() => this.setState({activeMenu:this.state.menu,activeSections:this.state.sections,showSearch:false})} style={{ width: "30%", height: "100%", justifyContent: "center", alignItems: "center" }}>
                  <Text style={{ color: "#000", fontWeight: "500", fontSize: "1rem", textAlign: "center" }}>
                    Cancelar
@@ -1754,7 +1754,7 @@ this.state.showSearch &&
 
 {
 [{title:"Recomendado",filter:"recommendedActive",color:"red" },{title:"Vegetariano",filter:"vegetarianActive",color:"red"},{title:"Vegano",filter:"veganActive",color:"red"},{title:"Sin gluten",filter:"noGlutenActive",color:"red"},{title:"Para compartir",filter:"forShareActive",color:"red"}].map((item,index)=>(
- <TouchableOpacity  onLongPress={()=>{}}   onPress={()=>{}} style={{backgroundColor:this.state[item.filter]?item.color:"#f5f5f5",borderRadius:100, paddingHorizontal:20,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.03}}>
+ <TouchableOpacity  onLongPress={()=>{}}   onPress={()=>{}} style={{backgroundColor:this.state[item.filter]?item.color:"#f5f5f5",borderRadius:10, paddingHorizontal:20,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.03}}>
    <Text style={{fontWeight:this.state[item.filter]?"500":"400",color:this.state[item.filter]?"#fff":"gray",paddingVertical:window.innerHeight*0.015}}>
      {item.title}
    </Text>
@@ -1824,7 +1824,7 @@ this.state.showSearch &&
 
 {
   this.state.activeSections.map((item,index)=>(
-    <TouchableOpacity key={"menu_"+index} onLongPress={()=>{this.setState({activeSection:index},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03})); setTimeout(()=>window.scrollTo(0,window.innerHeight*0.15+ this.state.sectionsOffsetsVertical[index]),0)}}   onPress={()=>{this.setState({activeSection:index},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03})); setTimeout(()=>window.scrollTo(0,window.innerHeight*0.15+ this.state.sectionsOffsetsVertical[index]),0)}} onLayout={(e)=>this.addOfsetsHorizontal(e.nativeEvent.layout.x)} style={{backgroundColor:this.state.activeSection==index?"#000":"#fff",borderRadius:100, paddingHorizontal:window.innerWidth*0.04,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.03}}>
+    <TouchableOpacity key={"menu_"+index} onLongPress={()=>{this.setState({activeSection:index},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03})); setTimeout(()=>window.scrollTo(0,window.innerHeight*0.15+ this.state.sectionsOffsetsVertical[index]),0)}}   onPress={()=>{this.setState({activeSection:index},()=>this.menuHorizontalRef.scrollTo({x:this.state.sectionsOffsetsHorizontal[index]-window.innerWidth*0.03})); setTimeout(()=>window.scrollTo(0,window.innerHeight*0.15+ this.state.sectionsOffsetsVertical[index]),0)}} onLayout={(e)=>this.addOfsetsHorizontal(e.nativeEvent.layout.x)} style={{backgroundColor:this.state.activeSection==index?"#000":"#fff",borderRadius:10, paddingHorizontal:window.innerWidth*0.04,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.03}}>
       <Text style={{fontWeight:this.state.activeSection==index?"500":"400",color:this.state.activeSection==index?"#fff":"gray",paddingVertical:window.innerHeight*0.015}}>
         {item}
       </Text>
@@ -1839,7 +1839,7 @@ this.state.showSearch &&
 
            <View style={{width:window.innerWidth,height:"100%",backgroundColor:"#fff",position:"absolute",top:0}}>
              <View style={{width:window.innerWidth,flexDirection:"row",alignItems:"center",justifyContent:"space-between",paddingTop:window.innerHeight*0.01}}>
-             <TextInput autoFocus clearButtonMode="always"  placeholder="Buscar un plato"  value={this.state.searchValue} editable={true} onChangeText={(newValue)=>this.manageFilter(newValue)} style={{borderRadius:100, fontSize:"1rem", height:"100", width:"70%",backgroundColor:"#f5f5f5",marginLeft:window.innerWidth*0.03,paddingHorizontal:window.innerWidth*0.03,paddingVertical:window.innerHeight*0.015,textAlign:"left"}} />
+             <TextInput autoFocus clearButtonMode="always"  placeholder="Buscar un plato"  value={this.state.searchValue} editable={true} onChangeText={(newValue)=>this.manageFilter(newValue)} style={{borderRadius:10, fontSize:"1rem", height:"100", width:"70%",backgroundColor:"#f5f5f5",marginLeft:window.innerWidth*0.03,paddingHorizontal:window.innerWidth*0.03,paddingVertical:window.innerHeight*0.015,textAlign:"left"}} />
              <TouchableOpacity onLongPress={() => this.setState({activeMenu:this.state.menu,activeSections:this.state.sections, showSearch:false})} onPress={() => this.setState({activeMenu:this.state.menu,activeSections:this.state.sections,showSearch:false})} style={{ width: "30%", height: "100%", justifyContent: "center", alignItems: "center" }}>
                     <Text style={{ color: "#000", fontWeight: "500", fontSize: "1rem", textAlign: "center" }}>
                       Cancelar
@@ -1852,7 +1852,7 @@ this.state.showSearch &&
 
 {
   [{title:"Recomendado",filter:"recommendedActive",color:"red" },{title:"Vegetariano",filter:"vegetarianActive",color:"red"},{title:"Vegano",filter:"veganActive",color:"red"},{title:"Sin gluten",filter:"noGlutenActive",color:"red"},{title:"Para compartir",filter:"forShareActive",color:"red"}].map((item,index)=>(
-    <TouchableOpacity  onLongPress={()=>{}}   onPress={()=>{}} style={{backgroundColor:this.state[item.filter]?item.color:"#f5f5f5",borderRadius:100, paddingHorizontal:20,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.03}}>
+    <TouchableOpacity  onLongPress={()=>{}}   onPress={()=>{}} style={{backgroundColor:this.state[item.filter]?item.color:"#f5f5f5",borderRadius:10, paddingHorizontal:20,justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.03}}>
       <Text style={{fontWeight:this.state[item.filter]?"500":"400",color:this.state[item.filter]?"#fff":"gray",paddingVertical:window.innerHeight*0.015}}>
         {item.title}
       </Text>
@@ -1901,21 +1901,21 @@ this.state.showSearch &&
                                 <View horizontal style={{flexDirection:"row",flexWrap:"wrap",width:window.innerWidth*1}}>
                             {
                                   internal_item.recommended &&
-                                  <Text style={{marginTop:window.innerHeight*0.01,  color:!internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFF4A3", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+                                  <Text style={{marginTop:window.innerHeight*0.01,  color:!internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFF4A3", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
                                   Especialidad
 </Text>
                                 }
                                 {
                                   internal_item.vegetarian &&
-                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#AFF396", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#AFF396", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
                                   Vegetariano
 </Text>
                                 }
                                 {
                                   internal_item.vegan &&
-                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#BDDDFF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#BDDDFF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
                                   Vegano
 </Text>
@@ -1923,14 +1923,14 @@ this.state.showSearch &&
                                 
                                 {
                                   internal_item.no_gluten &&
-                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#E1BDFF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#E1BDFF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
                                 Sin gluten
 </Text>
                                 }
                                 {
                                   internal_item.offer &&
-                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFAAAA", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFAAAA", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
                                 Oferta
 </Text>
@@ -1938,35 +1938,35 @@ this.state.showSearch &&
 
                                 {
                                   internal_item.for_share &&
-                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFC4A8", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFC4A8", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
                                 Para compartir
 </Text>
                                 }
                                 {
                                   internal_item.alcohol &&
-                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFD2EE", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFD2EE", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
                                 Alcohol
 </Text>
                                 }
                                 {
                                   internal_item.alcohol_free &&
-                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#BFC2FF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#BFC2FF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
                                 Sin alcohol
 </Text>
                                 }
                                 {
                                   internal_item.unity &&
-                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#ADFFDB", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#ADFFDB", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
                                 Por unidad
 </Text>
                                 }
                                 {
                                   internal_item.allergens &&
-                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFDDAD", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+                                  <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFDDAD", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
                                 Alérgenos
 </Text>
@@ -2352,21 +2352,21 @@ this.state.showSearch &&
             <View horizontal style={{flexDirection:"row",flexWrap:"wrap",width:window.innerWidth*1}}>
         {
               internal_item.recommended &&
-              <Text style={{marginTop:window.innerHeight*0.01,  color:!internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFF4A3", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+              <Text style={{marginTop:window.innerHeight*0.01,  color:!internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFF4A3", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
               Especialidad
 </Text>
             }
             {
               internal_item.vegetarian &&
-              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#AFF396", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#AFF396", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
               Vegetariano
 </Text>
             }
             {
               internal_item.vegan &&
-              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#BDDDFF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#BDDDFF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
               Vegano
 </Text>
@@ -2374,14 +2374,14 @@ this.state.showSearch &&
             
             {
               internal_item.no_gluten &&
-              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#E1BDFF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#E1BDFF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
             Sin gluten
 </Text>
             }
             {
               internal_item.offer &&
-              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFAAAA", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFAAAA", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
             Oferta
 </Text>
@@ -2389,35 +2389,35 @@ this.state.showSearch &&
 
             {
               internal_item.for_share &&
-              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFC4A8", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFC4A8", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
             Para compartir
 </Text>
             }
             {
               internal_item.alcohol &&
-              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFD2EE", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFD2EE", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
             Alcohol
 </Text>
             }
             {
               internal_item.alcohol_free &&
-              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#BFC2FF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#BFC2FF", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
             Sin alcohol
 </Text>
             }
             {
               internal_item.unity &&
-              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#ADFFDB", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#ADFFDB", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
             Por unidad
 </Text>
             }
             {
               internal_item.allergens &&
-              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFDDAD", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:100,paddingVertical:window.innerHeight*0.004}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !internal_item.avaliable?"gray":"#000",backgroundColor:!internal_item.avaliable?"#e8e8e8": "#FFDDAD", fontWeight: "500", fontSize: "0.7rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:10,borderRadius:10,paddingVertical:window.innerHeight*0.004}}>
 
             Alérgenos
 </Text>
@@ -2527,19 +2527,19 @@ this.state.showSearch &&
             </Text>
             <View horizontal style={{flexDirection:"row",flexWrap:"wrap",width:window.innerWidth*1,backgroundColor:"#fff",paddingLeft:window.innerWidth*0.03}}>
                  <TouchableOpacity onLongPress={()=>this.updateNewDishTag("recommended")} onPress={()=>this.updateNewDishTag("recommended")}>     
-              <Text style={{marginTop:window.innerHeight*0.01,  color:!this.state.newDish.recommended?"gray":"#000",backgroundColor:!this.state.newDish.recommended?"#f5f5f5": "#FFF4A3", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:100,paddingVertical:window.innerHeight*0.008}}>
+              <Text style={{marginTop:window.innerHeight*0.01,  color:!this.state.newDish.recommended?"gray":"#000",backgroundColor:!this.state.newDish.recommended?"#f5f5f5": "#FFF4A3", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:10,paddingVertical:window.innerHeight*0.008}}>
 
               Especialidad
 </Text>
 </TouchableOpacity>     
 <TouchableOpacity onLongPress={()=>this.updateNewDishTag("vegetarian")} onPress={()=>this.updateNewDishTag("vegetarian")}>  
-              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.vegetarian?"gray":"#000",backgroundColor:!this.state.newDish.vegetarian?"#f5f5f5": "#AFF396", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:100,paddingVertical:window.innerHeight*0.008}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.vegetarian?"gray":"#000",backgroundColor:!this.state.newDish.vegetarian?"#f5f5f5": "#AFF396", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:10,paddingVertical:window.innerHeight*0.008}}>
 
               Vegetariano
 </Text>
 </TouchableOpacity>
 <TouchableOpacity onLongPress={()=>this.updateNewDishTag("vegan")} onPress={()=>this.updateNewDishTag("vegan")}>  
-              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.vegan?"gray":"#000",backgroundColor:!this.state.newDish.vegan?"#f5f5f5": "#BDDDFF", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:100,paddingVertical:window.innerHeight*0.008}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.vegan?"gray":"#000",backgroundColor:!this.state.newDish.vegan?"#f5f5f5": "#BDDDFF", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:10,paddingVertical:window.innerHeight*0.008}}>
 
               Vegano
 </Text>
@@ -2547,46 +2547,46 @@ this.state.showSearch &&
             
             
 <TouchableOpacity onLongPress={()=>this.updateNewDishTag("gluten_free")} onPress={()=>this.updateNewDishTag("gluten_free")}>  
-              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.no_gluten?"gray":"#000",backgroundColor:!this.state.newDish.no_gluten?"#f5f5f5": "#E1BDFF", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:100,paddingVertical:window.innerHeight*0.008}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.no_gluten?"gray":"#000",backgroundColor:!this.state.newDish.no_gluten?"#f5f5f5": "#E1BDFF", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:10,paddingVertical:window.innerHeight*0.008}}>
 
             Sin gluten
 </Text>
 </TouchableOpacity>
             
 <TouchableOpacity  onLongPress={()=>this.updateNewDishTag("offer")} onPress={()=>this.updateNewDishTag("offer")}>  
-              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.offer?"gray":"#000",backgroundColor:!this.state.newDish.offer?"#f5f5f5": "#FFAAAA", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:100,paddingVertical:window.innerHeight*0.008}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.offer?"gray":"#000",backgroundColor:!this.state.newDish.offer?"#f5f5f5": "#FFAAAA", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:10,paddingVertical:window.innerHeight*0.008}}>
 
             Oferta
 </Text>
       </TouchableOpacity>
       <TouchableOpacity  onLongPress={()=>this.updateNewDishTag("for_share")} onPress={()=>this.updateNewDishTag("for_share")}>  
-              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.for_share?"gray":"#000",backgroundColor:!this.state.newDish.for_share?"#f5f5f5": "#FFC4A8", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:100,paddingVertical:window.innerHeight*0.008}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.for_share?"gray":"#000",backgroundColor:!this.state.newDish.for_share?"#f5f5f5": "#FFC4A8", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:10,paddingVertical:window.innerHeight*0.008}}>
 
             Para compartir
 </Text>
          </TouchableOpacity>
          <TouchableOpacity  onLongPress={()=>this.updateNewDishTag("alcohol")} onPress={()=>this.updateNewDishTag("alcohol")}>  
-              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.alcohol?"gray":"#000",backgroundColor:!this.state.newDish.alcohol?"#f5f5f5": "#FFD2EE", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:100,paddingVertical:window.innerHeight*0.008}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.alcohol?"gray":"#000",backgroundColor:!this.state.newDish.alcohol?"#f5f5f5": "#FFD2EE", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:10,paddingVertical:window.innerHeight*0.008}}>
 
             Alcohol
 </Text>
 </TouchableOpacity>
 <TouchableOpacity onLongPress={()=>this.updateNewDishTag("alcohol_free")} onPress={()=>this.updateNewDishTag("alcohol_free")}>  
  
-              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.alcohol_free?"gray":"#000",backgroundColor:!this.state.newDish.alcohol_free?"#f5f5f5": "#BFC2FF", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:100,paddingVertical:window.innerHeight*0.008}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.alcohol_free?"gray":"#000",backgroundColor:!this.state.newDish.alcohol_free?"#f5f5f5": "#BFC2FF", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:10,paddingVertical:window.innerHeight*0.008}}>
 
             Sin alcohol
 </Text>
          </TouchableOpacity>   
          <TouchableOpacity>  
-              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.unity?"gray":"#000",backgroundColor:!this.state.newDish.unity?"#f5f5f5": "#ADFFDB", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:100,paddingVertical:window.innerHeight*0.008}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.unity?"gray":"#000",backgroundColor:!this.state.newDish.unity?"#f5f5f5": "#ADFFDB", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:10,paddingVertical:window.innerHeight*0.008}}>
 
             Por unidad
 </Text>
 </TouchableOpacity>
             
 <TouchableOpacity  onLongPress={()=>this.updateNewDishTag("allergens")} onPress={()=>this.updateNewDishTag("allergens")}>  
-              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.allergens?"gray":"#000",backgroundColor:!this.state.newDish.allergens?"#f5f5f5": "#FFDDAD", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:100,paddingVertical:window.innerHeight*0.008}}>
+              <Text style={{marginTop:window.innerHeight*0.01, color: !this.state.newDish.allergens?"gray":"#000",backgroundColor:!this.state.newDish.allergens?"#f5f5f5": "#FFDDAD", fontWeight: "500", fontSize: "0.8rem", marginLeft: window.innerWidth*0.02,textAlign:"left",paddingHorizontal:15,borderRadius:10,paddingVertical:window.innerHeight*0.008}}>
 
             Alérgenos
 </Text>

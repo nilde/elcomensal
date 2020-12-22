@@ -26,9 +26,7 @@ export default class App extends React.Component {
                 <Text style={{ paddingTop: window.innerHeight * 0.03, textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                     Perfil
                   </Text>
-                <Text style={{ paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.3rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                    Edita los datos de tu restaurante
-                  </Text>
+             
                 <View style={{ width: window.innerWidth, flexDirection: "row" }}>
                     <View style={{ width: "50%" }}>
                         <Text style={{ paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>

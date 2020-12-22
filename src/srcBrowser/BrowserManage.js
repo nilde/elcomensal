@@ -108,9 +108,7 @@ export default class App extends React.Component {
     <Text style={{ paddingTop: window.innerHeight * 0.03, textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Carta
                   </Text>
-                  <Text style={{paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.3rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                  Edita los platos y bebidas que sirves en tu restaurante
-                  </Text>
+               
 
 
                 <View style={{borderTopWidth:1,borderColor:"#f5f5f5", zIndex:99, width: "100%", height: "100%", flexDirection: "row",borderRadius: 0, }}>

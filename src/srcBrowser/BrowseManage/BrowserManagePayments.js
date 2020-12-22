@@ -22,22 +22,19 @@ export default class App extends React.Component {
 
         return (
             <View style={{zIndex: 0,width: window.innerWidth, height: window.innerHeight, backgroundColor: "#fff"}}>
-            <View style={{width:"100%",height:window.innerHeight*0.07,backgroundColor:"#fff",flexDirection:"row",backgroundColor:"#fff"}}>
+            <View style={{width:"100%",height:window.innerHeight*0.07,backgroundColor:"#fff",flexDirection:"row",backgroundColor:"#fff",borderBottomWidth:2,borderColor:"#f5f5f5"}}>
 
 <TouchableOpacity onLongPress={()=>this.setState({status:"ALL"})} onPress={()=>this.setState({status:"ALL"})} style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
-<Text style={{ textDecorationLine: "none", color:this.state.status=="ALL"?"#000":"gray", fontWeight: "400", fontSize: "1rem", textAlign: "center"}}>
+<Text style={{ textDecorationLine: "none", color:this.state.status=="ALL"?"#000":"gray", fontWeight: "400", fontSize: "1.1rem", textAlign: "center"}}>
                                         Mis facturas
                   </Text>
-                  <View style={{position:"absolute",bottom:0, width:"60%",alignSelf:"center",height:this.state.status=="ALL"?4:0,backgroundColor:"#FFC524"}}/>
-
+                  
 </TouchableOpacity>
 <TouchableOpacity onLongPress={()=>this.setState({status:"DETAILS"})} onPress={()=>this.setState({status:"DETAILS"})} style={{width:"20%",alignItems:"center",justifyContent:"center"}}>
-<Text style={{ textDecorationLine: "none", color: this.state.status=="DETAILS"?"#000":"gray", fontWeight: "400", fontSize: "1rem", textAlign: "center"}}>
+<Text style={{ textDecorationLine: "none", color: this.state.status=="DETAILS"?"#000":"gray", fontWeight: "400", fontSize: "1.1rem", textAlign: "center"}}>
                                         Datos de facturación
                   </Text>
-                  <View style={{width:"100",height:4,position:"absolute",top:0,backgroundColor:"#000"}}></View>
-                  <View style={{position:"absolute",bottom:0, width:"60%",alignSelf:"center",height:this.state.status=="DETAILS"?4:0,backgroundColor:"#FFC524"}}/>
-</TouchableOpacity>
+                </TouchableOpacity>
 
 
           </View>
@@ -46,9 +43,10 @@ export default class App extends React.Component {
             <Text style={{ paddingTop: window.innerHeight * 0.03, textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
                                         Facturas
                   </Text>
-                  <Text style={{paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.3rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
-                  Revisa todas tus facturas
-                  </Text>
+                  <TextInput
+                  onChangeText={(text)=>this.filterDishes(text)}
+                   numberOfLines={1} placeholder={"Buscar una factura"} style={{marginLeft:window.innerWidth*0.01, marginVertical: window.innerHeight * 0.02,borderRadius:10, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                
                   <View style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
 <View style={{width:"40%",alignItems:"flex-start",justifyContent:"center"}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
@@ -65,7 +63,7 @@ export default class App extends React.Component {
 </View>
 <View style={{width:"20%",alignItems:"center",justifyContent:"center"}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
-                                        Descargar
+                                        Fecha de emisión
                   </Text>
                   
 </View>
@@ -74,43 +72,43 @@ export default class App extends React.Component {
                   </View>
           }
           {this.state.status=="DETAILS" &&
-          <View>
-            <Text style={{ paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
+          <ScrollView>
+            <Text style={{ paddingTop: window.innerHeight * 0.03, textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
                     Datos de facturación
                   </Text>
-                  <Text style={{paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.3rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
-                  Revisa y edita tus datos de facturación
-                  </Text>
-                  <Text style={{paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
+                 
+                  <Text style={{paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.05, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.02,width:"30%" }}>
                   Nombre y apellidos del autónomo o nombre fiscal de la empresa
                   </Text>
-                  <TextInput numberOfLines={1} placeholder={"Restaurante Gourmet S.L"} style={{marginLeft:window.innerWidth*0.02, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  <TextInput numberOfLines={1} placeholder={"Restaurante Gourmet S.L"} style={{marginTop:window.innerHeight*0.01,borderRadius:10, marginLeft:window.innerWidth*0.02, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
                   <Text style={{paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
                   CIF o NIF
                   </Text>
-                  <TextInput numberOfLines={1} placeholder={"B – XXXXXXXX"} style={{marginLeft:window.innerWidth*0.02, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  <TextInput numberOfLines={1} placeholder={"B – XXXXXXXX"} style={{marginTop:window.innerHeight*0.01,borderRadius:10,marginLeft:window.innerWidth*0.02, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
                   <Text style={{paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
                   Dirección fiscal
                   </Text>
-                  <TextInput numberOfLines={1} placeholder={"C/ Bruc 26"} style={{marginLeft:window.innerWidth*0.02, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  <TextInput numberOfLines={1} placeholder={"C/ Bruc 26"} style={{marginTop:window.innerHeight*0.01,borderRadius:10,marginLeft:window.innerWidth*0.02, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
                   <Text style={{paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
                   Ciudad
                   </Text>
-                  <TextInput numberOfLines={1} placeholder={"Manresa"} style={{marginLeft:window.innerWidth*0.02, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  <TextInput numberOfLines={1} placeholder={"Manresa"} style={{marginTop:window.innerHeight*0.01, borderRadius:10,marginLeft:window.innerWidth*0.02, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
                  
-                  <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
-                                               Confirmo que todos los datos introducidos en este fromulario són correctos y correponden a mis datos fiscales. Si alguna información es incorrecta elcomensal no se hace responsable. 
-                         </Text>
+                 
 
-                  <TouchableOpacity style={{width:window.innerWidth*0.3,alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"flex-start",marginLeft:window.innerWidth*0.02,marginTop:window.innerHeight*0.02}}>
+                  <TouchableOpacity style={{marginLeft:window.innerWidth*0.02, width:window.innerWidth*0.3,borderRadius:10, alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"flex-start",marginLeft:window.innerWidth*0.02,marginTop:window.innerHeight*0.02}}>
        <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
-                                               Guardar datos de facturación
+                                               Actualizar datos
                          </Text>
                          
        
        
                        </TouchableOpacity>
-                  </View>
+                       <Text style={{marginLeft:window.innerWidth*0.02, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.03,width:"30%" }}>
+                                               Confirmo que todos los datos introducidos en este fromulario són correctos y correponden a mis datos fiscales. Si alguna información es incorrecta elcomensal no se hace responsable de los daños causados. 
+                         </Text>
+                       <View style={{width:"100%",height:window.innerHeight*0.02}}/>
+                  </ScrollView>
           }
             </View>
         )

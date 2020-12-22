@@ -78,9 +78,7 @@ export default class App extends React.Component {
             <Text style={{ paddingTop: window.innerHeight * 0.03, textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
                                         Ayuda
                   </Text>
-                  <Text style={{paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.3rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                  Descubre als respuestas a las preguntas más frecuentes
-                  </Text>
+                 <View style={{width:"100%",height:window.innerHeight*0.02}}/>
                   {helpInfo.map((item,index)=>(
 <View style={{width:"100%",backgroundColor:"#f5f5f5"}}>
                   <TouchableOpacity style={{flexDirection:"row",width:window.innerWidth*0.95,alignSelf:"center"}} onLongPress={()=>this.toggleFilter(index)} onPress={()=>this.toggleFilter(index)}>
@@ -113,9 +111,9 @@ export default class App extends React.Component {
                   <Text style={{width:window.innerWidth*0.5, paddingBottom: window.innerHeight * 0.03, paddingTop: window.innerHeight * 0.01, textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
                   Si tienes cualquier otra duda sobre la aplicación no dudes en ponerte en contacto con soporte y te responderemos lo antes posible.
                   </Text>
-                  <TextInput multiline numberOfLines={5} placeholder={"Contenido de la consulta"} style={{ marginLeft: window.innerWidth * 0.02, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "50%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  <TextInput multiline numberOfLines={5} placeholder={"Contenido de la consulta"} style={{ marginLeft: window.innerWidth * 0.02,borderRadius:10, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "50%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
 
-                  <TouchableOpacity style={{width:window.innerWidth*0.3,alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"flex-start",marginLeft:window.innerWidth*0.02,marginTop:window.innerHeight*0.02}}>
+                  <TouchableOpacity style={{width:window.innerWidth*0.3,alignItems:"center",justifyContent:"center",backgroundColor:"#FFCB00",alignSelf:"flex-start",marginLeft:window.innerWidth*0.02,borderRadius:10,marginTop:window.innerHeight*0.02}}>
        <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingVertical:window.innerHeight*0.03 }}>
                                                Enviar consulta
                          </Text>

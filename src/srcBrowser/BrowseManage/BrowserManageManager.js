@@ -96,7 +96,7 @@ restaurantes
 <ImSpoonKnife size="1.5em" />                  
 <Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.01,  textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
 
-Mi restaurantes
+Mi restaurante
 </Text>
 </TouchableOpacity>
 
@@ -137,10 +137,27 @@ Cerrar sesión
 </View>
 }
 {!this.state.menuOpen &&
-           <View>
-           <TouchableOpacity onLongPress={() => this.showMenu()} onPress={() => this.showMenu()} style={{ alignSelf: "center", position: "absolute", top: window.innerHeight*0.01 }}>
+           <View style={{height:"100%"}}>
+           <TouchableOpacity onLongPress={() => this.showMenu()} onPress={() => this.showMenu()} style={{marginTop:window.innerHeight*0.02,  alignSelf: "center"}}>
                       <IoMdMenu size="2em" />
+                    </TouchableOpacity>    
+                    <TouchableOpacity onPress={() => this.updateManagerStatus("DISHES")} style={{marginTop:window.innerHeight*0.1, alignSelf: "center"}}>
+                    <ImSpoonKnife size="1.5em" />   
                     </TouchableOpacity>     
+                    <TouchableOpacity onPress={() => this.updateManagerStatus("PAYMENTS")} style={{marginTop:window.innerHeight*0.1,  alignSelf: "center"}}>
+                    <IoIosCard size="1.5em" /> 
+                    </TouchableOpacity>     
+                    <TouchableOpacity onPress={() => this.updateManagerStatus("HELP")} style={{marginTop:window.innerHeight*0.1,  alignSelf: "center"}}>
+                    <IoIosHelpCircle size="1.5em" />  
+                    </TouchableOpacity>     
+                    <TouchableOpacity onPress={() => this.updateManagerStatus("PROFILE")} style={{marginTop:window.innerHeight*0.1,  alignSelf: "center"}}>
+                    <GiChefToque size="1.5em" />  
+                    </TouchableOpacity>     
+                    <TouchableOpacity style={{marginTop:window.innerHeight*0.1,position:"absolute",bottom:window.innerHeight*0.02,  alignSelf: "center"}}>
+                    <Link to="/" style={{textDecoration:"none",color:"#000",marginTop:window.innerHeight*0.35}} >
+                    <BiPowerOff size="1.5em" />  
+                    </Link>
+                    </TouchableOpacity>    
                </View>
 }
             </Animated.View>
