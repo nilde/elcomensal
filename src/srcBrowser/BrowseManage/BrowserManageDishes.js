@@ -1105,7 +1105,7 @@ Visibilidad
                 }
                 {this.state.showNewCategory &&
                 <ScrollView style={{position:"absolute",top:0,width:this.state.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:"100%",backgroundColor:"rgba(0,0,0,0.4)"}}>
-                <View style={{backgroundColor:"#fff",paddingBottom:window.innerHeight*0.03,width:"95%",marginTop:window.innerHeight*0.05,alignSelf:"center"}}>
+                <View style={{backgroundColor:"#fff",paddingBottom:window.innerHeight*0.03,width:"95%",marginTop:window.innerHeight*0.05,alignSelf:"center",borderRadius:10,overflow:"hidden"}}>
                 <View style={{width:"100%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
 <View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01}}>
 <Text numberOfLines={1} style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
@@ -1685,7 +1685,7 @@ Visibilidad
                 }
                 {this.state.editActualCategory &&
                 <ScrollView style={{position:"absolute",top:0,width:this.state.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:"100%",backgroundColor:"rgba(0,0,0,0.4)"}}>
-                <View style={{backgroundColor:"#fff",paddingBottom:window.innerHeight*0.03,width:"95%",marginTop:window.innerHeight*0.05,alignSelf:"center"}}>
+                <View style={{backgroundColor:"#fff",paddingBottom:window.innerHeight*0.03,width:"95%",marginTop:window.innerHeight*0.05,alignSelf:"center",borderRadius:10,overflow:"hidden"}}>
                 <View style={{width:"100%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
 <View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01}}>
 <Text numberOfLines={1} style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
@@ -2232,7 +2232,7 @@ Visibilidad
                 }
                 {this.state.activeMenu &&
                 <ScrollView style={{position:"absolute",top:0,width:this.state.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:"100%",backgroundColor:"rgba(0,0,0,0.4)"}}>
-                <View style={{backgroundColor:"#fff",paddingBottom:window.innerHeight*0.03,width:"95%",marginTop:window.innerHeight*0.05,alignSelf:"center"}}>
+                <View style={{backgroundColor:"#fff",paddingBottom:window.innerHeight*0.03,width:"95%",marginTop:window.innerHeight*0.05,alignSelf:"center",borderRadius:10,overflow:"hidden"}}>
                 <View style={{width:"100%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
 <View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01}}>
 <Text numberOfLines={1} style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
@@ -2895,7 +2895,7 @@ Visibilidad
   <TouchableOpacity
   onPress={()=>this.newDishField("labels",optionsProduct[index*2])}
    style={{width:"20%",justifyContent:"center",alignItems:"center"}}>
-    <View style={{marginLeft:10,width:20,height:20,borderWidth:2,borderColor:"#e8e8e8",borderRadius:10}}>
+    <View style={{marginLeft:10,width:20,height:20,borderWidth:2,borderColor:"#e8e8e8",borderRadius:100}}>
 
     </View>
   </TouchableOpacity>
@@ -2909,7 +2909,7 @@ Visibilidad
     <TouchableOpacity
     onPress={()=>this.newDishField("labels",optionsProduct[index*2+1])}
      style={{width:"20%",justifyContent:"center",alignItems:"center"}}>
-    <View style={{marginLeft:10,width:20,height:20,borderWidth:2,borderColor:"#e8e8e8",borderRadius:10}}>
+    <View style={{marginLeft:10,width:20,height:20,borderWidth:2,borderColor:"#e8e8e8",borderRadius:100}}>
 
     </View>
   </TouchableOpacity>
@@ -2986,7 +2986,7 @@ Visibilidad
 
                 {this.state.editActualDish &&
                 <ScrollView style={{position:"absolute",top:0,width:this.state.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:"100%",backgroundColor:"rgba(0,0,0,0.4)"}}>
-                <View style={{backgroundColor:"#fff",paddingBottom:window.innerHeight*0.03,width:"95%",marginTop:window.innerHeight*0.05,alignSelf:"center"}}>
+                <View style={{backgroundColor:"#fff",paddingBottom:window.innerHeight*0.03,width:"95%",marginTop:window.innerHeight*0.05,alignSelf:"center",borderRadius:10,overflow:"hidden"}}>
                 <View style={{width:"100%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.02,flexDirection:"row"}}>
 <View style={{width:"50%",backgroundColor:"#fff",paddingVertical:window.innerHeight*0.01}}>
 <Text numberOfLines={1} style={{ color: "#000", fontWeight: "500", fontSize: "1.5rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
@@ -2996,7 +2996,7 @@ Visibilidad
                   </Text>
                   <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
   {({getRootProps, getInputProps}) => (
-    <View style={{width:"95%",justifyContent:"center",alignItems:"center", alignSelf:"center",height:200,backgroundColor:"#f5f5f5",marginTop:window.innerHeight*0.02}}>
+    <View style={{width:"95%",justifyContent:"center",alignItems:"center", alignSelf:"center",height:200,backgroundColor:"#f5f5f5",marginTop:window.innerHeight*0.02,borderRadius:10}}>
 
     <div style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getRootProps()}>
         <input style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getInputProps()} />
@@ -3015,18 +3015,18 @@ Visibilidad
                   <TextInput
                   onChangeText={(text)=>this.editDishField("name",text)}
                    value={this.state.activeDish.name} numberOfLines={1} placeholder={"Nombre del plato Ej. Hamburguesa con queso"} style={{marginTop: window.innerHeight * 0.01, fontSize: "1rem", width: "95%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  <Text numberOfLines={1} style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "2.5%",  paddingVertical: window.innerHeight * 0.01, backgroundColor: "#fff" }}>
+                  <Text numberOfLines={1} style={{ color: "#000",borderRadius:10, fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "2.5%",  paddingVertical: window.innerHeight * 0.01, backgroundColor: "#fff" }}>
           Descripción
             </Text>
                   <TextInput
                   onChangeText={(text)=>this.editDishField("description",text)}
                    value={this.state.activeDish.description} numberOfLines={3} placeholder={"Descripción (opcional) Ej. Hamburguesa de 200g de ternera con mozarella"} style={{marginVertical: window.innerHeight * 0.01, fontSize: "1rem", width: "95%", alignSelf: "center", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  <View style={{width:"100%",flexDirection:"row",justifyContent:"space-between",marginTop:window.innerHeight*0.01}}>
+                  <View style={{width:"100%",borderRadius:10,flexDirection:"row",justifyContent:"space-between",marginTop:window.innerHeight*0.01}}>
                   <Text numberOfLines={1} style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "2.5%",  paddingVertical: window.innerHeight * 0.01, backgroundColor: "#fff" }}>
           Precio
             </Text>
             <View style={{flexDirection:"row",justifyContent:"center",alignItems:"center",marginRight:window.innerWidth*0.01}}>
-            <Text numberOfLines={1} style={{ color: "#000", fontWeight: "300", fontSize: "1rem", paddingLeft: window.innerWidth*0.02,paddingRight: window.innerWidth*0.01,  backgroundColor: "#fff" }}>
+            <Text numberOfLines={1} style={{ color: "#000",borderRadius:10, fontWeight: "300", fontSize: "1rem", paddingLeft: window.innerWidth*0.02,paddingRight: window.innerWidth*0.01,  backgroundColor: "#fff" }}>
           Oferta
             </Text>
             <TouchableOpacity onPress={()=>this.editDishField("offer",!this.state.activeDish.offer)} style={{width:20,height:20,backgroundColor:"#FFC524",borderRadius:10}}>
@@ -3088,7 +3088,7 @@ Visibilidad
   <TouchableOpacity  
   onPress={()=>this.editDishField("labels",optionsProduct[index*2])}
   style={{width:"20%",justifyContent:"center",alignItems:"center"}}>
-    <View style={{marginLeft:10,width:20,height:20,borderWidth:2,borderColor:this.state.activeDish.labels.includes(optionsProduct[index*2])?"#FFC524":"#e8e8e8"}}>
+    <View style={{marginLeft:10,width:20,height:20,borderWidth:2,borderColor:this.state.activeDish.labels.includes(optionsProduct[index*2])?"#FFC524":"#e8e8e8",borderRadius:100}}>
 
     </View>
   </TouchableOpacity>
@@ -3102,7 +3102,7 @@ Visibilidad
     <TouchableOpacity
     onPress={()=>this.editDishField("labels",optionsProduct[index*2+1])}
      style={{width:"20%",justifyContent:"center",alignItems:"center"}}>
-    <View style={{marginLeft:10,width:20,height:20,borderWidth:2,borderColor:this.state.activeDish.labels.includes(optionsProduct[index*2+1])?"#FFC524":"#e8e8e8"}}>
+    <View style={{marginLeft:10,width:20,height:20,borderWidth:2,borderColor:this.state.activeDish.labels.includes(optionsProduct[index*2+1])?"#FFC524":"#e8e8e8",borderRadius:100}}>
 
     </View>
   </TouchableOpacity>
@@ -3139,7 +3139,7 @@ Visibilidad
     <TouchableOpacity
     onPress={()=>this.editDishField("allergens",allergensOptions[index*2+1])}
      style={{width:"20%",justifyContent:"center",alignItems:"center"}}>
-    <View style={{marginLeft:10,width:20,height:20,borderWidth:2,borderColor:this.state.activeDish.allergens.includes(allergensOptions[index*2+1])?"#FFC524":"#e8e8e8"}}>
+    <View style={{marginLeft:10,width:20,height:20,borderWidth:2,borderColor:this.state.activeDish.allergens.includes(allergensOptions[index*2+1])?"#FFC524":"#e8e8e8",borderRadius:100}}>
 
     </View>
   </TouchableOpacity>

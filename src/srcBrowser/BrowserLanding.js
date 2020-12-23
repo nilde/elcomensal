@@ -35,28 +35,28 @@ export default class App extends React.Component {
                 
                         <View style={{width:"100%",justifyContent:"space-between",flexDirection:"row",marginBottom:window.innerHeight*0.1,marginTop:window.innerHeight*0.12}}>
                         
-                        <View style={{width:"30%",marginLeft:window.innerWidth*0.03, alignItems:"center",justifyContent:"center",backgroundColor:"#fff"}}>
+                        <View style={{width:"30%",marginLeft:window.innerWidth*0.03, alignItems:"center",justifyContent:"center",backgroundColor:"#fff",borderRadius:10}}>
                         <Text style={{marginTop:window.innerHeight*0.025, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal: "5%", paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
                         Crea tu carta online
                         </Text>
                         <Text style={{marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                        Conecta con tus clientes cómo nunca
+                       Empieza tu prueba gratis de 30 días
                         </Text>
       
-                    <TextInput numberOfLines={1} placeholder={"Nombre del restaurante"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                    <TextInput numberOfLines={1} placeholder={"Nombre del restaurante"} style={{borderRadius:6, marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
            
                
-                    <TextInput numberOfLines={1} placeholder={"Dirección Ej. C/ Bruc 23, Barcelona"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                    <TextInput numberOfLines={1} placeholder={"Dirección Ej. C/ Bruc 23, Barcelona"} style={{borderRadius:6, marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
                  
-                    <TextInput numberOfLines={1} placeholder={"Correo electrónico"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015,marginBottom:window.innerHeight*0.015}} />
-                    <TextInput numberOfLines={1} placeholder={"Contraseña"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015,marginBottom:window.innerHeight*0.015}} />
-                    <TextInput numberOfLines={1} placeholder={"Repetir contraseña"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015,marginBottom:window.innerHeight*0.015}} />
+                    <TextInput numberOfLines={1} placeholder={"Correo electrónico"} style={{borderRadius:6, marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015,marginBottom:window.innerHeight*0.015}} />
+                    <TextInput numberOfLines={1} placeholder={"Contraseña"} style={{borderRadius:6, marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015,marginBottom:window.innerHeight*0.015}} />
+                    <TextInput numberOfLines={1} placeholder={"Repetir contraseña"} style={{borderRadius:6, marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015,marginBottom:window.innerHeight*0.015}} />
                  
-                    <TextInput numberOfLines={1} placeholder={"Número de teléfono: +34 000 000 000"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                    <TextInput numberOfLines={1} placeholder={"Número de teléfono: +34 000 000 000"} style={{borderRadius:6, marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
                
                   
                     
-                    <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"center",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#FFC524", width: "90%",marginTop:window.innerHeight*0.01 }}>
+                    <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"center",marginBottom:window.innerHeight*0.03,borderRadius:10, alignItems: "center", backgroundColor: "#FFC524", width: "90%",marginTop:window.innerHeight*0.01 }}>
                     <Link to="/success" style={{width:"100%", alignSelf:"flex-start",textDecoration:"none",color:"#000"}} >
    
                 <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
@@ -86,8 +86,8 @@ export default class App extends React.Component {
         
         <View style={{alignSelf:"center", width:"100%",justifyContent:"space-evenly",marginTop:window.innerHeight*0.05,height:window.innerHeight*0.8,flexDirection:"row"}}>
     
-<View style={{borderWidth:10,borderColor:"#FFC524",width:"30%",height:window.innerHeight*0.8,backgroundColor:"#FFC524",overflow:"hidden"}}>
-<Image source={covid} style={{ alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.55, zIndex: 0 }} resizeMode="cover" />
+<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"30%",height:window.innerHeight*0.8,backgroundColor:"#FFC524",overflow:"hidden"}}>
+<Image source={covid} style={{borderRadius:14, alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.55, zIndex: 0 }} resizeMode="cover" />
 <Text style={{paddingTop:window.innerHeight*0.02, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal: window.innerWidth*0.005, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
 Te apoyamos frente al COVID-19
                         </Text>
@@ -97,8 +97,8 @@ Te apoyamos frente al COVID-19
 
 
 </View>
-<View style={{borderWidth:10,borderColor:"#FFC524",width:"30%",height:window.innerHeight*0.8,backgroundColor:"#FFC524",overflow:"hidden"}}>
-<Image source={no} style={{ alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.55, zIndex: 0 }} resizeMode="cover" />
+<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"30%",height:window.innerHeight*0.8,backgroundColor:"#FFC524",overflow:"hidden"}}>
+<Image source={no} style={{borderRadius:14,alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.55, zIndex: 0 }} resizeMode="cover" />
 <Text style={{paddingTop:window.innerHeight*0.02, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal: window.innerWidth*0.005, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
 Sin necesidad de formación
                         </Text>
@@ -107,8 +107,8 @@ Sin necesidad de formación
                         </Text>
 
 </View>
-<View style={{borderWidth:10,borderColor:"#FFC524",width:"30%",height:window.innerHeight*0.8,backgroundColor:"#FFC524",overflow:"hidden"}}>
-<Image source={all} style={{ alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.55, zIndex: 0 }} resizeMode="cover" />
+<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"30%",height:window.innerHeight*0.8,backgroundColor:"#FFC524",overflow:"hidden"}}>
+<Image source={all} style={{ borderRadius:14,alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.55, zIndex: 0 }} resizeMode="cover" />
 
 <Text style={{paddingTop:window.innerHeight*0.02, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal: window.innerWidth*0.005, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
 Diseñado para el siglo XXI
@@ -125,8 +125,8 @@ Diseñado para el siglo XXI
 
 
 <View style={{flexDirection:"row",width:"100%",justifyContent:"space-between"}}>
-    <View style={{borderWidth:10,borderColor:"#FFC524",width:"48%",alignItems:"center",height:window.innerHeight*0.85,backgroundColor:"#FFC524"}}>
-    <Image source={clients} style={{width: "100%", height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="cover" />
+    <View style={{borderWidth:10,borderRadius:20, borderColor:"#FFC524",width:"48%",alignItems:"center",height:window.innerHeight*0.85,backgroundColor:"#FFC524"}}>
+    <Image source={clients} style={{borderRadius:14,width: "100%", height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="cover" />
 
 <Text style={{ color: "#000", fontWeight: "500",padding:0,margin:0, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left",marginTop:window.innerHeight*0.05,width:"100%"  }}>
 Una experiencia increible para tus clientes
@@ -138,7 +138,7 @@ Una experiencia increible para tus clientes
                         </Text>
                         <Link to="/menu_example" style={{alignSelf:"flex-start",textDecoration:"none",color:"#000"}} >
    
-                        <TouchableOpacity style={{alignSelf:"flex-start",marginLeft:window.innerWidth*0.02, justifyContent:"center",alignItems:"center",backgroundColor:"#000",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02,marginBottom:window.innerHeight*0.03}}>
+                        <TouchableOpacity style={{borderRadius:6,alignSelf:"flex-start",marginLeft:window.innerWidth*0.02, justifyContent:"center",alignItems:"center",backgroundColor:"#000",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02,marginBottom:window.innerHeight*0.03}}>
                        
             <Text style={{ width:"100%", color: "#fff", fontWeight: "400", fontSize: "1rem", textAlign: "center" }}>
                  Ver una carta de ejemplo
@@ -146,8 +146,8 @@ Una experiencia increible para tus clientes
 
          </TouchableOpacity> </Link>
 </View>
-<View style={{borderWidth:10,borderColor:"#FFC524",width:"48%",alignItems:"center",height:window.innerHeight*0.85,backgroundColor:"#FFC524"}}>
-    <Image source={adapt} style={{width: "100%", height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="cover" />
+<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"48%",alignItems:"center",height:window.innerHeight*0.85,backgroundColor:"#FFC524"}}>
+    <Image source={adapt} style={{borderRadius:14,width: "100%", height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="cover" />
 
 <Text style={{ color: "#000", fontWeight: "500",padding:0,margin:0, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left",marginTop:window.innerHeight*0.05,width:"100%"   }}>
 Diseñado para adaptarse a tu negocio
@@ -159,7 +159,7 @@ Diseñado para adaptarse a tu negocio
                         </Text>
                         <Link to="/admin_example" style={{alignSelf:"flex-start", textDecoration:"none",color:"#000"}} >
    
-                        <TouchableOpacity style={{alignSelf:"flex-start",marginLeft:window.innerWidth*0.02, justifyContent:"center",alignItems:"center",backgroundColor:"#000",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02,marginBottom:window.innerHeight*0.03}}>
+                        <TouchableOpacity style={{borderRadius:6, alignSelf:"flex-start",marginLeft:window.innerWidth*0.02, justifyContent:"center",alignItems:"center",backgroundColor:"#000",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02,marginBottom:window.innerHeight*0.03}}>
             <Text style={{ width:"100%", color: "#fff", fontWeight: "400", fontSize: "1rem", textAlign: "center" }}>
                  Echa un ojo al panel de administración
 </Text>
@@ -175,7 +175,7 @@ Diseñado para adaptarse a tu negocio
 {/**BLOQUE 5 */}
 <View style={{width:"95%",alignSelf:"center",backgroundColor:"#fff",marginTop:window.innerHeight*0.05,alignSelf:"center",flexDirection:"row",justifyContent:"space-between",alignItems:"flex-start"}}>
     <View style={{width:"40%",flexDirection:"column"}}>
-<View style={{borderWidth:10,borderColor:"#FFC524",width:"100%",backgroundColor:"#FFC524",paddingTop:window.innerHeight*0.02}}>
+<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"100%",backgroundColor:"#FFC524",paddingTop:window.innerHeight*0.02}}>
 <Text style={{ color: "#000", fontWeight: "500",padding:0, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
 ¿Cómo funciona elcomensal?
                         </Text>
@@ -186,10 +186,10 @@ Diseñado para adaptarse a tu negocio
                         2. Coloca los QR generados en las mesas o en algún lugar visible</Text>
                         <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.05,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
                         3. El cliente escanea el código QR y accede a la carta</Text>
-<Image source={works} style={{alignSelf:"center", width: "100%", height: window.innerHeight*0.7, zIndex: 0 }} resizeMode="cover" />
+<Image source={works} style={{borderRadius:14, alignSelf:"center", width: "100%", height: window.innerHeight*0.6, zIndex: 0 }} resizeMode="cover" />
 
 </View>
-<View style={{borderWidth:10,borderColor:"#FFC524",width:"100%",backgroundColor:"#FFC524",marginTop:window.innerHeight*0.05,alignSelf:"center"}}>
+<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"100%",backgroundColor:"#FFC524",marginTop:window.innerHeight*0.05,alignSelf:"center"}}>
 
 <View style={{paddingVertical:window.innerHeight*0.05, width:"100%"}}>
 
@@ -213,23 +213,8 @@ Descubre cómo quedará
         </View>
 </View>
 <View style={{width:"60%",height:"100%",justifyContent:"flex-end",alignItems:"flex-end"}}>
-<View style={{borderWidth:10,borderColor:"#FFC524",flexDirection:"row-reverse",height:window.innerHeight*0.7,width:"100%",backgroundColor:"#FFC524"}}>
-<View style={{ width:"60%",alignItems:"center",height:"100%"}}>
-<Text style={{ color: "#000", fontWeight: "500",padding:0,marginTop:window.innerHeight*0.02, fontSize: "1.5rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "right", width: "100%" }}>
-Nos encargamos de todo
-                </Text>
-               
-                <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.05,color: "#000", fontWeight: "400", fontSize: "1.2rem",  paddingHorizontal: window.innerWidth*0.02, textAlign: "right", width: "100%" }}>
-               Digitalizamos tu carta completamente gratis para que no suponga ningún esfuerzo empezar a usar nuestra plataforma
-                </Text>
-</View>
-<View style={{width:"50%",justifyContent:"flex-start"}}>
-                <Image source={scan} style={{alignSelf:"center", width: window.innerWidth*0.9, height: window.innerHeight*0.7, zIndex: 0 }} resizeMode="contain" />
 
-</View>
-
-</View>
-<View style={{borderWidth:10,borderColor:"#FFC524",marginTop:window.innerHeight*0.05, width:"95%",backgroundColor:"#FFC524"}}>
+<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524", width:"95%",backgroundColor:"#FFC524"}}>
 <Text style={{ color: "#000", fontWeight: "500",padding:0,marginTop:window.innerHeight*0.02, fontSize: "1.5rem", paddingHorizontal:window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
 ¿Por qué nosotros?
                         </Text>
@@ -254,25 +239,22 @@ Nos encargamos de todo
                         <Text style={{marginTop:window.innerHeight*0.01,marginBottom:window.innerHeight*0.05,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
                         0 sorpresas. Sin costes ocultos, gastos adicionales ni comisiones.
                         </Text>
-                        <Image source={why} style={{alignSelf:"center", width:"100%", height: window.innerHeight*0.62, zIndex: 0 }} resizeMode="cover" />
+                        <Image source={why} style={{borderRadius:14,alignSelf:"center", width:"100%", height: window.innerHeight*0.62, zIndex: 0 }} resizeMode="cover" />
 
 </View>
-</View>
 
-
-</View>
-      <View style={{borderWidth:10,borderColor:"#FFC524",flexDirection:"row", marginTop:window.innerHeight*0.05, width:"95%",alignSelf:"center", backgroundColor:"#FFC524"}}>
-<View style={{width:"50%",paddingVertical:window.innerHeight*0.02,height:"100%"}}>
-<Text style={{ color: "#000", fontWeight: "500",padding:0, fontSize: "1.5rem", paddingHorizontal: window.innerWidth*0.01, textAlign: "left", width: "100%" }}>
+<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",flexDirection:"row", marginTop:window.innerHeight*0.05, width:"95%",alignSelf:"center", backgroundColor:"#FFC524",overflow:"hidden"}}>
+<View style={{width:"50%",height:window.innerHeight*0.66}}>
+<Text style={{marginTop:window.innerHeight*0.02, color: "#000", fontWeight: "500",padding:0, fontSize: "1.5rem", paddingHorizontal: window.innerWidth*0.01, textAlign: "left", width: "100%" }}>
 ¿Tienes dudas?
                         </Text>
                         <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.2rem",  paddingHorizontal: window.innerWidth*0.01, textAlign: "left", width: "70%" }}>
                Estaremos encantados de resolver todas las dudas que te surjan
                 </Text>
-                <TextInput numberOfLines={1} placeholder={"Nombre completo"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"70%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
-                <TextInput numberOfLines={1} placeholder={"Correo electrónico"} style={{marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"70%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
-                <TextInput multiline numberOfLines={5} placeholder={"Detalles de la consulta"} style={{fontSize:"1rem", width:"70%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
-                <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"flex-start",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#000",marginTop:window.innerHeight*0.02,marginLeft:window.innerWidth*0.01 }}>
+                <TextInput numberOfLines={1} placeholder={"Nombre completo"} style={{borderRadius:6,marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                <TextInput numberOfLines={1} placeholder={"Correo electrónico"} style={{borderRadius:6,marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                <TextInput multiline numberOfLines={5} placeholder={"Detalles de la consulta"} style={{borderRadius:6,marginBottom:window.innerHeight*0.02, fontSize:"1rem", width:"90%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{borderRadius:6,alignSelf:"flex-start",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#000",marginTop:window.innerHeight*0.02,marginLeft:window.innerWidth*0.01 }}>
                 <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
                   
                   <Text style={{ color: "#fff", fontWeight: "400", fontSize: "1rem", paddingHorizontal: window.innerWidth*0.05, paddingVertical: window.innerHeight * 0.02, textAlign: "center", width: "100%" }}>
@@ -283,10 +265,15 @@ Nos encargamos de todo
                 </TouchableOpacity>
 </View>
 <View style={{width:"50%",height:"100%"}}>
-<Image source={contact} style={{alignSelf:"center", width:"100%", height: window.innerHeight*0.6, zIndex: 0 }} resizeMode="cover" />
+<Image source={contact} style={{borderRadius:14,alignSelf:"center", width:"100%", height:window.innerHeight*0.66, zIndex: 0 }} resizeMode="cover" />
 
 </View>
       </View>
+</View>
+
+
+</View>
+     
 
 
     {/**BOTTOM */}
@@ -316,8 +303,8 @@ Nos encargamos de todo
 
                 </TouchableOpacity>
                 </Link>  
-                <Link to="/register" style={{height:"100%", width:"10%",textDecoration:"none",color:"#000"}} > 
-                <TouchableOpacity style={{height:"100%", alignItems:"center",justifyContent:"center",backgroundColor:"#FFC524"}}>
+                <Link to="/register" style={{height:"70%",alignSelf:"center", width:"10%",textDecoration:"none",color:"#000",marginRight:"2%"}} > 
+                <TouchableOpacity style={{height:"100%",alignSelf:"center", alignItems:"center",justifyContent:"center",backgroundColor:"#FFC524",borderRadius:6}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "center" }}>
                                         Únete
                   </Text>
