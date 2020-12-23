@@ -10,7 +10,7 @@ import { Background } from 'react-parallax';
 import Dropzone from 'react-dropzone'
 import { Link } from 'react-router-dom';
 import firebase from "firebase";
-
+import GeneralContext from '../../Provider.js';
 const optionsProduct = ["Especialidad", "Vegetariano", "Vegano", "Sin gluten", "Sin lactosa", "Para compartir", "Por unidad", "Alcohol", "Sin alcohol", "Halal"]
 const allergensOptions=["Pescado","Frutos secos","Lácteos","Moluscos","Cereales con gluten","Crustáceos","Huevos","Cacahuetes","Soja","Apio","Mostaza","Sésamo","Altramuz","Sulfitos"]
 
@@ -425,7 +425,7 @@ for(var i=0;i<this.state.categories.length;i++){
 
       return this.state.categories[index].avaliable[new Date().getDay()].indexOf(new Date().getHours())>=0
     }
-
+    static contextType = GeneralContext;
     render() {
 
         return (
@@ -441,7 +441,7 @@ for(var i=0;i<this.state.categories.length;i++){
   
    style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
 <Text style={{ textDecorationLine: "none", color:this.state.status=="DISHES"?"#000":"#BDBDBD", fontWeight: "400", fontSize: "1.1rem", textAlign: "center"}}>
-                                        Platos
+                                        Productos
                   </Text>
                   
 </TouchableOpacity>
@@ -466,17 +466,7 @@ style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
                   </Text>
                  </TouchableOpacity>
 
-                <TouchableOpacity style={{marginLeft:this.props.menuOpen? window.innerWidth*0.175:window.innerWidth*0.525, width:"10%",alignItems:"center",justifyContent:"center"}}>
-                <Link to="/success" style={{width:"100%", alignSelf:"flex-start",textDecoration:"none",color:"#000"}} >
-   
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left" }}>
-                                        Ver mi carta
-                  </Text>
-                  </Link>
-                  
-
-
-                </TouchableOpacity>
+               
         
               
           </View>
@@ -485,15 +475,16 @@ style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
         
            <ScrollView style={{zIndex:0}}>
                <View style={{flexDirection:"row",width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,justifyContent:"space-between",paddingTop: window.innerHeight * 0.03,backgroundColor:"#fff",}}>
-            <Text style={{textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                                        Mis platos y bebidas
-                  </Text>
+               <TextInput
+                  onChangeText={(text)=>this.filterDishes(text)}
+                   numberOfLines={1} placeholder={"Buscar un plato o bebida"} style={{marginLeft:window.innerWidth*0.01, marginBottom: window.innerHeight * 0.02,borderRadius:10, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                 
                   <TouchableOpacity
                   onLongPress={()=>this.setState({showNewMenu:false,showNewCategory:false,showNewDish:true})}
                   onPress={()=>this.setState({showNewMenu:false,showNewCategory:false,showNewDish:true})}
                    style={{alignItems:"center",justifyContent:"center",backgroundColor:"#FFC524",marginRight:window.innerWidth*0.02,borderRadius:10}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02 }}>
-                                        + Añadir plato o bebida
+                                        + Añadir producto
                   </Text>
                   
 
@@ -501,15 +492,11 @@ style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
                 </TouchableOpacity>
                   </View>
              
-                  <View style={{width:"100%",backgroundColor:"#fff"}}>
-                  <TextInput
-                  onChangeText={(text)=>this.filterDishes(text)}
-                   numberOfLines={1} placeholder={"Buscar un plato o bebida"} style={{marginLeft:window.innerWidth*0.01, marginBottom: window.innerHeight * 0.02,borderRadius:10, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  </View>
+                 <View style={{width:"100%",height:window.innerHeight*0.03,backgroundColor:"#fff"}}/>
                 <View style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
 <View style={{width:"60%",alignItems:"flex-start",justifyContent:"center"}}>
 <Text style={{ paddingHorizontal:window.innerWidth*0.01,textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left"}}>
-                                        Nombre del plato
+                                        Nombre del producto
                   </Text>
                   
 </View>
@@ -546,12 +533,12 @@ style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
               </View>
                 }
                 {
-                  this.state.filteredDishes.map((item,index)=>(
+                  this.context.dishesData.filteredDishes.map((item,index)=>(
                     <TouchableOpacity
                     onPress={()=>this.editDish(index)}
 
                     
-                     style={{marginTop:window.innerHeight*0.005, width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
+                     style={{marginTop:window.innerHeight*0.0025, width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
               <View style={{width:"60%",alignItems:"flex-start",justifyContent:"center"}}>
 <Text style={{paddingHorizontal:window.innerWidth*0.01, textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "left",width:"100%" }}>
                                        {item.name}
@@ -587,9 +574,10 @@ style={{width:"15%",alignSelf:"center",marginLeft:"2.5%",alignItems:"center",jus
            <ScrollView>
                
            <View style={{backgroundColor:"#fff",flexDirection:"row",width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,justifyContent:"space-between",paddingTop: window.innerHeight * 0.03,}}>
-            <Text style={{textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", paddingLeft: window.innerWidth * 0.01 }}>
-                                        Mis menús
-                  </Text>
+           <TextInput
+                  onChangeText={(text)=>this.filterMenus(text)}
+                   numberOfLines={1} placeholder={"Buscar un menú"} style={{marginLeft:window.innerWidth*0.01,borderRadius:10,  marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  
                   <TouchableOpacity
                   onLongPress={()=>this.setState({showNewMenu:true,showNewCategory:false,showNewDish:false})}
                   onPress={()=>this.setState({showNewMenu:true,showNewCategory:false,showNewDish:false})}
@@ -603,11 +591,7 @@ style={{width:"15%",alignSelf:"center",marginLeft:"2.5%",alignItems:"center",jus
                 </TouchableOpacity>
                   </View>
                   
-                  <View style={{width:"100%",backgroundColor:"#fff",}}>
-                  <TextInput
-                  onChangeText={(text)=>this.filterMenus(text)}
-                   numberOfLines={1} placeholder={"Buscar un menú"} style={{marginLeft:window.innerWidth*0.01,borderRadius:10,  marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  </View>
+                  <View style={{width:"100%",height:window.innerHeight*0.03,backgroundColor:"#fff"}}/>
                   <View style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
 <View style={{width:"50%",alignItems:"flex-start",justifyContent:"center"}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
@@ -634,7 +618,7 @@ Visibilidad
                 {this.state.filteredMenus.map((item,index)=>(
 
             
-                <View style={{width:"100%",backgroundColor:"#fff",flexDirection:"row",marginTop:window.innerHeight*0.005}}>
+                <View style={{width:"100%",backgroundColor:"#fff",flexDirection:"row",marginTop:window.innerHeight*0.0025}}>
                 <TouchableOpacity
                 onPress={()=>this.assignActualMenu(index)}
                  style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
@@ -686,9 +670,10 @@ No visible actualmente
            <ScrollView>
                
            <View style={{backgroundColor:"#fff", flexDirection:"row",width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,justifyContent:"space-between",paddingTop: window.innerHeight * 0.03,}}>
-            <Text style={{textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                                        Categorías
-                  </Text>
+           <TextInput
+                  onChangeText={(text)=>this.filterCategories(text)}
+                   numberOfLines={1} placeholder={"Buscar una categoría"} style={{marginLeft:window.innerWidth*0.01,borderRadius:10, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
+                  
                   <TouchableOpacity
                   onLongPress={()=>this.setState({showNewMenu:false,showNewCategory:true,showNewDish:false})}
                   onPress={()=>this.setState({showNewMenu:false,showNewCategory:true,showNewDish:false})}
@@ -702,11 +687,8 @@ No visible actualmente
                 </TouchableOpacity>
                   </View>
             
-                  <View style={{width:"100%",backgroundColor:"#fff",}}>
-                  <TextInput
-                  onChangeText={(text)=>this.filterCategories(text)}
-                   numberOfLines={1} placeholder={"Buscar una categoría"} style={{marginLeft:window.innerWidth*0.01,borderRadius:10, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
-                  </View>
+                  <View style={{width:"100%",backgroundColor:"#fff",height:window.innerHeight*0.03}} />
+               
                 <View style={{width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95, height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
 <View style={{width:"50%",alignItems:"flex-start",justifyContent:"center"}}>
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.1rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
@@ -731,7 +713,7 @@ Visibilidad
                 </View>
 
                 {this.state.filteredCategories.map((item,index)=>(
-                <View style={{width:"100%",flexDirection:"row",marginTop:window.innerHeight*0.005,}}>
+                <View style={{width:"100%",flexDirection:"row",marginTop:window.innerHeight*0.0025,}}>
             
                 <TouchableOpacity
                 onPress={()=>this.setState({editActualCategory:true,activeCategory:JSON.parse(JSON.stringify(this.state.categories[index])), activeCategoryIndex:index})}

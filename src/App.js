@@ -11,7 +11,7 @@ import {
   isBrowser,
   isMobile
 } from "react-device-detect";
-
+import GeneralContext, { GeneralProvider } from './Provider.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -51,6 +51,7 @@ export default class App extends React.Component {
 
       <SnackbarProvider>
         <ParallaxProvider>
+        <GeneralProvider>
           <Router>
         <Switch>
           
@@ -124,6 +125,7 @@ export default class App extends React.Component {
         </Switch>
 
         </Router>
+        </GeneralProvider>
         </ParallaxProvider>
       </SnackbarProvider>
     );

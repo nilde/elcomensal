@@ -204,7 +204,7 @@ Descubre cómo quedará
             
                         <Image source={qr_example} style={{alignSelf:"center", width: window.innerWidth*0.50, height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="contain" />
                         <Text style={{marginVertical:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
-                        Escanea el código QR o accede a http://www.elcomensalapp.com/197 en tu navegador para hacerte una idea sobre como quedará tu carta
+                        Coloca los QR que generes en tus mesas. Los clientes llegarán, escanearán el código y accederán a tu carta.
                         </Text>
 
 </View>
