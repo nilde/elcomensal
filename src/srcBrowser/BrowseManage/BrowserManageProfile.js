@@ -8,17 +8,16 @@ import 'react-pro-sidebar/dist/css/styles.css';
 import Collapsible from 'react-collapsible';
 import { Background } from 'react-parallax';
 import Dropzone from "react-dropzone"
+import GeneralContext from '../../Provider.js';
 export default class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            manageStatus: ""
-        }
+        
     }
 
 
 
-
+    static contextType = GeneralContext;
     render() {
 
         return (
@@ -36,7 +35,7 @@ export default class App extends React.Component {
                   </Text>
                   <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
   {({getRootProps, getInputProps}) => (
-    <View style={{width:"85%",justifyContent:"center",alignItems:"center", alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,height:200,backgroundColor:"#f5f5f5",marginVertical:window.innerHeight*0.02,borderRadius:40}}>
+    <View style={{width:"85%",justifyContent:"center",alignItems:"center", alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,height:200,backgroundColor:"#f5f5f5",marginVertical:window.innerHeight*0.02,borderRadius:10}}>
 
       <div style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getRootProps()}>
         <input style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getInputProps()} />

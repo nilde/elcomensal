@@ -2,7 +2,7 @@ import * as React from 'react';
 import Title from 'reactjs-title'
 import { Animated, AppRegistry, StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, TouchableWithoutFeedback, TextInput, FlatList } from 'react-native';
 import { IoIosClose, IoMdRadioButtonOff, IoMdRadioButtonOn, IoIosRadioButtonOff, IoIosRadioButtonOn, IoIosMenu, IoMdMenu, IoIosCard, IoIosHelpCircle } from "react-icons/io";
-import { RiArrowLeftLine } from "react-icons/ri";
+import { RiArrowLeftLine,RiQrCodeFill } from "react-icons/ri";
 import { ImExit, ImSpoonKnife } from "react-icons/im";
 import {GiChefToque} from "react-icons/gi"
 import {BiPowerOff} from "react-icons/bi"
@@ -99,6 +99,13 @@ restaurantes
 Mi restaurante
 </Text>
 </TouchableOpacity>
+<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.02,marginTop:window.innerHeight*0.02}} onLongPress={()=>{this.updateManagerStatus("DISHES");this.closeMenu()}} onPress={()=>{this.updateManagerStatus("DISHES");this.closeMenu()}}>
+<RiQrCodeFill size="1.5em" />                  
+<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.01,  textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
+
+Generar QRs
+</Text>
+</TouchableOpacity>
 
 
 <TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.02}} onLongPress={()=>{this.updateManagerStatus("PAYMENTS");this.closeMenu()}} onPress={()=>{this.updateManagerStatus("PAYMENTS");this.closeMenu()}}>
@@ -108,13 +115,7 @@ Mi restaurante
 Pagos
 </Text>
 </TouchableOpacity>
-<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.02}} onLongPress={()=>{this.updateManagerStatus("HELP");this.closeMenu()}} onPress={()=>{this.updateManagerStatus("HELP");this.closeMenu()}}>
-<IoIosHelpCircle size="1.5em" />     
-<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.01, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
 
-Ayuda
-</Text>
-</TouchableOpacity>
 <TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.02}} onLongPress={()=>{this.updateManagerStatus("PROFILE");this.closeMenu() }} onPress={()=>{this.updateManagerStatus("PROFILE");this.closeMenu()}}>
 <GiChefToque size="1.5em" />     
 <Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.01, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
@@ -122,7 +123,14 @@ Ayuda
 Perfil
 </Text>
 </TouchableOpacity>
-<Link to="/" style={{textDecoration:"none",color:"#000",marginTop:window.innerHeight*0.35}} >
+<TouchableOpacity style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.02}} onLongPress={()=>{this.updateManagerStatus("HELP");this.closeMenu()}} onPress={()=>{this.updateManagerStatus("HELP");this.closeMenu()}}>
+<IoIosHelpCircle size="1.5em" />     
+<Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.01, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
+
+Ayuda
+</Text>
+</TouchableOpacity>
+<Link to="/" style={{textDecoration:"none",color:"#000",marginTop:window.innerHeight*0.25}} >
 <View  style={{paddingVertical: window.innerHeight * 0.02,flexDirection:"row",justifyContent:"center",alignItems:"center",marginLeft:window.innerWidth*0.02}} onLongPress={()=>this.updateManagerStatus("DISHES")} onPress={()=>this.updateManagerStatus("DISHES")}>
 <BiPowerOff size="1.5em" />  
 <Text style={{ color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingLeft:window.innerWidth*0.01, paddingVertical: window.innerHeight * 0.02, textAlign: "left", width: "100%", backgroundColor: "transparent" }}>
@@ -143,18 +151,23 @@ Cerrar sesión
                     </TouchableOpacity>    
                     <TouchableOpacity onPress={() => this.updateManagerStatus("DISHES")} style={{marginTop:window.innerHeight*0.1, alignSelf: "center"}}>
                     <ImSpoonKnife size="1.5em" />   
-                    </TouchableOpacity>     
+                    </TouchableOpacity> 
+                    <TouchableOpacity onPress={() => this.updateManagerStatus("PAYMENTS")} style={{marginTop:window.innerHeight*0.1,  alignSelf: "center"}}>
+                   
+                    <RiQrCodeFill size="1.5em" />     
+                    </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.updateManagerStatus("PAYMENTS")} style={{marginTop:window.innerHeight*0.1,  alignSelf: "center"}}>
                     <IoIosCard size="1.5em" /> 
                     </TouchableOpacity>     
-                    <TouchableOpacity onPress={() => this.updateManagerStatus("HELP")} style={{marginTop:window.innerHeight*0.1,  alignSelf: "center"}}>
-                    <IoIosHelpCircle size="1.5em" />  
-                    </TouchableOpacity>     
+                    
                     <TouchableOpacity onPress={() => this.updateManagerStatus("PROFILE")} style={{marginTop:window.innerHeight*0.1,  alignSelf: "center"}}>
                     <GiChefToque size="1.5em" />  
                     </TouchableOpacity>     
+                    <TouchableOpacity onPress={() => this.updateManagerStatus("HELP")} style={{marginTop:window.innerHeight*0.1,  alignSelf: "center"}}>
+                    <IoIosHelpCircle size="1.5em" />  
+                    </TouchableOpacity>   
                     <TouchableOpacity style={{marginTop:window.innerHeight*0.1,position:"absolute",bottom:window.innerHeight*0.02,  alignSelf: "center"}}>
-                    <Link to="/" style={{textDecoration:"none",color:"#000",marginTop:window.innerHeight*0.35}} >
+                    <Link to="/" style={{textDecoration:"none",color:"#000"}} >
                     <BiPowerOff size="1.5em" />  
                     </Link>
                     </TouchableOpacity>    

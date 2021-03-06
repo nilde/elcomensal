@@ -57,7 +57,7 @@ export default class App extends React.Component {
         super(props);
         this.toggleFilter=this.toggleFilter.bind(this);
         this.state = {
-            manageStatus:"",
+            status:"FAQ",
             helpStatus:new Array(helpInfo.length).fill(false)
         }
     }
@@ -75,10 +75,45 @@ export default class App extends React.Component {
 
         return (
             <ScrollView style={{zIndex: 0,width: window.innerWidth, height: window.innerHeight, backgroundColor: "#fff"}}>
-            <Text style={{ paddingTop: window.innerHeight * 0.03, textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "2rem", textAlign: "left", marginLeft: window.innerWidth * 0.01 }}>
-                                        Ayuda
+            <View style={{width:"100%",height:window.innerHeight*0.07,backgroundColor:"#fff",flexDirection:"row",boxShadow: "-10px -10px 10px rgba(0,0,0,0.1)",borderBottomWidth:2,borderColor:"#f5f5f5"}}>
+
+<TouchableOpacity onLongPress={()=>{
+  
+  this.setState({status:"FAQ"})}}
+  onPress={()=>{
+  
+  this.setState({status:"FAQ"})}}
+  
+   style={{width:"20%",alignItems:"center",justifyContent:"center"}}>
+<Text style={{ textDecorationLine: "none", color:this.state.status=="FAQ"?"#000":"#BDBDBD", fontWeight: "400", fontSize: "1.1rem", textAlign: "center"}}>
+                                        Preguntas frecuentes
                   </Text>
-                 <View style={{width:"100%",height:window.innerHeight*0.02}}/>
+                  
+</TouchableOpacity>
+<TouchableOpacity 
+onLongPress={()=>{
+  
+  this.setState({status:"SUPPORT"})}}
+  
+onPress={()=>{
+  
+  this.setState({status:"SUPPORT"})}}
+
+style={{width:"20%",alignItems:"center",justifyContent:"center"}}>
+<Text style={{ textDecorationLine: "none", color:this.state.status=="SUPPORT"?"#000":"#BDBDBD", fontWeight: "400", fontSize: "1.1rem", textAlign: "center"}}>
+                                        Contacta con soporte
+                  </Text>
+                 
+                </TouchableOpacity>
+
+
+               
+        
+              
+          </View>
+          {this.state.status=="FAQ" &&
+          <View>
+    
                   {helpInfo.map((item,index)=>(
 <View style={{width:"100%",backgroundColor:"#f5f5f5"}}>
                   <TouchableOpacity style={{flexDirection:"row",width:window.innerWidth*0.95,alignSelf:"center"}} onLongPress={()=>this.toggleFilter(index)} onPress={()=>this.toggleFilter(index)}>
@@ -103,8 +138,11 @@ export default class App extends React.Component {
         </Expand>
         </View>
         ))}
-        
-        <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.1, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.3rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
+        </View>
+          }
+          {this.state.status=="SUPPORT" &&
+          <View>
+        <Text style={{ paddingBottom: window.innerHeight * 0.01, paddingTop: window.innerHeight * 0.02, textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1.3rem", textAlign: "left", marginLeft: window.innerWidth * 0.02 }}>
                         Contactar con soporte
                             
                   </Text>
@@ -122,6 +160,8 @@ export default class App extends React.Component {
        
                        </TouchableOpacity>
                        <View style={{width:"100%",height:window.innerHeight*0.1}}/>
+                       </View>
+                       }
             </ScrollView>
         )
     }

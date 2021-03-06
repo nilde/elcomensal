@@ -100,10 +100,10 @@ Te apoyamos frente al COVID-19
 
 <View style={{marginLeft:window.innerWidth*0.02,marginTop:window.innerHeight*0.02, borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:window.innerWidth*0.8,height:window.innerHeight*0.7,backgroundColor:"#FFC524",overflow:"hidden"}}>
 <Image source={no} style={{borderRadius:14, alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.45, zIndex: 0 }} resizeMode="cover" />
-<Text style={{paddingTop:window.innerHeight*0.02, color: "#000", fontWeight: "500", fontSize: "1.1rem", paddingHorizontal: window.innerWidth*0.005, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
+<Text style={{paddingTop:window.innerHeight*0.02, color: "#000", fontWeight: "500", fontSize: "1.2rem", paddingHorizontal: window.innerWidth*0.005, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
 Sin necesidad de formación
                         </Text>
-                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "0.9rem", paddingHorizontal: window.innerWidth*0.005, textAlign: "left", width: "100%" }}>
+                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: window.innerWidth*0.005, textAlign: "left", width: "100%" }}>
                         Empieza a gestionar tu carta desde cualquier dispositivo con conexión a Internet en cuestión de minutos.
                         </Text>
 
@@ -111,10 +111,10 @@ Sin necesidad de formación
 </View>
 <View style={{marginLeft:window.innerWidth*0.02,marginTop:window.innerHeight*0.02, borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:window.innerWidth*0.8,height:window.innerHeight*0.7,backgroundColor:"#FFC524",overflow:"hidden"}}>
 <Image source={all} style={{borderRadius:14, alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.45, zIndex: 0 }} resizeMode="cover" />
-<Text style={{paddingTop:window.innerHeight*0.02, color: "#000", fontWeight: "500", fontSize: "1.1rem", paddingHorizontal: window.innerWidth*0.005, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
+<Text style={{paddingTop:window.innerHeight*0.02, color: "#000", fontWeight: "500", fontSize: "1.2rem", paddingHorizontal: window.innerWidth*0.005, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
 Diseñado para el siglo XXI
                         </Text>
-                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "0.9rem", paddingHorizontal: window.innerWidth*0.005, textAlign: "left", width: "100%" }}>
+                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: window.innerWidth*0.005, textAlign: "left", width: "100%" }}>
                         Una nueva forma de crear una carta online con muchas opciones de personalización
                         </Text>
 
@@ -135,12 +135,12 @@ Diseñado para el siglo XXI
     <View style={{borderWidth:10,borderRadius:20, borderColor:"#FFC524",width:"100%",alignItems:"center",height:window.innerHeight*0.95,backgroundColor:"#FFC524",overflow:"hidden"}}>
     <Image source={clients} style={{borderRadius:14,width: "100%", height: window.innerHeight*0.6, zIndex: 0 }} resizeMode="cover" />
 
-<Text style={{ color: "#000", fontWeight: "500",padding:0,margin:0, fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left",marginTop:window.innerHeight*0.01,width:"100%"  }}>
+<Text style={{ color: "#000", fontWeight: "500",padding:0,margin:0, fontSize: "1.2rem", paddingHorizontal: "5%", textAlign: "left",marginTop:window.innerHeight*0.01,width:"100%"  }}>
 Una experiencia increible para tus clientes
 
                         </Text>
                        
-                        <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "0.9rem", paddingHorizontal: "5%", textAlign: "left",  }}>
+                        <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left",  }}>
                         Mejora la experiencia que tienen tus clientes a la hora de pedir con nuestras cartas online de última tecnología
                         </Text>
                         <Link to="/menu_example" style={{alignSelf:"flex-start",textDecoration:"none",color:"#000"}} >
@@ -155,17 +155,17 @@ Una experiencia increible para tus clientes
 
 </View>
 </View>
-<View style={{width:"95%",backgroundColor:"#fff",alignSelf:"center"}}>
+<View style={{width:"95%",backgroundColor:"#fff",alignSelf:"center",marginTop:window.innerHeight*0.05}}>
 
 <View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"100%",alignItems:"center",height:window.innerHeight*0.85,backgroundColor:"#FFC524"}}>
     <Image source={adapt} style={{borderRadius:14,width: "100%", height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="cover" />
 
-<Text style={{ color: "#000", fontWeight: "500",padding:0,margin:0, fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left",marginTop:window.innerHeight*0.05,width:"100%"   }}>
+<Text style={{ color: "#000", fontWeight: "500",padding:0,margin:0, fontSize: "1.2rem", paddingHorizontal: "5%", textAlign: "left",marginTop:window.innerHeight*0.05,width:"100%"   }}>
 Diseñado para adaptarse a tu negocio
 
                         </Text>
                        
-                        <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "0.9rem", paddingHorizontal: "5%", textAlign: "left",  }}>
+                        <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left",  }}>
                         Hemos creado una plataforma de última tecnología que te va a permitir gestionar tu restaurante con extrema facilidad. 
                         </Text>
                         <Link to="/admin_example" style={{alignSelf:"flex-start", textDecoration:"none",color:"#000"}} >
@@ -179,100 +179,108 @@ Diseñado para adaptarse a tu negocio
 </View>
 </View>
         {/**BLOQUE 4 */}
-        <View style={{width:"100%",backgroundColor:"#fff",marginTop:window.innerHeight*0.05}}>
 
-<Text style={{ color: "#000", fontWeight: "500",padding:0,marginTop:window.innerHeight*0.03, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-Actualiza tu carta en tiempo real
-<View style={{width:"100%",height:8,backgroundColor:"#FFC524"}}/>
+    <View style={{width:"95%",alignSelf:"center",flexDirection:"column",marginTop:window.innerHeight*0.05}}>
+<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"100%",backgroundColor:"#FFC524",paddingTop:window.innerHeight*0.02}}>
+<Text style={{ color: "#000", fontWeight: "500",padding:0, fontSize: "1.2rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
+¿Cómo funciona elcomensal?
                         </Text>
                        
+                        <Text style={{marginTop:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
+                        1. Regístrate y crea tu carta</Text>
+                        <Text style={{marginTop:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
+                        2. Coloca los QR generados en las mesas o en algún lugar visible</Text>
                         <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.05,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                        Descubre como nuestra teconología de última generación permite actualizar el estado de tu carta al instante. Publica ofertas,  actualiza el estado de tus platos y bebidas, y más
+                        3. El cliente escanea el código QR y accede a la carta</Text>
+<Image source={works} style={{borderRadius:14, alignSelf:"center", width: "100%", height: window.innerHeight*0.6, zIndex: 0 }} resizeMode="cover" />
+
+</View>
+
+
+</View>
+<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"95%",alignSelf:"center",backgroundColor:"#FFC524",marginTop:window.innerHeight*0.05,alignSelf:"center"}}>
+
+<View style={{paddingVertical:window.innerHeight*0.05, width:"100%"}}>
+
+<Text style={{ color: "#000", fontWeight: "500",fontSize: "1.5rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%",marginBottom:window.innerHeight*0.02 }}>
+Cómo quedará en tu mesa
+
+                        </Text>
+                       
+                        
+
+                
+            
+                        <Image source={qr_example} style={{alignSelf:"center", width: window.innerWidth*0.50, height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="contain" />
+                        <Text style={{marginVertical:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
+                        Este es el aspecto que tendrá el QR una vez colocado.
                         </Text>
 
-                        <Image source={update} style={{alignSelf:"center", width: window.innerWidth*0.9, height: window.innerHeight*0.3, zIndex: 0 }} resizeMode="cover" />
+</View>
 
 
         </View>
         {/**BLOQUE 5 */}
-        <View style={{width:"100%",backgroundColor:"#fff",marginTop:window.innerHeight*0.1}}>
+       
+        <View style={{width:"95%",height:"100%",justifyContent:"flex-end",alignItems:"flex-end",alignSelf:"center",marginTop:window.innerHeight*0.05}}>
 
-
-
-<Text style={{ color: "#000", fontWeight: "500",padding:0, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-¿Cómo funciona elcomensal?
-<View style={{width:"100%",height:8,backgroundColor:"#FFC524"}}/>
-                        </Text>
-                       
-                        <Text style={{marginTop:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                        1. Regístrate y crea tu carta</Text>
-                        <Text style={{marginTop:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                        2. Coloca los QR generados en las mesas o en algún lugar visible</Text>
-                        <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.05,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                        3. El cliente escanea el código QR y accede a la carta</Text>
-                       
-                        <Image source={works} style={{alignSelf:"center", width: window.innerWidth*0.9, height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="cover" />
-
-
-        </View>
-           {/**BLOQUE 6 */}
-           <View style={{width:"100%",backgroundColor:"#fff",marginTop:window.innerHeight*0.05}}>
-
-<Text style={{ color: "#000", fontWeight: "500",padding:0,marginTop:window.innerHeight*0.05, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-Descubre cómo quedará
-<View style={{width:"100%",height:8,backgroundColor:"#FFC524"}}/>
-                        </Text>
-                       
-                        <Text style={{marginVertical:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                        Escanea el código para hacerte una idea sobre el aspecto que tendrá tu carta</Text>
-                        
-
-
-                        <Image source={qr_example} style={{alignSelf:"center", width: window.innerWidth*0.90, height: window.innerHeight*0.7, zIndex: 0 }} resizeMode="contain" />
-                        <Text style={{marginTop:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                        Escanea el código QR o accede a http://www.elcomensalapp.com/197 en tu navegador</Text>
-
-
-
-
-        </View>
-           {/**BLOQUE 7 */}
-           <View style={{width:"100%",backgroundColor:"#fff",marginTop:window.innerHeight*0.05}}>
-
-
-
-<Text style={{ color: "#000", fontWeight: "500",padding:0,marginTop:window.innerHeight*0.05, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
+<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524", width:"100%",backgroundColor:"#FFC524"}}>
+<Text style={{ color: "#000", fontWeight: "500",padding:0,marginTop:window.innerHeight*0.02, fontSize: "1.2rem", paddingHorizontal:window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
 ¿Por qué nosotros?
-<View style={{width:"100%",height:8,backgroundColor:"#FFC524"}}/>
                         </Text>
                        
-                        <Text style={{marginTop:window.innerHeight*0.01,color: "#000", fontWeight: "500", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                        Mayor velocidad
+                        <Text style={{marginTop:window.innerHeight*0.03,color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
+                        Tiempo real
                        
                         </Text>
-                        <Text style={{marginTop:window.innerHeight*0.01,marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                       Edita la carta tantas veces como quieras y publica cambios en tiempo real
+                        <Text style={{marginTop:window.innerHeight*0.01,marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
+                       Publica los cambios al instante
                         </Text>
-                        <Text style={{marginTop:window.innerHeight*0.01,color: "#000", fontWeight: "500", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                        Más versátil
+                        <Text style={{marginTop:window.innerHeight*0.01,color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
+                        Flexibilidad
                         </Text>
-                        <Text style={{marginTop:window.innerHeight*0.01,marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
+                        <Text style={{marginTop:window.innerHeight*0.01,marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
                         Crea un menú diferente para cada día de la semana o escoge platos que solo estén disponibles durante un tiempo limitado (Ej. Fines de semana) 
                         </Text>
-                        <Text style={{marginTop:window.innerHeight*0.01,color: "#000", fontWeight: "500", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
+                        <Text style={{marginTop:window.innerHeight*0.01,color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
                         9.99€ / mes
                         
                         </Text>
-                        <Text style={{marginTop:window.innerHeight*0.01,marginBottom:window.innerHeight*0.05,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                        No te vas a llevar ninguna sorpresa. Elcomensal no tiene gastos adicionales ni costes ocultos.
+                        <Text style={{marginTop:window.innerHeight*0.01,marginBottom:window.innerHeight*0.05,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
+                        0 sorpresas. Sin costes ocultos, gastos adicionales ni comisiones.
                         </Text>
-                        
-
-                        <Image source={why} style={{alignSelf:"center", width: window.innerWidth*0.9, height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="cover" />
-
-
+                        <Image source={why} style={{borderRadius:14,alignSelf:"center", width:"100%", height: window.innerHeight*0.62, zIndex: 0 }} resizeMode="cover" />
 
 </View>
+
+<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524", marginTop:window.innerHeight*0.05, width:"98%",alignSelf:"center", backgroundColor:"#FFC524",overflow:"hidden"}}>
+
+<View style={{width:"100%"}}>
+<Text style={{marginTop:window.innerHeight*0.02, color: "#000", fontWeight: "500",padding:0, fontSize: "1.2rem", paddingHorizontal: window.innerWidth*0.01, textAlign: "left", width: "100%" }}>
+¿Tienes dudas?
+                        </Text>
+                        <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1rem",  paddingHorizontal: window.innerWidth*0.01, textAlign: "left", width: "90%" }}>
+               Estaremos encantados de resolver todas las dudas que te surjan
+                </Text>
+                <TextInput numberOfLines={1} placeholder={"Nombre completo"} style={{borderRadius:6,marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"98%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                <TextInput numberOfLines={1} placeholder={"Correo electrónico"} style={{borderRadius:6,marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"98%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                <TextInput multiline numberOfLines={5} placeholder={"Detalles de la consulta"} style={{borderRadius:6,marginBottom:window.innerHeight*0.02, fontSize:"1rem", width:"98%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{borderRadius:6,alignSelf:"flex-start",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#000",marginTop:window.innerHeight*0.02,marginLeft:window.innerWidth*0.01 }}>
+                <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
+                  
+                  <Text style={{ color: "#fff", fontWeight: "400", fontSize: "1rem", paddingHorizontal: window.innerWidth*0.05, paddingVertical: window.innerHeight * 0.02, textAlign: "center", width: "100%" }}>
+                    Enviar consulta
+                    </Text>
+                </View>
+                
+                </TouchableOpacity>
+</View>
+
+</View>
+</View>
+           
+           {/**BLOQUE 7 */}
+      
     {/**BOTTOM */}
     <View style={{justifyContent:"center",alignItems:"center", width:"100%",height:window.innerHeight*0.1,backgroundColor:"#FFC524",marginTop:window.innerHeight*0.05}}>
     <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "0.9rem", textAlign: "left" }}>

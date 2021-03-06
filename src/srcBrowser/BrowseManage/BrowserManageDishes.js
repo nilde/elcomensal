@@ -257,9 +257,7 @@ for(var i=0;i<this.state.categories.length;i++){
 
     componentDidMount(){
       this.updateAllInfo();
-      this.filterDishes("")
-      this.filterCategories("")
-      this.filterMenus("")
+
     }
 
     toggleAvaliability(i){
@@ -347,53 +345,25 @@ for(var i=0;i<this.state.categories.length;i++){
       var activeDish=this.state.activeDish;
       var dishes=this.state.dishes;
       dishes[this.state.activeDishIndex]=activeDish;
-      this.setState({dishes:dishes,editActualDish:false,activeDishIndex:-1,activeDish:{}},(()=>this.filterDishes("")))
+      this.setState({dishes:dishes,editActualDish:false,activeDishIndex:-1,activeDish:{}},(()=>this.context.filterDishes("")))
     }
 
     editCategorySave(){
       var activeCategory=this.state.activeCategory;
       var categories=this.state.categories;
       categories[this.state.activeCategoryIndex]=activeCategory;
-      this.setState({categories:categories,editActualCategory:false,activeCategoryIndex:-1,activeCategory:{}},(()=>this.filterCategories("")))
+      this.setState({categories:categories,editActualCategory:false,activeCategoryIndex:-1,activeCategory:{}},(()=>this.context.filterCategories("")))
     }
 
     editMenuSave(){
       var activeMenu=this.state.activeMenu;
       var menus=this.state.menus;
       menus[this.state.activeMenuIndex]=activeMenu;
-      this.setState({menus:menus,editActualMenu:false,activeMenuIndex:-1,activeMenu:{}},(()=>this.filterCategories("")))
+      this.setState({menus:menus,editActualMenu:false,activeMenuIndex:-1,activeMenu:{}},(()=>this.context.filterCategories("")))
     }
 
-    filterDishes(newText){
-      var filteredDishes=[]
-      for(var i=0;i<this.state.dishes.length;i++){
-        if(this.state.dishes[i].name.includes(newText)){
-          filteredDishes.push(this.state.dishes[i])
-        }
-      }
-      this.setState({filteredDishes:filteredDishes})
-    }
-
-    filterCategories(newText){
-      var filteredCategories=[]
-      for(var i=0;i<this.state.categories.length;i++){
-        if(this.state.categories[i].title.includes(newText)){
-          filteredCategories.push(this.state.categories[i])
-        }
-      }
-      this.setState({filteredCategories:filteredCategories})
-    }
-
-    filterMenus(newText){
-      var filteredMenus=[]
-      for(var i=0;i<this.state.menus.length;i++){
-        if(this.state.menus[i].title.includes(newText)){
-          filteredMenus.push(this.state.menus[i])
-        }
-      }
-      this.setState({filteredMenus:filteredMenus})
-    }
-
+  
+  
 
 
     createNewDish(){
@@ -401,24 +371,24 @@ for(var i=0;i<this.state.categories.length;i++){
       var dishes=this.state.dishes
       newDish.id=this.state.dishes[this.state.dishes.length-1].id+1
       dishes.push(JSON.parse(JSON.stringify(newDish)))
-      this.setState({dishes:dishes,showNewDish:false,newDish:newDishTemplate},()=>this.filterDishes(""))
+      this.setState({dishes:dishes,showNewDish:false,newDish:newDishTemplate},()=>this.context.filterDishes(""))
 
     }
     deleteDish(){
       var dishes=this.state.dishes;
       dishes.splice(this.state.activeDishIndex,1)
-      this.setState({dishes:dishes,editActualDish :false},()=>this.filterDishes(""))
+      this.setState({dishes:dishes,editActualDish :false},()=>this.context.filterDishes(""))
     }
 
     deleteCategory(){
       var categories=this.state.categories;
       categories.splice(this.state.activeCategoryIndex,1)
-      this.setState({categories:categories,editActualCategory :false},()=>this.filterCategories(""))
+      this.setState({categories:categories,editActualCategory :false},()=>this.context.filterCategories(""))
     }
     deleteMenu(){
       var categories=this.state.categories;
       categories.splice(this.state.activeMenuIndex,1)
-      this.setState({categories:categories,editActualMenu :false},()=>this.filterCategories(""))
+      this.setState({categories:categories,editActualMenu :false},()=>this.context.filterCategories(""))
     }
 
     checkCategoryAvaliable(index){
@@ -433,10 +403,10 @@ for(var i=0;i<this.state.categories.length;i++){
           <View style={{width:"100%",height:window.innerHeight*0.07,backgroundColor:"#fff",flexDirection:"row",boxShadow: "-10px -10px 10px rgba(0,0,0,0.1)",borderBottomWidth:2,borderColor:"#f5f5f5"}}>
 
 <TouchableOpacity onLongPress={()=>{
-  this.filterDishes("")
+  this.context.filterDishes("")
   this.setState({status:"DISHES"})}}
   onPress={()=>{
-  this.filterDishes("")
+  this.context.filterDishes("")
   this.setState({status:"DISHES"})}}
   
    style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
@@ -447,11 +417,11 @@ for(var i=0;i<this.state.categories.length;i++){
 </TouchableOpacity>
 <TouchableOpacity 
 onLongPress={()=>{
-  this.filterCategories("")
+  this.context.filterCategories("")
   this.setState({status:"CARTA"})}}
   
 onPress={()=>{
-  this.filterCategories("")
+  this.context.filterCategories("")
   this.setState({status:"CARTA"})}}
 
 style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
@@ -476,7 +446,7 @@ style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
            <ScrollView style={{zIndex:0}}>
                <View style={{flexDirection:"row",width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,justifyContent:"space-between",paddingTop: window.innerHeight * 0.03,backgroundColor:"#fff",}}>
                <TextInput
-                  onChangeText={(text)=>this.filterDishes(text)}
+                  onChangeText={(text)=>this.context.filterDishes(text)}
                    numberOfLines={1} placeholder={"Buscar un plato o bebida"} style={{marginLeft:window.innerWidth*0.01, marginBottom: window.innerHeight * 0.02,borderRadius:10, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
                  
                   <TouchableOpacity
@@ -517,7 +487,7 @@ style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
 </View>
                 </View>
                 {
-                  this.state.filteredDishes.length==0 && this.state.dishes.length>0  &&
+                  this.context.dishesData.filteredDishes.length==0 && this.context.dishesData.dishes.length>0  &&
                   <View style={{justifyContent:"center",alignItems:"center", marginTop:window.innerHeight*0.0025, width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,flexDirection:"row"}}>
                   <Text style={{paddingHorizontal:window.innerWidth*0.01, textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "center",width:"100%" }}>
                                       Sin resultados para esta búsqueda
@@ -525,17 +495,17 @@ style={{width:"10%",alignItems:"center",justifyContent:"center"}}>
               </View>
                 }
                 {
-                  this.state.dishes.length==0  &&
+                  this.context.dishesData.dishes.length==0  &&
                   <View style={{justifyContent:"center",alignItems:"center", marginTop:window.innerHeight*0.0025, width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,flexDirection:"row"}}>
                   <Text style={{paddingHorizontal:window.innerWidth*0.01, textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "center",width:"100%" }}>
-                                     Sin platos o bebidas
+                                     Sin productos
                   </Text>
               </View>
                 }
                 {
                   this.context.dishesData.filteredDishes.map((item,index)=>(
                     <TouchableOpacity
-                    onPress={()=>this.editDish(index)}
+                    onPress={()=>this.context.editDish(index)}
 
                     
                      style={{marginTop:window.innerHeight*0.0025, width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row"}}>
@@ -575,7 +545,7 @@ style={{width:"15%",alignSelf:"center",marginLeft:"2.5%",alignItems:"center",jus
                
            <View style={{backgroundColor:"#fff",flexDirection:"row",width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,justifyContent:"space-between",paddingTop: window.innerHeight * 0.03,}}>
            <TextInput
-                  onChangeText={(text)=>this.filterMenus(text)}
+                  onChangeText={(text)=>this.context.filterMenus(text)}
                    numberOfLines={1} placeholder={"Buscar un menú"} style={{marginLeft:window.innerWidth*0.01,borderRadius:10,  marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
                   
                   <TouchableOpacity
@@ -615,7 +585,7 @@ Visibilidad
 </View>
 
                 </View>
-                {this.state.filteredMenus.map((item,index)=>(
+                {this.context.menusData.filteredMenus.map((item,index)=>(
 
             
                 <View style={{width:"100%",backgroundColor:"#fff",flexDirection:"row",marginTop:window.innerHeight*0.0025}}>
@@ -646,7 +616,7 @@ No visible actualmente
                 </View>
                 ))}
                 {
-                  this.state.filteredMenus.length==0 && this.state.menus.length>0  &&
+                  this.context.menusData.filteredMenus.length==0 && this.context.menusData.menus.length>0  &&
                   <View style={{justifyContent:"center",alignItems:"center", marginTop:window.innerHeight*0.0025, width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,flexDirection:"row"}}>
                   <Text style={{paddingHorizontal:window.innerWidth*0.01, textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "center",width:"100%" }}>
                                       Sin resultados para esta búsqueda
@@ -654,7 +624,7 @@ No visible actualmente
               </View>
                 }
                 {
-                  this.state.menus.length==0  &&
+                  this.context.menusData.menus.length==0  &&
                   <View style={{justifyContent:"center",alignItems:"center", marginTop:window.innerHeight*0.0025, width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,flexDirection:"row"}}>
                   <Text style={{paddingHorizontal:window.innerWidth*0.01, textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "center",width:"100%" }}>
                                      Sin categorías
@@ -671,7 +641,7 @@ No visible actualmente
                
            <View style={{backgroundColor:"#fff", flexDirection:"row",width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,justifyContent:"space-between",paddingTop: window.innerHeight * 0.03,}}>
            <TextInput
-                  onChangeText={(text)=>this.filterCategories(text)}
+                  onChangeText={(text)=>this.context.filterCategories(text)}
                    numberOfLines={1} placeholder={"Buscar una categoría"} style={{marginLeft:window.innerWidth*0.01,borderRadius:10, marginBottom: window.innerHeight * 0.02, fontSize: "1rem", width: "30%", alignSelf: "flex-start", backgroundColor: "#f5f5f5", paddingHorizontal: window.innerWidth * 0.01, paddingVertical: window.innerHeight * 0.015 }} />
                   
                   <TouchableOpacity
@@ -712,7 +682,7 @@ Visibilidad
 
                 </View>
 
-                {this.state.filteredCategories.map((item,index)=>(
+                {this.context.categoriesData.filteredCategories.map((item,index)=>(
                 <View style={{width:"100%",flexDirection:"row",marginTop:window.innerHeight*0.0025,}}>
             
                 <TouchableOpacity
@@ -745,7 +715,7 @@ Visibilidad
                 ))
                 }
                 {
-                  this.state.filteredCategories.length==0 && this.state.categories.length>0  &&
+                  this.context.categoriesData.filteredCategories.length==0 && this.context.categoriesData.categories.length>0  &&
                   <View style={{justifyContent:"center",alignItems:"center", marginTop:window.innerHeight*0.0025, width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,flexDirection:"row"}}>
                   <Text style={{paddingHorizontal:window.innerWidth*0.01, textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "center",width:"100%" }}>
                                       Sin resultados para esta búsqueda
@@ -753,7 +723,7 @@ Visibilidad
               </View>
                 }
                 {
-                  this.state.categories.length==0  &&
+                  this.context.categoriesData.categories.length==0  &&
                   <View style={{justifyContent:"center",alignItems:"center", marginTop:window.innerHeight*0.0025, width:this.props.menuOpen?window.innerWidth*0.7:window.innerWidth*0.95,height:window.innerHeight*0.08,flexDirection:"row"}}>
                   <Text style={{paddingHorizontal:window.innerWidth*0.01, textDecorationLine: "none", color: "#000", fontWeight: "300", fontSize: "1rem", textAlign: "center",width:"100%" }}>
                                      Sin categorías
@@ -2785,7 +2755,7 @@ Visibilidad
                   </Text>
                   <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
   {({getRootProps, getInputProps}) => (
-    <View style={{width:"95%",justifyContent:"center",alignItems:"center", alignSelf:"center",height:200,backgroundColor:"#f5f5f5",marginTop:window.innerHeight*0.02}}>
+    <View style={{width:"95%",justifyContent:"center",alignItems:"center", alignSelf:"center",height:200,backgroundColor:"#f5f5f5",marginTop:window.innerHeight*0.02,borderRadius:10}}>
 
     <div style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getRootProps()}>
         <input style={{width:"100%",height:"100%",justifyContent:"center",alignItems:"center"}} {...getInputProps()} />
