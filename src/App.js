@@ -81,7 +81,7 @@ export default class App extends React.Component {
               <BrowserForgot />
             }
           </Route>
-          <Route exact path="/landing">
+          <Route exact path="/">
             {isMobile && 
               <PhoneLanding />
             }
@@ -113,7 +113,7 @@ export default class App extends React.Component {
               <BrowserMenu />
             }
           </Route>
-          <Route path="/">
+          <Route exact path="/landing">
             {isMobile &&
               <MenuMobile />
             }
