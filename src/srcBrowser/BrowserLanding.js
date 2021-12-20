@@ -35,25 +35,18 @@ export default class App extends React.Component {
                 
                         <View style={{width:"100%",justifyContent:"space-between",flexDirection:"row",marginBottom:window.innerHeight*0.1,marginTop:window.innerHeight*0.12}}>
                         
-                        <View style={{width:"30%",marginLeft:window.innerWidth*0.03, alignItems:"center",justifyContent:"center",backgroundColor:"#fff",borderRadius:10}}>
-                        <Text style={{marginTop:window.innerHeight*0.025, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal: "5%", paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
-                        Crea tu carta online
+                        <View style={{boxShadow: "0px 0px 10px rgba(0,0,0,0.5)",width:"30%",marginLeft:window.innerWidth*0.03, alignItems:"center",justifyContent:"center",backgroundColor:"#fff",borderRadius:10}}>
+                        <Text style={{marginTop:window.innerHeight*0.05, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal: "5%", paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
+                        Digitaliza tu negocio
                         </Text>
                         <Text style={{marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                       Empieza tu prueba gratis de 30 días
+                       Estamos buscando conectar de una forma única y novedosa los establecimientos con sus clientes habituales.
+                        </Text>
+                        <Text style={{marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
+                       Acabamos de emepezar y estamos buscando negocios innovadores que quieran probar nuestra tecnología de forma completamente gratuita.
                         </Text>
       
-                    <TextInput numberOfLines={1} placeholder={"Nombre del restaurante"} style={{borderRadius:6, marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
-           
-               
-                    <TextInput numberOfLines={1} placeholder={"Dirección Ej. C/ Bruc 23, Barcelona"} style={{borderRadius:6, marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
-                 
-                    <TextInput numberOfLines={1} placeholder={"Correo electrónico"} style={{borderRadius:6, marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015,marginBottom:window.innerHeight*0.015}} />
-                    <TextInput numberOfLines={1} placeholder={"Contraseña"} style={{borderRadius:6, marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015,marginBottom:window.innerHeight*0.015}} />
-                    <TextInput numberOfLines={1} placeholder={"Repetir contraseña"} style={{borderRadius:6, marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015,marginBottom:window.innerHeight*0.015}} />
-                 
-                    <TextInput numberOfLines={1} placeholder={"Número de teléfono: +34 000 000 000"} style={{borderRadius:6, marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"center",backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
-               
+                   
                   
                     
                     <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"center",marginBottom:window.innerHeight*0.03,borderRadius:10, alignItems: "center", backgroundColor: "#FFC524", width: "90%",marginTop:window.innerHeight*0.01 }}>
@@ -62,14 +55,12 @@ export default class App extends React.Component {
                 <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
                   
                   <Text style={{ color: "#000", fontWeight: "500", fontSize: "1rem", paddingHorizontal: "5%", paddingVertical: window.innerHeight * 0.025, textAlign: "center", width: "100%" }}>
-                    Unirse
+                    Contacta con nosotros
                     </Text>
                 </View>
                 </Link>
                 </TouchableOpacity>
-                <Text style={{ color: "#000", fontWeight: "400", fontSize: "0.8rem", paddingHorizontal: "5%", paddingBottom: window.innerHeight * 0.02, textAlign: "left", width: "100%" }}>
-                    Al inscribirse aceptas los términos y condiciones.
-                    </Text>
+         
                 </View>
                
                          </View>
@@ -86,35 +77,35 @@ export default class App extends React.Component {
         
         <View style={{alignSelf:"center", width:"100%",justifyContent:"space-evenly",marginTop:window.innerHeight*0.05,height:window.innerHeight*0.8,flexDirection:"row"}}>
     
-<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"30%",height:window.innerHeight*0.8,backgroundColor:"#FFC524",overflow:"hidden"}}>
-<Image source={covid} style={{borderRadius:14, alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.55, zIndex: 0 }} resizeMode="cover" />
-<Text style={{paddingTop:window.innerHeight*0.02, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal: window.innerWidth*0.005, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
-Te apoyamos frente al COVID-19
+<View style={{paddingBottom:30,borderWidth:0,borderRadius:10,overflow:"hidden",backgroundColor:"#FFC524",width:"30%",height:window.innerHeight*0.8,backgroundColor:"#FFC524",overflow:"hidden"}}>
+<Image source={covid} style={{borderRadius:0, alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.55, zIndex: 0 }} resizeMode="cover" />
+<Text style={{paddingTop:20, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal:20, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
+Creemos en la importancia del negocio local
                         </Text>
-                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: window.innerWidth*0.005, textAlign: "left", width: "100%" }}>
-                        Queremos que disfrutes de 2 meses gratis al registrarte como muestra de nuestro apoyo.
+                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal:20, textAlign: "left", width: "100%" }}>
+                        Queremos ayudar a digitalizar a los pequeños comercios y que disfruten de todas las ventajas y posibilidades que ofrece la tecnología.
                         </Text>
 
 
 </View>
-<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"30%",height:window.innerHeight*0.8,backgroundColor:"#FFC524",overflow:"hidden"}}>
-<Image source={no} style={{borderRadius:14,alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.55, zIndex: 0 }} resizeMode="cover" />
-<Text style={{paddingTop:window.innerHeight*0.02, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal: window.innerWidth*0.005, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
+<View style={{paddingBottom:30, borderWidth:0,borderRadius:10,overflow:"hidden",backgroundColor:"#FFC524",width:"30%",height:window.innerHeight*0.8,backgroundColor:"#FFC524",overflow:"hidden"}}>
+<Image source={no} style={{borderRadius:0,alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.55, zIndex: 0 }} resizeMode="cover" />
+<Text style={{paddingTop:20, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal:20, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
 Sin necesidad de formación
                         </Text>
-                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: window.innerWidth*0.005, textAlign: "left", width: "100%" }}>
-                        Empieza a gestionar tu carta desde cualquier dispositivo con conexión a Internet en cuestión de minutos.
+                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal:20, textAlign: "left", width: "100%" }}>
+                        Empieza a gestionar tu tienda online desde cualquier dispositivo con conexión a Internet en cuestión de minutos.
                         </Text>
 
 </View>
-<View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"30%",height:window.innerHeight*0.8,backgroundColor:"#FFC524",overflow:"hidden"}}>
-<Image source={all} style={{ borderRadius:14,alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.55, zIndex: 0 }} resizeMode="cover" />
+<View style={{paddingBottom:30,borderWidth:0,borderRadius:10,overflow:"hidden",backgroundColor:"#FFC524",width:"30%",height:window.innerHeight*0.8,backgroundColor:"#FFC524",overflow:"hidden"}}>
+<Image source={all} style={{ borderRadius:0,alignSelf:"flex-end", width: "100%", height: window.innerHeight*0.55, zIndex: 0 }} resizeMode="cover" />
 
-<Text style={{paddingTop:window.innerHeight*0.02, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal: window.innerWidth*0.005, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
+<Text style={{paddingTop:20, color: "#000", fontWeight: "500", fontSize: "1.5rem", paddingHorizontal:20, paddingBottom: window.innerHeight * 0.01, textAlign: "left", width: "100%" }}>
 Diseñado para el siglo XXI
                         </Text>
-                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal: window.innerWidth*0.005, textAlign: "left", width: "100%" }}>
-                        Una nueva forma de crear una carta online con muchas opciones de personalización
+                        <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal:20, textAlign: "left", width: "100%" }}>
+                        Una nueva forma de gestionar tu tienda online a una velocidad y con una sencillez nunca vista.
                         </Text>
 
 </View>
@@ -125,7 +116,7 @@ Diseñado para el siglo XXI
 
 
 <View style={{flexDirection:"row",width:"100%",justifyContent:"space-between"}}>
-    <View style={{borderWidth:10,borderRadius:20, borderColor:"#FFC524",width:"48%",alignItems:"center",height:window.innerHeight*0.85,backgroundColor:"#FFC524"}}>
+    <View style={{borderWidth:10,borderRadius:20, borderColor:"#FFC524",width:"48%",alignItems:"center",backgroundColor:"#FFC524"}}>
     <Image source={clients} style={{borderRadius:14,width: "100%", height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="cover" />
 
 <Text style={{ color: "#000", fontWeight: "500",padding:0,margin:0, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left",marginTop:window.innerHeight*0.05,width:"100%"  }}>
@@ -134,17 +125,19 @@ Una experiencia increible para tus clientes
                         </Text>
                        
                         <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", textAlign: "left",  }}>
-                        Mejora la experiencia que tienen tus clientes a la hora de pedir con nuestras cartas online de última tecnología
+                        Mejora la experiencia que tienen tus clientes a la hora de descubrir que productos pueden encontrar en tu establecimiento. Actualiza en tiempo real la disponibilidad de tus productos en un par de clicks.
                         </Text>
                         <Link to="/menu_example" style={{alignSelf:"flex-start",textDecoration:"none",color:"#000"}} >
    
                         <TouchableOpacity style={{borderRadius:6,alignSelf:"flex-start",marginLeft:window.innerWidth*0.02, justifyContent:"center",alignItems:"center",backgroundColor:"#000",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02,marginBottom:window.innerHeight*0.03}}>
                        
             <Text style={{ width:"100%", color: "#fff", fontWeight: "400", fontSize: "1rem", textAlign: "center" }}>
-                 Ver una carta de ejemplo
+                 Ver una tienda de ejemplo
 </Text>
 
-         </TouchableOpacity> </Link>
+         </TouchableOpacity> 
+       
+         </Link>
 </View>
 <View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"48%",alignItems:"center",height:window.innerHeight*0.85,backgroundColor:"#FFC524"}}>
     <Image source={adapt} style={{borderRadius:14,width: "100%", height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="cover" />
@@ -155,8 +148,9 @@ Diseñado para adaptarse a tu negocio
                         </Text>
                        
                         <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", textAlign: "left",  }}>
-                        Hemos creado una plataforma de última tecnología que te va a permitir gestionar tu restaurante con extrema facilidad. 
+                        Hemos creado una plataforma de última tecnología que te va a permitir gestionar tu tienda online con extrema facilidad. Descubre todas las posibilidades que ofrece CLOSE2YOU uniendote a la beta.
                         </Text>
+                        {false &&
                         <Link to="/admin_example" style={{alignSelf:"flex-start", textDecoration:"none",color:"#000"}} >
    
                         <TouchableOpacity style={{borderRadius:6, alignSelf:"flex-start",marginLeft:window.innerWidth*0.02, justifyContent:"center",alignItems:"center",backgroundColor:"#000",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02,marginBottom:window.innerHeight*0.03}}>
@@ -165,6 +159,8 @@ Diseñado para adaptarse a tu negocio
 </Text>
          </TouchableOpacity> 
          </Link>
+                        }
+         <View style={{height:10}}/>
 </View>
 
 
@@ -177,15 +173,15 @@ Diseñado para adaptarse a tu negocio
     <View style={{width:"40%",flexDirection:"column"}}>
 <View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"100%",backgroundColor:"#FFC524",paddingTop:window.innerHeight*0.02}}>
 <Text style={{ color: "#000", fontWeight: "500",padding:0, fontSize: "1.5rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-¿Cómo funciona elcomensal?
+¿Cómo funciona CLOSE2YOU?
                         </Text>
                        
                         <Text style={{marginTop:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                        1. Regístrate y crea tu carta</Text>
+                        1. Regístrate y añade tus productos a la tienda.</Text>
                         <Text style={{marginTop:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                        2. Coloca los QR generados en las mesas o en algún lugar visible</Text>
+                        2. Automáticamente tu tienda aparecerá cada vez que alguien cercano a tu establecimiento abra la aplicación.¡Así de fácil! </Text>
                         <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.05,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                        3. El cliente escanea el código QR y accede a la carta</Text>
+                        3. (Opcional) Podrás descargar unos QR que te llevarán a tu tienda online cada vez que algún cliente los escanee. Ideal para restaurantes y bares ya que pueden alojar nuestra carta en nuestra plataforma sin ningún tipo de complicación.</Text>
 <Image source={works} style={{borderRadius:14, alignSelf:"center", width: "100%", height: window.innerHeight*0.6, zIndex: 0 }} resizeMode="cover" />
 
 </View>
@@ -204,11 +200,18 @@ Descubre cómo quedará
             
                         <Image source={qr_example} style={{alignSelf:"center", width: window.innerWidth*0.50, height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="contain" />
                         <Text style={{marginVertical:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
-                        Coloca los QR que generes en tus mesas. Los clientes llegarán, escanearán el código y accederán a tu carta.
+                        Escanea este QR para ver un ejemplo de como tus clientes verán tu tienda online. También puedes pulsar en el botón para acceder directamente.
                         </Text>
 
 </View>
-
+<Link to="/admin_example" style={{alignSelf:"flex-start", textDecoration:"none",color:"#000"}} >
+   
+                        <TouchableOpacity style={{borderRadius:6, alignSelf:"flex-start",marginLeft:window.innerWidth*0.02, justifyContent:"center",alignItems:"center",backgroundColor:"#000",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02,marginBottom:window.innerHeight*0.03}}>
+            <Text style={{ width:"100%", color: "#fff", fontWeight: "400", fontSize: "1rem", textAlign: "center" }}>
+                 Descubre como quedará tu tienda
+</Text>
+         </TouchableOpacity> 
+         </Link>
 
         </View>
 </View>
@@ -224,20 +227,20 @@ Descubre cómo quedará
                        
                         </Text>
                         <Text style={{marginTop:window.innerHeight*0.01,marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
-                       Publica los cambios al instante
+                       Publica los cambios al instante. ¿Acabas de recibir un nuevo producto? Añádelo en 1 minuto. ¿Quieres modificar el precio de un producto? Edítalo en 30 segundos. ¿Quieres marcar un producto como no disponible? Házlo a la velocidad de la luz.
                         </Text>
                         <Text style={{marginTop:window.innerHeight*0.01,color: "#000", fontWeight: "500", fontSize: "1.3rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
                         Flexibilidad
                         </Text>
                         <Text style={{marginTop:window.innerHeight*0.01,marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
-                        Crea un menú diferente para cada día de la semana o escoge platos que solo estén disponibles durante un tiempo limitado (Ej. Fines de semana) 
+                        Queremos que cada tienda exprese su identidad dentro de la plataforma como quiera. Organiza tus productos a tu gusto, sin restricciones.
                         </Text>
                         <Text style={{marginTop:window.innerHeight*0.01,color: "#000", fontWeight: "500", fontSize: "1.3rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
-                        9.99€ / mes
+                        Empieza gratis
                         
                         </Text>
                         <Text style={{marginTop:window.innerHeight*0.01,marginBottom:window.innerHeight*0.05,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: window.innerWidth*0.02, textAlign: "left", width: "100%" }}>
-                        0 sorpresas. Sin costes ocultos, gastos adicionales ni comisiones.
+                        Estamos empezando y queremos que formes parte de nuestra família. Empieza sin sorpresas, costes ocultos, gastos adicionales ni comisiones. 
                         </Text>
                         <Image source={why} style={{borderRadius:14,alignSelf:"center", width:"100%", height: window.innerHeight*0.62, zIndex: 0 }} resizeMode="cover" />
 
@@ -249,10 +252,10 @@ Descubre cómo quedará
 ¿Tienes dudas?
                         </Text>
                         <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.2rem",  paddingHorizontal: window.innerWidth*0.01, textAlign: "left", width: "70%" }}>
-               Estaremos encantados de resolver todas las dudas que te surjan
+               Estamos aquí para resolver todas las dudas que te puedan surgin sobre nuestra plataforma.
                 </Text>
                 <TextInput numberOfLines={1} placeholder={"Nombre completo"} style={{borderRadius:6,marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
-                <TextInput numberOfLines={1} placeholder={"Correo electrónico"} style={{borderRadius:6,marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
+                <TextInput numberOfLines={1} placeholder={"Correo electrónico o nº de teléfono"} style={{borderRadius:6,marginBottom:window.innerHeight*0.02,fontSize:"1rem", width:"90%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
                 <TextInput multiline numberOfLines={5} placeholder={"Detalles de la consulta"} style={{borderRadius:6,marginBottom:window.innerHeight*0.02, fontSize:"1rem", width:"90%",alignSelf:"flex-start",marginLeft:window.innerWidth*0.01,backgroundColor:"#f5f5f5",paddingHorizontal:window.innerWidth*0.01,paddingVertical:window.innerHeight*0.015}} />
                 <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{borderRadius:6,alignSelf:"flex-start",marginBottom:window.innerHeight*0.03, alignItems: "center", backgroundColor: "#000",marginTop:window.innerHeight*0.02,marginLeft:window.innerWidth*0.01 }}>
                 <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
@@ -279,40 +282,45 @@ Descubre cómo quedará
     {/**BOTTOM */}
     <View style={{justifyContent:"center",alignItems:"center", width:"100%",height:100,backgroundColor:"#FFC524",marginTop:window.innerHeight*0.05}}>
     <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left" }}>
-                                        ELCOMENSAL © 2020. Made with 🧑🏻‍🍳👩🏻‍🍳
+                                        CLOSE2YOU © 2021. Made for 🧑🏻‍🍳👨‍🌾
                   </Text>
     </View>
          </ScrollView>
-    <View style={{  boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",position:"absolute",top:0,width:window.innerWidth,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row",overflow:"hidden"}}>
+    <View style={{  boxShadow: "0px 0px 10px rgba(0,0,0,0.5)",position:"absolute",top:0,width:window.innerWidth,height:window.innerHeight*0.08,backgroundColor:"#fff",flexDirection:"row",overflow:"hidden"}}>
    
    <View style={{width:"15%",height:"100%",backgroundColor:"#fff",justifyContent:"center",alignItems:"center"}}>
-   <Image source={elcomensal_dark} style={{alignSelf:"center", width:"70%", height: "100%", zIndex: 0 }} resizeMode="contain" />
-
+   <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "600", fontSize: "1.3rem", textAlign: "left" }}>
+                                        CLOSE2YOU
+                  </Text>
    </View>
    <View style={{width:"65%",height:"100%",}}>
 
    </View>
-    <Link to="/login" style={{height:"100%", width:"10%",textDecoration:"none",color:"#000"}} >
+   {false &&
+    <Link to="/login" style={{height:"100%",textDecoration:"none",color:"#000"}} >
     <TouchableOpacity style={{height:"100%",alignItems:"center",justifyContent:"center",backgroundColor:"#fff"}}>
  
 <Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "left" }}>
-                                        Iniciar sesión
+                                        Próximamente
                   </Text>
                   
 
 
                 </TouchableOpacity>
                 </Link>  
-                <Link to="/register" style={{height:"70%",alignSelf:"center", width:"10%",textDecoration:"none",color:"#000",marginRight:"2%"}} > 
+   }
+   {true &&
+                <View to="/register" style={{height:"70%",alignSelf:"center",textDecoration:"none",color:"#000",marginRight:"2%"}} > 
                 <TouchableOpacity style={{height:"100%",alignSelf:"center", alignItems:"center",justifyContent:"center",backgroundColor:"#FFC524",borderRadius:6}}>
-<Text style={{ textDecorationLine: "none", color: "#000", fontWeight: "400", fontSize: "1rem", textAlign: "center" }}>
-                                        Únete
+<Text style={{paddingHorizontal:20, textDecorationLine: "none", color: "#000", fontWeight: "500", fontSize: "1rem", textAlign: "center" }}>
+                                        Próximamente
                   </Text>
                   
 
 
                 </TouchableOpacity>
-                </Link>
+                </View>
+   }
     </View>
           </View>
       )

@@ -52,7 +52,9 @@ export default class App extends React.Component {
       <SnackbarProvider>
         <ParallaxProvider>
         <GeneralProvider>
-          <Router>
+        <BrowserLanding />
+         {false &&
+         <Router>
         <Switch>
           {false &&
           <Route exact path="/register">
@@ -136,6 +138,7 @@ export default class App extends React.Component {
         </Switch>
 
         </Router>
+         }
         </GeneralProvider>
         </ParallaxProvider>
       </SnackbarProvider>
