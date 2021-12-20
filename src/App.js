@@ -54,7 +54,7 @@ export default class App extends React.Component {
         <GeneralProvider>
           <Router>
         <Switch>
-          
+          {false &&
           <Route exact path="/register">
             {isMobile && 
               <PhoneRegister />
@@ -64,6 +64,8 @@ export default class App extends React.Component {
             }
 
           </Route>
+          }
+          {false &&
           <Route exact path="/login">
             {isMobile &&
               <PhoneLogin />
@@ -72,7 +74,8 @@ export default class App extends React.Component {
               <BrowserLogin />
             }
           </Route>
-        
+          }
+        {false &&
           <Route exact path="/forgot">
             {isMobile &&
               <PhoneForgot />
@@ -81,6 +84,7 @@ export default class App extends React.Component {
               <BrowserForgot />
             }
           </Route>
+        }
           <Route exact path="/">
             {isMobile && 
               <PhoneLanding />
@@ -89,6 +93,7 @@ export default class App extends React.Component {
               <BrowserLanding />
             }
           </Route>
+          {false &&
           <Route exact path="/manage">
             {isMobile &&
               <PhoneManage />
@@ -97,6 +102,8 @@ export default class App extends React.Component {
               <BrowserManage />
             }
           </Route>
+          }
+          {false &&
           <Route exact path="/success">
             {isMobile && 
               <PhoneSuccess />
@@ -105,6 +112,8 @@ export default class App extends React.Component {
               <BrowserSuccess />
             }
           </Route>
+          }
+          {false &&
           <Route exact path="/:name">
             {isMobile && 
               <MenuMobile />
@@ -113,6 +122,8 @@ export default class App extends React.Component {
               <BrowserMenu />
             }
           </Route>
+          }
+          {false &&
           <Route exact path="/landing">
             {isMobile &&
               <MenuMobile />
@@ -121,7 +132,7 @@ export default class App extends React.Component {
               <MenuBrowser />
             }
           </Route>
-
+          }
         </Switch>
 
         </Router>
