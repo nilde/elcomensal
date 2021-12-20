@@ -43,7 +43,7 @@ export default class App extends React.Component {
                        Estamos buscando conectar de una forma única y novedosa los establecimientos con sus clientes habituales.
                         </Text>
                         <Text style={{marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1rem", paddingHorizontal: "5%", textAlign: "left", width: "100%" }}>
-                       Acabamos de emepezar y estamos buscando negocios innovadores que quieran probar nuestra tecnología de forma completamente gratuita.
+                       Acabamos de emepezar y estamos buscando negocios innovadores que quieran probar nuestra tecnología de manera completamente gratuita.
                         </Text>
       
                    
@@ -95,7 +95,7 @@ Creemos en la importancia del negocio local
 Sin necesidad de formación
                         </Text>
                         <Text style={{marginBottom:window.innerHeight*0.03,color: "#000", fontWeight: "400", fontSize: "1.1rem", paddingHorizontal:20, textAlign: "left", width: "100%" }}>
-                        Empieza a gestionar tu tienda online desde cualquier dispositivo con conexión a Internet en cuestión de minutos.
+                        Empieza a gestionar tu tienda online desde cualquier dispositivo con conexión a Internet en cuestión de minutos. Además tenemos unos vídeos explicativos por si te surjen dudas durante el proceso.
                         </Text>
 
 </View>
