@@ -50,7 +50,8 @@ export default class App extends React.Component {
                   
                     
                     <TouchableOpacity onPress={()=>this.props.openSnackbar('Tu plato se ha creado con éxito. Puedes editar cúando quieras el plato y los cambios se reflejarán a tiempo real en la carta.')}  style={{alignSelf:"center",marginBottom:window.innerHeight*0.03,borderRadius:10, alignItems: "center", backgroundColor: "#FFC524", width: "90%",marginTop:window.innerHeight*0.01 }}>
-                    <Link to="/success" style={{width:"100%", alignSelf:"flex-start",textDecoration:"none",color:"#000"}} >
+                    
+                    <View to="/success" style={{width:"100%", alignSelf:"flex-start",textDecoration:"none",color:"#000"}} >
    
                 <View style={{ flexDirection: "row", width: "100%", justifyContent: "space-between", alignItems: "center" }}>
                   
@@ -58,7 +59,7 @@ export default class App extends React.Component {
                     Contacta con nosotros
                     </Text>
                 </View>
-                </Link>
+                </View>
                 </TouchableOpacity>
          
                 </View>
@@ -127,7 +128,7 @@ Una experiencia increible para tus clientes
                         <Text style={{marginTop:window.innerHeight*0.02,marginBottom:window.innerHeight*0.02,color: "#000", fontWeight: "400", fontSize: "1.2rem", paddingHorizontal: "5%", textAlign: "left",  }}>
                         Mejora la experiencia que tienen tus clientes a la hora de descubrir que productos pueden encontrar en tu establecimiento. Actualiza en tiempo real la disponibilidad de tus productos en un par de clicks.
                         </Text>
-                        <Link to="/menu_example" style={{alignSelf:"flex-start",textDecoration:"none",color:"#000"}} >
+                        <View to="/menu_example" style={{alignSelf:"flex-start",textDecoration:"none",color:"#000"}} >
    
                         <TouchableOpacity style={{borderRadius:6,alignSelf:"flex-start",marginLeft:window.innerWidth*0.02, justifyContent:"center",alignItems:"center",backgroundColor:"#000",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02,marginBottom:window.innerHeight*0.03}}>
                        
@@ -137,7 +138,7 @@ Una experiencia increible para tus clientes
 
          </TouchableOpacity> 
        
-         </Link>
+         </View>
 </View>
 <View style={{borderWidth:10,borderRadius:20,borderColor:"#FFC524",width:"48%",alignItems:"center",height:window.innerHeight*0.85,backgroundColor:"#FFC524"}}>
     <Image source={adapt} style={{borderRadius:14,width: "100%", height: window.innerHeight*0.5, zIndex: 0 }} resizeMode="cover" />
@@ -204,14 +205,14 @@ Descubre cómo quedará
                         </Text>
 
 </View>
-<Link to="/admin_example" style={{alignSelf:"flex-start", textDecoration:"none",color:"#000"}} >
+<View to="/admin_example" style={{alignSelf:"flex-start", textDecoration:"none",color:"#000"}} >
    
                         <TouchableOpacity style={{borderRadius:6, alignSelf:"flex-start",marginLeft:window.innerWidth*0.02, justifyContent:"center",alignItems:"center",backgroundColor:"#000",paddingHorizontal:window.innerWidth*0.02,paddingVertical:window.innerHeight*0.02,marginBottom:window.innerHeight*0.03}}>
             <Text style={{ width:"100%", color: "#fff", fontWeight: "400", fontSize: "1rem", textAlign: "center" }}>
                  Descubre como quedará tu tienda
 </Text>
          </TouchableOpacity> 
-         </Link>
+         </View>
 
         </View>
 </View>
